@@ -1,0 +1,39 @@
+@use '../abstracts/mixins' as *;
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+a {
+    text-decoration: none;
+    text-wrap: nowrap;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    text-wrap: nowrap;
+}
+
+select {
+    outline: none;
+    border: none;
+}
+
+textarea {
+    resize: none;
+    outline: none;
+    border: none;
+}

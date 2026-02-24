@@ -1,0 +1,395 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/base" as *;
+
+body.mega-open {
+  overflow: hidden;
+}
+
+.header {
+  background: #fff;
+  padding: 14px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #eee;
+
+  &__container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  &__logo img {
+    width: 110px;
+    display: block;
+  }
+
+  &__products {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 0;
+    cursor: pointer;
+    background: #111;
+    color: #fff;
+    font-weight: 600;
+
+    .icon {
+      width: 20px;
+      height: 20px;
+      color: #fff;
+    }
+    .icon--close {
+      display: none;
+    }
+
+    &.active {
+      .icon--menu {
+        display: none;
+      }
+      .icon--close {
+        display: block;
+      }
+    }
+  }
+
+  &__search {
+    flex: 1;
+    display: flex;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+
+    input {
+      flex: 1;
+      border: 0;
+      padding: 10px 12px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    button {
+      border: 0;
+      background: transparent;
+      padding: 0 14px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 18px;
+
+    a {
+      text-decoration: none;
+      color: #444;
+      font-weight: 500;
+    }
+  }
+
+  &__lang {
+    color: #444;
+    font-weight: 500;
+  }
+
+  &__phone {
+    background: #111;
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+}
+body.mega-open {
+  overflow: hidden;
+}
+
+.mega {
+  position: fixed;
+  top: 11%;
+  left: 15.1%;
+  right: 0;
+  display: none;
+  z-index: 9999;
+
+  &.mega--active {
+    display: block;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__panel {
+    position: relative;
+    z-index: 2;
+    max-width: fit-content;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+    padding: 18px;
+
+    display: grid;
+    gap: 18px;
+
+    /* ✅ default: LEFT + RIGHT (center gizli) */
+    grid-template-columns: 330px 1fr;
+    min-height: 520px;
+  }
+
+  /* ✅ hover olanda: LEFT + CENTER + RIGHT */
+  &.mega--details {
+    .mega__panel {
+      grid-template-columns: 330px 260px 1fr;
+    }
+    .mega__center {
+      display: block;
+    }
+  }
+
+  /* LEFT */
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-right: 12px;
+    border-right: 1px solid #eee;
+  }
+
+  &__item {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 14px;
+    border-radius: 12px;
+    transition: 0.18s ease;
+
+    &:hover {
+      background: #f3f3f3;
+    }
+
+    &--active {
+      background: #ededed;
+      font-weight: 700;
+    }
+  }
+
+  &__item-left {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  &__item-ico {
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__item-text {
+    font-size: 15px;
+    color: #111;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__chev {
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  /* CENTER */
+  &__center {
+    display: none;
+    padding-right: 12px;
+    border-right: 1px solid #eee;
+  }
+
+  &__sub {
+    padding: 12px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.18s ease;
+
+    &:hover {
+      background: #f4f4f4;
+    }
+
+    &--active {
+      background: #ededed;
+      font-weight: 700;
+    }
+  }
+
+  /* RIGHT (kart həmişə var) */
+  &__right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+}
+
+/* ================= DEAL CARD ================= */
+.deal {
+  width: min(520px, 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid #b10b2c;
+  background: #fff;
+
+  &__head {
+    background: #b10b2c;
+    color: #fff;
+    font-weight: 800;
+    padding: 16px 18px;
+    font-size: 18px;
+  }
+
+  &__body {
+    padding: 18px;
+  }
+
+  &__cat {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 6px;
+  }
+
+  &__title {
+    font-size: 14px;
+    font-weight: 800;
+    margin: 0 0 12px;
+    color: #111;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 160px;
+    gap: 14px;
+    align-items: center;
+  }
+
+  &__img {
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 140px;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &__badges {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+  }
+
+  &__circle {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: #c1002a;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+  }
+
+  &__tag {
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    border: 1px solid #2f80ff;
+    color: #2f80ff;
+    background: #eef5ff;
+    font-weight: 700;
+  }
+
+  &__tag--red {
+    border-color: #ff3b3b;
+    color: #ff3b3b;
+    background: #fff0f0;
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #111;
+    color: #fff;
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 18px;
+    cursor: pointer;
+    min-width: 180px;
+    justify-content: center;
+  }
+
+  &__price {
+    text-align: right;
+
+    .old {
+      display: block;
+      font-size: 12px;
+      color: #999;
+      text-decoration: line-through;
+    }
+    .new {
+      display: block;
+      font-weight: 900;
+      font-size: 18px;
+      color: #111;
+    }
+  }
+}
+.mega__right {
+  display: none;
+}
+
+/* mega açıq olanda göstər */
+#megaMenu.mega--active .mega__right {
+  display: block;
+}

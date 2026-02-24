@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>İKİLİ İKİ</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header__container">
+
+            <div class="header__logo">
+                <a href="#"><img src="assets/images/logo.png" alt="İKİLİ İKİ Logo"></a>
+            </div>
+
+            <button class="header__products" id="openMega" type="button" aria-expanded="false" aria-controls="megaMenu">
+                <svg class="icon icon--menu" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <svg class="icon icon--close" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <span>Məhsullar</span>
+            </button>
+
+            <div class="header__search">
+                <input type="text" placeholder="Axtarış..." />
+                <button type="button" aria-label="Axtar">🔍</button>
+            </div>
+
+            <nav class="header__nav">
+                <a href="#">Haqqımızda</a>
+                <a href="#">Bloq</a>
+            </nav>
+
+            <div class="header__lang">🇦🇿 Azərbaycan dili</div>
+
+            <a href="#" class="header__phone">📞 077-333-98-89</a>
+        </div>
+
+        <!-- ✅ MEGA MENU -->
+        <div class="mega" id="megaMenu">
+            <div class="mega__overlay" id="megaOverlay"></div>
+
+            <div class="mega__panel" id="megaPanel">
+                <!-- LEFT -->
+                <div class="mega__left" id="categories"></div>
+
+                <!-- CENTER -->
+                <div class="mega__center" id="megaCenter">
+                    <div id="subcategories"></div>
+                </div>
+
+                <!-- RIGHT -->
+                <aside class="mega__right">
+                    <div class="deal" id="megaDeal"></div>
+                </aside>
+            </div>
+        </div>
+    </header>
+
+    <script src="assets/js/header.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+
+</html>
