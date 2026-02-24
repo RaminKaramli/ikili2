@@ -1,39 +1,48 @@
-@use '../abstracts/mixins' as *;
+@use "../abstracts/mixins" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+  height: 100%;
+  font-family: "Inter", sans-serif;
+  background-color: red;
+}
+
+html{
+  height: 100%;
 }
 
 p {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 a {
-    text-decoration: none;
-    text-wrap: nowrap;
+  text-decoration: none;
+  text-wrap: nowrap;
 }
 
 input {
-    border: none;
-    outline: none;
+  border: none;
+  outline: none;
 }
 
 button {
-    border: none;
-    background-color: transparent;
-    text-wrap: nowrap;
+  border: none;
+  background-color: transparent;
+  text-wrap: nowrap;
 }
 
 select {
-    outline: none;
-    border: none;
+  outline: none;
+  border: none;
 }
 
 textarea {
-    resize: none;
-    outline: none;
-    border: none;
+  resize: none;
+  outline: none;
+  border: none;
 }

@@ -4,68 +4,114 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>İKİLİ İKİ</title>
+    <title></title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
 <body>
 
     <header class="header">
-        <div class="header__container">
+        <div class="header__inner">
 
-            <div class="header__logo">
-                <a href="#"><img src="assets/images/logo.png" alt="İKİLİ İKİ Logo"></a>
-            </div>
+            <!-- Logo -->
+            <a class="header__logo" href="#">
+                <img class="header__logo-img" src="assets/images/logo.png" alt="İkiliiki logo">
+            </a>
 
+            <!-- Məhsullar button -->
             <button class="header__products" id="openMega" type="button" aria-expanded="false" aria-controls="megaMenu">
-                <svg class="icon icon--menu" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <!-- Hamburger icon -->
+                <svg class="header__products-icon header__products-icon--menu" viewBox="0 0 24 24" fill="none"
+                    aria-hidden="true">
+                    <path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
                 </svg>
-                <svg class="icon icon--close" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <!-- Close icon -->
+                <svg class="header__products-icon header__products-icon--close" viewBox="0 0 24 24" fill="none"
+                    aria-hidden="true">
+                    <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
                 </svg>
                 <span>Məhsullar</span>
             </button>
 
+            <!-- Search -->
             <div class="header__search">
-                <input type="text" placeholder="Axtarış..." />
-                <button type="button" aria-label="Axtar">🔍</button>
+                <input class="header__search-input" type="text" placeholder="Axtarış..." />
+                <button class="header__search-btn" type="button" aria-label="Axtar">
+                    <svg viewBox="0 0 24 24" fill="none" width="18" height="18">
+                        <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8" />
+                        <path d="M15.5 15.5L20 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                    </svg>
+                </button>
             </div>
 
+            <!-- Nav links -->
             <nav class="header__nav">
-                <a href="#">Haqqımızda</a>
-                <a href="#">Bloq</a>
+                <a class="header__nav-link" href="#">Haqqımızda</a>
+                <a class="header__nav-link" href="#">Bloq</a>
             </nav>
 
-            <div class="header__lang">🇦🇿 Azərbaycan dili</div>
+            <!-- Language selector -->
+            <button class="header__lang" type="button">
+                <img src="https://flagcdn.com/w20/az.png" alt="AZ" width="20" height="14" />
+                <span>Azərbaycan dili</span>
+                <svg viewBox="0 0 24 24" fill="none" width="14" height="14">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
 
-            <a href="#" class="header__phone">📞 077-333-98-89</a>
-        </div>
+            <!-- Phone -->
+            <a class="header__phone" href="tel:0773339889">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                    <path
+                        d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.01l-2.2 2.21z" />
+                </svg>
+                077-333-98-89
+            </a>
 
-        <!-- ✅ MEGA MENU -->
-        <div class="mega" id="megaMenu">
-            <div class="mega__overlay" id="megaOverlay"></div>
-
-            <div class="mega__panel" id="megaPanel">
-                <!-- LEFT -->
-                <div class="mega__left" id="categories"></div>
-
-                <!-- CENTER -->
-                <div class="mega__center" id="megaCenter">
-                    <div id="subcategories"></div>
-                </div>
-
-                <!-- RIGHT -->
-                <aside class="mega__right">
-                    <div class="deal" id="megaDeal"></div>
-                </aside>
-            </div>
-        </div>
+        </div><!-- /.header__inner -->
     </header>
 
-    <script src="assets/js/header.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-</body>
 
-</html>
+    <div class="mega" id="megaMenu" role="dialog" aria-label="Məhsul kateqoriyaları">
+
+        <!-- Backdrop -->
+        <div class="mega__overlay" id="megaOverlay"></div>
+
+        <!-- Panel -->
+        <div class="mega__panel" id="megaPanel">
+
+            <!-- Col 1: Categories -->
+            <div class="mega__left" id="categories" role="menu"></div>
+
+            <!-- Col 2: Subcategories -->
+            <div class="mega__center" id="megaCenter">
+                <div id="subcategories"></div>
+            </div>
+
+            <!-- Col 3: Deal card -->
+            <aside class="mega__right">
+                <div class="deal" id="megaDeal"></div>
+            </aside>
+
+        </div><!-- /.mega__panel -->
+    </div><!-- /.mega -->
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+<script src="assets/js/header.js"></script>
+
+</html> 
