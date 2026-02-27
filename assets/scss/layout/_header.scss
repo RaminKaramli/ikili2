@@ -37,7 +37,7 @@ body.mega-open {
     border: none;
     border-radius: 0.375rem;
     font-weight: 400;
-    transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+    transition: all 0.18s ease, color 0.18s ease, transform 0.18s ease;
     white-space: nowrap;
 
     background: #010203;
@@ -133,9 +133,6 @@ body.mega-open {
     gap: 2px;
     flex-shrink: 0;
 
-    @media (max-width: 1150px) {
-      display: none;
-    }
   }
 
   &__nav-link {
@@ -538,7 +535,6 @@ body.mega-open {
     border-radius: 12px;
     font-family: "Outfit", sans-serif;
     font-weight: 700;
-    cursor: pointer;
     transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
     white-space: nowrap;
 

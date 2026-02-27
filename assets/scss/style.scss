@@ -3,6 +3,9 @@
 @use './abstracts/mixins';
 @use './abstracts/variables';
 
+// components
+@use './components/Cards/card';
+
 // layout
 @use './layout/header';
 @use './layout/footer';

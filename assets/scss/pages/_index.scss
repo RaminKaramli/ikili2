@@ -2,6 +2,7 @@
 @use "../abstracts/variables" as *;
 @use "../base/base" as *;
 
+// * HERO SECTION * \\
 .hero {
   &__container {
     max-width: 80rem;
@@ -63,6 +64,7 @@
     justify-content: space-between;
   }
 
+  //* LED ISIQ *\\
   &__body_header {
     display: flex;
     flex-direction: column;
@@ -209,5 +211,46 @@
     font-size: 0.9375rem;
     font-weight: 700;
     line-height: 1.2;
+  }
+}
+
+// * SECTION-HEADER TEXT * \\ DONE !!!
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #000000;
+    line-height: normal;
+    font-style: normal;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__btn {
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0.625rem 0.75rem;
+    border-radius: 50%;
+    border: 0.0625rem solid #f5f5f5;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    transition: 0.2s ease;
+
+    &:hover {
+      border-color: #111;
+      background: #f5f5f5;
+    }
   }
 }
