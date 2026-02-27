@@ -73,8 +73,6 @@ textarea {
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
-  -o-object-position: center -5%;
-     object-position: center -5%;
 }
 .arrivals__cards {
   display: grid;

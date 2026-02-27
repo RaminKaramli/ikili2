@@ -1,3 +1,7 @@
+export function initHeader() {
+  initMegaMenu();
+}
+
 function initMegaMenu() {
   const mega = document.getElementById("megaMenu");
   const overlay = document.getElementById("megaOverlay");

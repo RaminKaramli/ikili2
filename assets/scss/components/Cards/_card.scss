@@ -33,7 +33,6 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    object-position: center -5%;
   }
 
   &__cards {
@@ -53,7 +52,7 @@
       height: 100%;
       box-sizing: border-box;
 
-      &:last-child {
+      &:nth-child(2n) {
         border-right: none;
       }
 
