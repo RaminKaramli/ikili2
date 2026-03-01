@@ -1,10 +1,11 @@
-import { initHeader } from './header.js';
+import { initHeader } from "./header.js";
+import "./testimonials.js";
 
-if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual';
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
 }
 
-window.addEventListener('load', () => {
+window.addEventListener("load", () => {
   window.scrollTo(0, 0);
 });
 
@@ -17,7 +18,7 @@ async function loadPartial(url, targetId) {
   try {
     cachedHtml = localStorage.getItem(cacheKey);
   } catch (error) {
-    console.warn('Cache read error:', error);
+    console.warn("Cache read error:", error);
   }
 
   if (cachedHtml) {
@@ -25,8 +26,10 @@ async function loadPartial(url, targetId) {
   }
 
   try {
-    if (window.location.protocol === 'file:') {
-      throw new Error('Bu layout hissələri file:// rejimində yüklənmir. Lokal server istifadə edin.');
+    if (window.location.protocol === "file:") {
+      throw new Error(
+        "Bu layout hissələri file:// rejimində yüklənmir. Lokal server istifadə edin."
+      );
     }
 
     const response = await fetch(url);
@@ -37,7 +40,7 @@ async function loadPartial(url, targetId) {
 
     const html = await response.text();
     const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
+    const doc = parser.parseFromString(html, "text/html");
     const nextHtml = doc.body.innerHTML;
 
     if (target.innerHTML !== nextHtml) {
@@ -47,19 +50,25 @@ async function loadPartial(url, targetId) {
     try {
       localStorage.setItem(cacheKey, nextHtml);
     } catch (error) {
-      console.warn('Cache write error:', error);
+      console.warn("Cache write error:", error);
     }
   } catch (error) {
-    console.error('ERROR:', error);
+    console.error("ERROR:", error);
   }
 }
 
 async function initApp() {
-  const headerLoad = loadPartial('./assets/components/header.html', 'header-placeholder');
-  const footerLoad = loadPartial('./assets/components/footer.html', 'footer-placeholder');
+  const headerLoad = loadPartial(
+    "./assets/components/header.html",
+    "header-placeholder"
+  );
+  const footerLoad = loadPartial(
+    "./assets/components/footer.html",
+    "footer-placeholder"
+  );
 
   await headerLoad;
-  if (document.getElementById('megaMenu')) {
+  if (document.getElementById("megaMenu")) {
     initHeader();
   }
 

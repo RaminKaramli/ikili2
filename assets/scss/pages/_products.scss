@@ -5,6 +5,97 @@
   padding: 1.5rem 0;
 }
 
+.products-section--discount {
+  padding: 1.5rem 0;
+
+  .section-header__title {
+    span {
+      color: #e3002e;
+    }
+  }
+
+  .products__card {
+    position: relative;
+
+    &::before {
+      content: "-300 AZN";
+      position: absolute;
+      right: 1.25rem;
+      display: flex;
+      padding: 0.375rem;
+      justify-content: center;
+      align-items: center;
+      gap: 0.625rem;
+      border-radius: 0.25rem;
+      border: 1px solid #e3002e;
+      color: #E3002E;
+      background: rgba(227, 0, 46, 0.1);
+      font-family: Inter, sans-serif;
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      z-index: 2;
+    }
+
+    &::after {
+      content: "-50%";
+      position: absolute;
+      top: 4rem;
+      right: 1.25rem;
+      width: 3.75rem;
+      height: 3.75rem;
+      padding: 0.375rem;
+      border-radius: 50%;
+      background: #e3002e;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.625rem;
+      aspect-ratio: 1 / 1;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1;
+      z-index: 2;
+    }
+  }
+
+  .products__price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    font-size: 0;
+    line-height: 0;
+    white-space: nowrap;
+
+    &::before {
+      content: "600.00 AZN";
+      color: #5a5f68;
+      font-family: Inter, sans-serif;
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-decoration-line: line-through;
+    }
+
+    &::after {
+      content: "300.00 AZN";
+      color: #010203;
+      font-family: Inter, sans-serif;
+      font-size: 1.125rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      text-decoration-line: none;
+      line-height: normal;
+    }
+  }
+
+}
+
 .products {
   &__container {
     max-width: 80rem;
@@ -46,7 +137,6 @@
   &__img {
     max-width: 100%;
     max-height: 100%;
-    height: 14.3125rem;
     flex-shrink: 0;
     object-fit: contain;
     display: block;
@@ -105,8 +195,6 @@
       background: #ffae001a;
     }
 
-
-
     &--red {
       color: #e3002e;
       border-color: #e3002e;
@@ -154,5 +242,31 @@
     font-weight: 600;
     line-height: normal;
     white-space: nowrap;
+  }
+
+  .products__price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    color: #5a5f68;
+    font-family: Inter, sans-serif;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: line-through;
+    white-space: nowrap;
+
+    &::after {
+      content: "300.00 AZN";
+      color: #010203;
+      font-family: Inter, sans-serif;
+      font-size: 1.125rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      text-decoration: none;
+    }
   }
 }
