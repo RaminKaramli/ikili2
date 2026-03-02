@@ -1,17 +1,10 @@
 import { initHeader } from "./header.js";
 import "./testimonials.js";
 
-if ("scrollRestoration" in history) {
-  history.scrollRestoration = "manual";
-}
-
-window.addEventListener("load", () => {
-  window.scrollTo(0, 0);
-});
-
 async function loadPartial(url, targetId) {
   const target = document.getElementById(targetId);
   if (!target) return;
+  if (target.innerHTML.trim()) return;
 
   const cacheKey = `partial:${url}`;
   let cachedHtml = null;
@@ -58,6 +51,9 @@ async function loadPartial(url, targetId) {
 }
 
 async function initApp() {
+  // Ensure body scroll is never left locked from previous UI state.
+  document.body.classList.remove("mega-open");
+
   const headerLoad = loadPartial(
     "./assets/components/header.html",
     "header-placeholder"
@@ -70,9 +66,49 @@ async function initApp() {
   await headerLoad;
   if (document.getElementById("megaMenu")) {
     initHeader();
+  } else {
+    document.body.classList.remove("mega-open");
   }
 
   await footerLoad;
 }
 
-initApp();
+window.addEventListener("pageshow", () => {
+  document.body.classList.remove("mega-open");
+});
+
+document.addEventListener(
+  "click",
+  (event) => {
+    const link = event.target.closest('a[href="#"]');
+    if (!link) return;
+    event.preventDefault();
+    event.stopPropagation();
+  },
+  true
+);
+
+window.addEventListener("hashchange", () => {
+  if (window.location.hash === "#") {
+    history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+  }
+});
+
+let appInitialized = false;
+
+function startApp() {
+  if (appInitialized) return;
+  appInitialized = true;
+  initApp();
+}
+
+if (
+  document.getElementById("header-placeholder") ||
+  document.getElementById("footer-placeholder")
+) {
+  startApp();
+} else if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", startApp, { once: true });
+} else {
+  startApp();
+}

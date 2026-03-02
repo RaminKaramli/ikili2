@@ -262,3 +262,82 @@
     }
   }
 }
+
+@media (max-width: 1100px) {
+  .footer {
+    &__container {
+      padding: 2.5rem 2rem;
+    }
+
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+    }
+
+    &__brand,
+    &__nav {
+      width: 100%;
+    }
+
+    &__info {
+      width: 100%;
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    &__container {
+      padding: 2rem 1rem;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    &__brand,
+    &__nav,
+    &__info {
+      width: 100%;
+      grid-column: auto;
+    }
+
+    &__desc {
+      max-width: 100%;
+    }
+
+    &__follow {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    &__contacts {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    &__contact {
+      align-items: flex-start;
+    }
+
+    &__contact-text {
+      max-width: 100%;
+    }
+
+    &__hours-row {
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    &__bottom {
+      padding-top: 2rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+  }
+}

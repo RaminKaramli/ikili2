@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Xidmət Üstünlüklərimiz | ikili2.az</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+    <!-- * HEADER * -->
+    <div id="header-placeholder"></div>
+    <script>
+        (function () {
+            const url = "./assets/components/header.html";
+            const cacheKey = `partial:${url}`;
+            const node = document.getElementById("header-placeholder");
+            if (!node) return;
+
+            try {
+                const cached = localStorage.getItem(cacheKey);
+                if (cached) node.innerHTML = cached;
+            } catch (error) {
+                console.warn("Header preload cache error:", error);
+            }
+
+            if (window.location.protocol === "file:") return;
+
+            fetch(url)
+                .then((response) => {
+                    if (!response.ok) throw new Error(`Header yüklənmədi: ${response.status}`);
+                    return response.text();
+                })
+                .then((html) => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, "text/html");
+                    const nextHtml = doc.body.innerHTML;
+                    if (node.innerHTML !== nextHtml) node.innerHTML = nextHtml;
+                    try {
+                        localStorage.setItem(cacheKey, nextHtml);
+                    } catch (error) {
+                        console.warn("Header cache write error:", error);
+                    }
+                })
+                .catch((error) => {
+                    console.warn("Header preload fetch error:", error);
+                });
+        })();
+    </script>
+
+    <main>
+        <section class="sa-page">
+            <div class="sa-page__container">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Ana səhifə</a>
+                    <span aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.5 16L17.5 12L13.5 8" stroke="#5A6268" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M6.5 17L11.5 12L6.5 7" stroke="#5A6268" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                    <a href="service-advantages.html" aria-current="page">Xidmət Üstünlüklərimiz</a>
+                </nav>
+
+                <h1 class="sa-page__title">Xidmət Üstünlüklərimiz</h1>
+
+                <div class="sa-tabs" role="tablist" aria-label="Xidmət üstünlükləri">
+                    <button class="sa-tabs__btn is-active" role="tab" aria-selected="true" data-tab="delivery">Sürətli
+                        Çatdırılma Sistemi</button>
+                    <button class="sa-tabs__btn" role="tab" aria-selected="false" data-tab="satisfaction">Müştəri
+                        Məmnuniyyəti Zəmanəti</button>
+                    <button class="sa-tabs__btn" role="tab" aria-selected="false" data-tab="secure">Təhlükəsiz
+                        Alış-Veriş Mühiti</button>
+                    <button class="sa-tabs__btn" role="tab" aria-selected="false" data-tab="returns">Şəffaf və Rahat
+                        Qaytarma Prosesi</button>
+                </div>
+
+                <article class="sa-panel is-active" data-panel="delivery">
+                    <div class="sa-panel__body">
+                        <h2 class="sa-panel__title">Sürətli Çatdırılma Sistemi</h2>
+                        <p class="sa-panel__text">Sifarişiniz təsdiqləndiyi andan etibarən əməliyyat prosesi dərhal
+                            başlayır. Məhsullarımız xüsusi qablaşdırma mərhələsindən keçir və ən qısa müddətdə kuryer
+                            xidmətinə təhvil verilir. Çatdırılma zamanı məhsulun təhlükəsizliyi və operativliyi əsas
+                            prioritetimizdir.</p>
+                        <p class="sa-panel__text">Logistika komandamız sifarişlərin gecikməməsi üçün planlı və sistemli
+                            şəkildə çalışır. Məqsədimiz sadəcə məhsulu çatdırmaq deyil, onu vaxtında və problemsiz
+                            şəkildə sizə təqdim etməkdir. Çünki onlayn alış-veriş rahat və sürətli olmalıdır.</p>
+                    </div>
+                    <div class="sa-panel__media">
+                        <img class="sa-panel__img" src="assets/images/f99004cb5d547140a84f0736add25f7018c718fb.jpg"
+                            alt="Sürətli çatdırılma" />
+                    </div>
+                </article>
+
+                <article class="sa-panel" data-panel="satisfaction">
+                    <div class="sa-panel__body">
+                        <h2 class="sa-panel__title">Müştəri Məmnuniyyəti Zəmanəti</h2>
+                        <p class="sa-panel__text">Bizim üçün əsas göstərici satış sayı deyil, məmnun müştəridir. Hər bir
+                            sifarişə fərdi yanaşır, sual və müraciətləri operativ şəkildə cavablandırırıq. Məhsul
+                            seçimi, sifariş prosesi və satışdan sonrakı mərhələlərdə dəstək komandamız sizin
+                            yanınızdadır.</p>
+                        <p class="sa-panel__text">Uzunmüddətli etibar və şəffaf münasibət qurmaq bizim əsas
+                            prinsiplərimizdəndir. Hədəfimiz müştərinin təkcə bu gün deyil, gələcək alış-verişlərdə də
+                            bizi seçməsidir.</p>
+                    </div>
+                    <div class="sa-panel__media">
+                        <img class="sa-panel__img" src="assets/images/d5ac09a48469bb55c4fbae0d0f66629f4735d7f5.png"
+                            alt="Müştəri məmnuniyyəti" />
+                    </div>
+                </article>
+
+                <article class="sa-panel" data-panel="secure">
+                    <div class="sa-panel__body">
+                        <h2 class="sa-panel__title">Təhlükəsiz Alış-Veriş Mühiti</h2>
+                        <p class="sa-panel__text">Saytımız beynəlxalq təhlükəsizlik standartlarına uyğun olaraq 256 bit
+                            SSL şifrələmə sistemi ilə qorunur. Bu texnologiya şəxsi məlumatlarınızı və ödəniş
+                            detallarınızı şifrələyərək üçüncü tərəflərin müdaxiləsinin qarşısını alır.</p>
+                        <p class="sa-panel__text">Ödəniş zamanı daxil etdiyiniz məlumatlar tam məxfi saxlanılır və
+                            təhlükəsiz serverlər üzərindən emal olunur. Onlayn alış-veriş zamanı məlumat təhlükəsizliyi
+                            əsas məsələdir və biz bu məsuliyyəti maksimum səviyyədə təmin edirik.</p>
+                    </div>
+                    <div class="sa-panel__media">
+                        <img class="sa-panel__img" src="assets/images/017df1b38667decdd00c6c81db63eb5d0e6eb4a5.png"
+                            alt="Təhlükəsiz alış-veriş" />
+                    </div>
+                </article>
+
+                <article class="sa-panel" data-panel="returns">
+                    <div class="sa-panel__body">
+                        <h2 class="sa-panel__title">Şəffaf və Rahat Qaytarma Prosesi</h2>
+                        <p class="sa-panel__text">Aldığınız məhsul hər hansı səbəbdən gözləntilərinizi qarşılamazsa,
+                            qaytarma prosesi sadə və rahat şəkildə həyata keçirilir. Müəyyən olunmuş müddət ərzində
+                            məhsulu əlavə ödəniş etmədən geri göndərə bilərsiniz.</p>
+                        <p class="sa-panel__text">Qaytarma proseduru aydın və şəffaf qaydalar əsasında icra olunur.
+                            Məqsədimiz alış-veriş zamanı risk hissini minimuma endirmək və müştərilərimizə tam güvən
+                            hissi yaratmaqdır.</p>
+                    </div>
+                    <div class="sa-panel__media">
+                        <img class="sa-panel__img" src="assets/images/df4d770b55f940bb241100eb0530467f0188aec6.jpg"
+                            alt="Pulsuz qaytarma" />
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- * FOOTER * -->
+    <div id="footer-placeholder"></div>
+    <script>
+        (function () {
+            const url = "./assets/components/footer.html";
+            const cacheKey = `partial:${url}`;
+            const node = document.getElementById("footer-placeholder");
+            if (!node) return;
+
+            try {
+                const cached = localStorage.getItem(cacheKey);
+                if (cached) node.innerHTML = cached;
+            } catch (error) {
+                console.warn("Footer preload cache error:", error);
+            }
+
+            if (window.location.protocol === "file:") return;
+
+            fetch(url)
+                .then((response) => {
+                    if (!response.ok) throw new Error(`Footer yüklənmədi: ${response.status}`);
+                    return response.text();
+                })
+                .then((html) => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, "text/html");
+                    const nextHtml = doc.body.innerHTML;
+                    if (node.innerHTML !== nextHtml) node.innerHTML = nextHtml;
+                    try {
+                        localStorage.setItem(cacheKey, nextHtml);
+                    } catch (error) {
+                        console.warn("Footer cache write error:", error);
+                    }
+                })
+                .catch((error) => {
+                    console.warn("Footer preload fetch error:", error);
+                });
+        })();
+    </script>
+
+    <script>
+        (function () {
+            const tabs = document.querySelectorAll(".sa-tabs__btn");
+            const panels = document.querySelectorAll(".sa-panel");
+            if (!tabs.length || !panels.length) return;
+
+            function activate(tabName) {
+                tabs.forEach((button) => {
+                    const active = button.dataset.tab === tabName;
+                    button.classList.toggle("is-active", active);
+                    button.setAttribute("aria-selected", active ? "true" : "false");
+                });
+
+                panels.forEach((panel) => {
+                    panel.classList.toggle("is-active", panel.dataset.panel === tabName);
+                });
+            }
+
+            tabs.forEach((button) => {
+                button.addEventListener("click", () => activate(button.dataset.tab));
+            });
+        })();
+    </script>
+
+    <script type="module" src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
