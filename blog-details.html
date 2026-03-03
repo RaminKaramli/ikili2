@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Peşəkar İşıqlandırma ilə Fərq Yaradın | ikili2.az</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+    <!-- * Header * -->
+    <div id="header-placeholder"></div>
+    <script>
+        (function () {
+            const url = "./assets/components/header.html";
+            const cacheKey = `partial:${url}`;
+            const node = document.getElementById("header-placeholder");
+            if (!node) return;
+
+            try {
+                const cached = localStorage.getItem(cacheKey);
+                if (cached) node.innerHTML = cached;
+            } catch (error) {
+                console.warn("Header preload cache error:", error);
+            }
+
+            if (window.location.protocol === "file:") return;
+
+            fetch(url)
+                .then((response) => {
+                    if (!response.ok) throw new Error(`Header yüklənmədi: ${response.status}`);
+                    return response.text();
+                })
+                .then((html) => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, "text/html");
+                    const nextHtml = doc.body.innerHTML;
+                    if (node.innerHTML !== nextHtml) node.innerHTML = nextHtml;
+                    try {
+                        localStorage.setItem(cacheKey, nextHtml);
+                    } catch (error) {
+                        console.warn("Header cache write error:", error);
+                    }
+                })
+                .catch((error) => {
+                    console.warn("Header preload fetch error:", error);
+                });
+        })();
+    </script>
+
+    <main>
+        <!-- * Blog Detail * -->
+        <section class="blog-detail-section blog-detail">
+            <div class="blog-detail__container">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Ana səhifə</a>
+                    <span aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.5 16L17.5 12L13.5 8" stroke="#5A6268" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M6.5 17L11.5 12L6.5 7" stroke="#5A6268" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                    <a href="blog.html">Bloq</a>
+                    <span aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.5 16L17.5 12L13.5 8" stroke="#5A6268" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M6.5 17L11.5 12L6.5 7" stroke="#5A6268" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                    <a href="blog-details.html" aria-current="page">Peşəkar İşıqlandırma ilə Fərq Yaradın</a>
+                    <span aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.5 16L17.5 12L13.5 8" stroke="#5A6268" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M6.5 17L11.5 12L6.5 7" stroke="#5A6268" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                </nav>
+
+                <div class="blog-detail__head">
+                    <h1 class="blog-detail__title">Peşəkar İşıqlandırma ilə Fərq Yaradın</h1>
+                    <time class="blog-detail__date" datetime="2026-02-18">2026-02-18</time>
+                </div>
+
+                <article class="blog-detail__article">
+                    <div class="blog-detail__hero">
+                        <img src="assets/images/cea975b6ca09f62abcdcf15189bfbef5c8f2d111.jpg" alt="Peşəkar işıqlandırma"
+                            class="blog-detail__hero-img" />
+                    </div>
+
+                    <div class="blog-detail__content">
+                        <p>
+                            İşıq sadəcə məkanı işıqlandırmaq üçün deyil. Doğru seçilmiş işıqlandırma atmosfer yaradır,
+                            məhsulu ön plana çıxarır və məkanın vizual dəyərini artırır. Ev, ofis və ya kommersiya
+                            sahəsi — fərq etməz. Peşəkar işıqlandırma dizaynı məkanın funksionallığını və estetik
+                            görünüşünü tamamilə dəyişə bilər.
+                        </p>
+
+                        <h2>İşıqlandırma Niyə Bu Qədər Vacibdir?</h2>
+                        <p>
+                            Pis işıqlandırma ən bahalı interyeri belə sönük göstərə bilər. Düzgün işıq isə minimal
+                            dizaynı belə premium göstərir. Peşəkar işıqlandırma:
+                        </p>
+                        <ul>
+                            <li>Məkanın ölçüsünü vizual olaraq genişləndirir</li>
+                            <li>Məhsulların və detalların daha aydın görünməsini təmin edir</li>
+                            <li>Atmosfer yaradır (isti, soyuq, dinamik və s.)</li>
+                            <li>Enerji effektivliyi ilə xərcləri azaldır</li>
+                        </ul>
+                        <p>Yəni bu sadəcə lampa seçimi deyil, bu strategiyadır.</p>
+
+                        <h2>İşıqlandırma Növləri və İstifadə Sahələri</h2>
+                        <div class="blog-detail__type">
+                            <h3 class="blog-detail__subheading">1. Ümumi (Ambient) işıqlandırma</h3>
+                            <p>Məkanın əsas işıq mənbəyidir. Tavan lampaları və LED panellər bu kateqoriyaya daxildir.
+                            </p>
+                        </div>
+                        <div class="blog-detail__type">
+                            <h3 class="blog-detail__subheading">2. Vurğulayıcı (Accent) işıqlandırma</h3>
+                            <p>Dekor elementlərini, vitrinləri və xüsusi zonaları ön plana çıxarmaq üçün istifadə
+                                olunur.</p>
+                        </div>
+                        <div class="blog-detail__type">
+                            <h3 class="blog-detail__subheading">3. Funksional (Task) işıqlandırma</h3>
+                            <p>Oxu, iş masası və mətbəx zonası kimi konkret fəaliyyət sahələri üçün nəzərdə tutulur.</p>
+                        </div>
+                        <p>Peşəkar yanaşmada bu üç növ birlikdə balanslı şəkildə istifadə olunur.</p>
+
+                        <h2>Rəng Temperaturu: Kiçik Detal, Böyük Təsir</h2>
+                        <ul>
+                            <li><strong>2700K-3000K</strong>: İsti və rahat atmosfer</li>
+                            <li><strong>4000K</strong>: Neytral və balanslı mühit</li>
+                            <li><strong>6000K+</strong>: Daha soyuq və parlaq işıq</li>
+                        </ul>
+                        <p>Ev üçün isti tonlar, ofis və kommersiya sahələri üçün isə daha neytral və parlaq tonlar
+                            tövsiyə olunur.</p>
+
+                        <h2>Nəticə</h2>
+                        <p>
+                            Peşəkar işıqlandırma sadəcə texniki detal deyil, məkanın xarakterini formalaşdıran əsas
+                            elementdir. Doğru planlama ilə həm estetik, həm funksional, həm də enerji baxımından
+                            effektiv nəticə əldə etmək mümkündür.
+                        </p>
+                        <p>Məkanınızda fərq yaratmaq istəyirsinizsə, işıqlandırma seçimindən başlayın.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- * Blog Section * -->
+        <section class="blog-section">
+            <div class="blog__container">
+                <div class="section-header">
+                    <h2 class="section-header__title">Peşəkar Çəkiliş Məsləhətləri</h2>
+                    <div class="section-header__nav">
+                        <button class="section-header__btn" aria-label="Əvvəlki">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 12H5" stroke="black" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M10 17L5 12" stroke="black" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M10 7L5 12" stroke="black" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button class="section-header__btn" aria-label="Növbəti">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19" stroke="black" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M14 17L19 12" stroke="black" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M14 7L19 12" stroke="black" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="blog__grid">
+                    <article class="blog__card">
+                        <div class="blog__media">
+                            <img class="blog__img" src="assets/images/b0d7789431c1198e5f66d32dcdfa952d297f5ef8.png"
+                                alt="Peşəkar işıqlandırma" />
+                        </div>
+                        <div class="blog__body">
+                            <h3 class="blog__title">Peşəkar İşıqlandırma ilə Fərq Yaradın</h3>
+                            <p class="blog__desc">Düzgün işıq kontentin keyfiyyətini tam dəyişir. Daha təmiz və daha
+                                professional görüntü əldə edin.</p>
+                        </div>
+                        <a href="blog-details.html" class="blog__btn">Ətraflı oxu</a>
+                    </article>
+
+                    <article class="blog__card">
+                        <div class="blog__media">
+                            <img class="blog__img" src="assets/images/cea975b6ca09f62abcdcf15189bfbef5c8f2d111.jpg"
+                                alt="Softbox" />
+                        </div>
+                        <div class="blog__body">
+                            <h3 class="blog__title">Softbox Niyə Vacibdir?</h3>
+                            <p class="blog__desc">Yumşaq işıq kölgələri azaldır və dərini daha təmiz göstərir. Portret
+                                və video çəkilişlər üçün ideal seçimdi.</p>
+                        </div>
+                        <a href="blog-details.html" class="blog__btn">Ətraflı oxu</a>
+                    </article>
+
+                    <article class="blog__card">
+                        <div class="blog__media">
+                            <img class="blog__img" src="assets/images/620f4f657b9dc7a9757ed7b30d9fbe4eaaf6047e.png"
+                                alt="Ev studiyası" />
+                        </div>
+                        <div class="blog__body">
+                            <h3 class="blog__title">Ev Studiyası üçün Ən Yaxşı Seçimlər</h3>
+                            <p class="blog__desc">Kiçik məkanlarda belə böyük nəticələr mümkündür. Kompakt və effektiv
+                                işıq həlləri ilə başlayın.</p>
+                        </div>
+                        <a href="blog-details.html" class="blog__btn">Ətraflı oxu</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- * Footer * -->
+    <div id="footer-placeholder"></div>
+    <script>
+        (function () {
+            const url = "./assets/components/footer.html";
+            const cacheKey = `partial:${url}`;
+            const node = document.getElementById("footer-placeholder");
+            if (!node) return;
+
+            try {
+                const cached = localStorage.getItem(cacheKey);
+                if (cached) node.innerHTML = cached;
+            } catch (error) {
+                console.warn("Footer preload cache error:", error);
+            }
+
+            if (window.location.protocol === "file:") return;
+
+            fetch(url)
+                .then((response) => {
+                    if (!response.ok) throw new Error(`Footer yüklənmədi: ${response.status}`);
+                    return response.text();
+                })
+                .then((html) => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, "text/html");
+                    const nextHtml = doc.body.innerHTML;
+                    if (node.innerHTML !== nextHtml) node.innerHTML = nextHtml;
+                    try {
+                        localStorage.setItem(cacheKey, nextHtml);
+                    } catch (error) {
+                        console.warn("Footer cache write error:", error);
+                    }
+                })
+                .catch((error) => {
+                    console.warn("Footer preload fetch error:", error);
+                });
+        })();
+    </script>
+
+    <script type="module" src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

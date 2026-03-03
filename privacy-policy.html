@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Təməl viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Zoom meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Məxfilik Siyasəti | ikili2.az</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+    <script>
+        (function () {
+            const url = "./assets/components/header.html";
+            const cacheKey = `partial:${url}`;
+            const node = document.getElementById("header-placeholder");
+            if (!node) return;
+
+            try {
+                const cached = localStorage.getItem(cacheKey);
+                if (cached) node.innerHTML = cached;
+            } catch (error) {
+                console.warn("Header preload cache error:", error);
+            }
+
+            if (window.location.protocol === "file:") return;
+
+            fetch(url)
+                .then((response) => {
+                    if (!response.ok) throw new Error(`Header yüklənmədi: ${response.status}`);
+                    return response.text();
+                })
+                .then((html) => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, "text/html");
+                    const nextHtml = doc.body.innerHTML;
+                    if (node.innerHTML !== nextHtml) node.innerHTML = nextHtml;
+                    try {
+                        localStorage.setItem(cacheKey, nextHtml);
+                    } catch (error) {
+                        console.warn("Header cache write error:", error);
+                    }
+                })
+                .catch((error) => {
+                    console.warn("Header preload fetch error:", error);
+                });
+        })();
+    </script>
+
+    <main>
+        <!-- * PP-PAGE * -->
+        <section class="pp-page">
+            <div class="pp-page__container">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Ana səhifə</a>
+                    <span aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.5 16L17.5 12L13.5 8" stroke="#5A6268" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M6.5 17L11.5 12L6.5 7" stroke="#5A6268" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                    <a href="privacy-policy.html" aria-current="page">Məxfilik Siyasəti</a>
+                    <span aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.5 16L17.5 12L13.5 8" stroke="#5A6268" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M6.5 17L11.5 12L6.5 7" stroke="#5A6268" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                </nav>
+
+                <h1 class="pp-page__title">Məxfilik Siyasəti</h1>
+
+                <div class="pp-page__cards">
+                    <article class="pp-card">
+                        <h2 class="pp-card__title">Məlumatların Toplanması</h2>
+                        <p class="pp-card__text">Saytımızdan istifadə zamanı aşağıdakı məlumatlar toplana bilər:</p>
+                        <ul class="pp-card__list">
+                            <li>Ad və soyad</li>
+                            <li>Əlaqə nömrəsi</li>
+                            <li>Elektron poçt ünvanı</li>
+                            <li>Çatdırılma ünvanı</li>
+                            <li>Ödəniş məlumatları</li>
+                        </ul>
+                        <p class="pp-card__text">Bu məlumatlar sifarişlərin icrası və xidmət keyfiyyətinin artırılması
+                            məqsədilə istifadə olunur.</p>
+                    </article>
+
+                    <article class="pp-card">
+                        <h2 class="pp-card__title">Məlumatların Qorunması</h2>
+                        <p class="pp-card__text">Toplanan məlumatlar aşağıdakı məqsədlərlə istifadə edilir:</p>
+                        <ul class="pp-card__list">
+                            <li>Sifarişlərin emalı və çatdırılması</li>
+                            <li>Müştəri ilə əlaqə saxlanılması</li>
+                            <li>Xidmətlərin təkmilləşdirilməsi</li>
+                            <li>Kampaniya və yeniliklər barədə məlumatlandırma (istifadəçi razılığı olduqda)</li>
+                        </ul>
+                    </article>
+
+                    <article class="pp-card">
+                        <h2 class="pp-card__title">Ödəniş Təhlükəsizliyi</h2>
+                        <p class="pp-card__text">Ödəniş əməliyyatları təhlükəsiz və sertifikatlaşdırılmış sistemlər
+                            üzərindən həyata keçirilir. Kart məlumatları sistemimizdə saxlanılmır.</p>
+                    </article>
+
+                    <article class="pp-card">
+                        <h2 class="pp-card__title">Cookie (Kukilər) İstifadəsi</h2>
+                        <p class="pp-card__text">Saytın funksionallığını və istifadəçi təcrübəsini yaxşılaşdırmaq üçün
+                            kukilərdən istifadə olunur. İstifadəçi brauzer parametrləri vasitəsilə kukiləri deaktiv edə
+                            bilər. Lakin bu halda bəzi funksiyalar məhdudlaşa bilər.</p>
+                    </article>
+
+                    <article class="pp-card">
+                        <h2 class="pp-card__title">İstifadəçi Hüquqları</h2>
+                        <p class="pp-card__text">İstifadəçilər şəxsi məlumatlarına baxmaq, düzəliş etmək və ya
+                            silinməsini tələb etmək hüququna malikdirlər. Bunun üçün dəstək komandamızla əlaqə saxlamaq
+                            kifayətdir.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script>
+        (function () {
+            const url = "./assets/components/footer.html";
+            const cacheKey = `partial:${url}`;
+            const node = document.getElementById("footer-placeholder");
+            if (!node) return;
+
+            try {
+                const cached = localStorage.getItem(cacheKey);
+                if (cached) node.innerHTML = cached;
+            } catch (error) {
+                console.warn("Footer preload cache error:", error);
+            }
+
+            if (window.location.protocol === "file:") return;
+
+            fetch(url)
+                .then((response) => {
+                    if (!response.ok) throw new Error(`Footer yüklənmədi: ${response.status}`);
+                    return response.text();
+                })
+                .then((html) => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, "text/html");
+                    const nextHtml = doc.body.innerHTML;
+                    if (node.innerHTML !== nextHtml) node.innerHTML = nextHtml;
+                    try {
+                        localStorage.setItem(cacheKey, nextHtml);
+                    } catch (error) {
+                        console.warn("Footer cache write error:", error);
+                    }
+                })
+                .catch((error) => {
+                    console.warn("Footer preload fetch error:", error);
+                });
+        })();
+    </script>
+
+    <script type="module" src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
