@@ -16,7 +16,8 @@ body.mega-open {
   &__inner {
     @include flex(center, center, 2rem);
     height: 100%;
-    max-width: 90rem;
+    width: 100%;
+    max-width: none;
     margin: 0 auto;
   }
 
@@ -256,7 +257,7 @@ body.mega-open {
     position: relative;
     z-index: 2;
     display: grid;
-    margin-left: 15.3%;
+    margin-left: max(1rem, var(--page-gutter));
     grid-template-columns: 340px;
     align-items: stretch;
     max-width: max-content;

@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --page-gutter: 6.25rem;
+}
+
 body {
   height: 100%;
   font-family: "Inter", sans-serif;
@@ -41,4 +45,11 @@ textarea {
   resize: none;
   outline: none;
   border: none;
+}
+
+[class$="__container"] {
+  width: 100%;
+  max-width: none !important;
+  padding-left: var(--page-gutter);
+  padding-right: var(--page-gutter);
 }

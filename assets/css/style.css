@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --page-gutter: 6.25rem;
+}
+
 body {
   height: 100%;
   font-family: "Inter", sans-serif;
@@ -42,6 +46,13 @@ textarea {
   resize: none;
   outline: none;
   border: none;
+}
+
+[class$=__container] {
+  width: 100%;
+  max-width: none !important;
+  padding-left: var(--page-gutter);
+  padding-right: var(--page-gutter);
 }
 
 .arrivals-section {
@@ -154,7 +165,8 @@ body.mega-open {
   flex-direction: "row";
   gap: 2rem;
   height: 100%;
-  max-width: 90rem;
+  width: 100%;
+  max-width: none;
   margin: 0 auto;
 }
 .header__logo {
@@ -366,7 +378,7 @@ body.mega-open {
   position: relative;
   z-index: 2;
   display: grid;
-  margin-left: 15.3%;
+  margin-left: max(1rem, var(--page-gutter));
   grid-template-columns: 340px;
   align-items: stretch;
   max-width: -moz-max-content;
@@ -1538,7 +1550,10 @@ body.mega-open {
 }
 .features__container {
   max-width: 80rem;
+  width: calc(100% - var(--page-gutter) * 2);
   margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   border: 0.0625rem solid #dadbdd;
@@ -1689,11 +1704,15 @@ body.mega-open {
   padding: 1rem;
 }
 .products__img {
+  width: min(14.3125rem, 100%);
+  height: min(14.3125rem, 100%);
   max-width: 100%;
   max-height: 100%;
   flex-shrink: 0;
   -o-object-fit: contain;
      object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
   display: block;
 }
 .products__info {
