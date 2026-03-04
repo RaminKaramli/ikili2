@@ -1,0 +1,12 @@
+@use "../../abstracts/mixins" as *;
+@use "../../abstracts/variables" as *;
+
+.content-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  &__body {
+    width: 100%;
+  }
+}

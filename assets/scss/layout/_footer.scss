@@ -7,8 +7,7 @@
   background: #18181a;
 
   &__container {
-    margin: 0 auto;
-    padding: 3.125rem 4.6rem;
+    padding-block: 3.125rem;
   }
 
   &__grid {
@@ -266,7 +265,7 @@
 @media (max-width: 1100px) {
   .footer {
     &__container {
-      padding: 2.5rem 2rem;
+      padding-block: 2.5rem;
     }
 
     &__grid {
@@ -290,7 +289,7 @@
 @media (max-width: 768px) {
   .footer {
     &__container {
-      padding: 2rem 1rem;
+      padding-block: 2rem;
     }
 
     &__grid {

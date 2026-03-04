@@ -8,12 +8,6 @@
 .products-section--discount {
   padding: 1.5rem 0;
 
-  .section-header__title {
-    span {
-      color: #e3002e;
-    }
-  }
-
   .products__card {
     position: relative;
 
@@ -98,8 +92,7 @@
 
 .products {
   &__container {
-    max-width: 80rem;
-    margin: 0 auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;

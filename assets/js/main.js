@@ -1,6 +1,49 @@
 import { initHeader } from "./header.js";
 import "./testimonials.js";
 
+function initWholeCardLinks() {
+  const cardConfigs = [
+    {
+      cardSelector: ".blog-card",
+      buttonSelector: ".blog-card__btn",
+      titleSelector: ".blog-card__title",
+    },
+    {
+      cardSelector: ".products__card",
+      buttonSelector: ".products__btn",
+      titleSelector: ".products__name",
+    },
+  ];
+
+  cardConfigs.forEach(({ cardSelector, buttonSelector, titleSelector }) => {
+    const cards = document.querySelectorAll(cardSelector);
+    cards.forEach((card) => {
+      if (card.querySelector(".card-link-overlay")) return;
+
+      const buttonLink = card.querySelector(buttonSelector);
+      if (!(buttonLink instanceof HTMLAnchorElement)) return;
+
+      const href = buttonLink.getAttribute("href");
+      if (!href) return;
+
+      const titleText = card.querySelector(titleSelector)?.textContent?.trim();
+      const overlay = document.createElement("a");
+      overlay.className = "card-link-overlay";
+      overlay.href = href;
+      overlay.setAttribute(
+        "aria-label",
+        titleText ? `${titleText} səhifəsinə keçid` : "Kart səhifəsinə keçid"
+      );
+
+      card.prepend(overlay);
+
+      buttonLink.setAttribute("aria-hidden", "true");
+      buttonLink.setAttribute("tabindex", "-1");
+      buttonLink.classList.add("is-visual-link");
+    });
+  });
+}
+
 async function loadPartial(url, targetId) {
   const target = document.getElementById(targetId);
   if (!target) return;
@@ -71,6 +114,7 @@ async function initApp() {
   }
 
   await footerLoad;
+  initWholeCardLinks();
 }
 
 window.addEventListener("pageshow", () => {

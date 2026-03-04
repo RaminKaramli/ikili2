@@ -5,11 +5,12 @@
   padding: 1.5rem 0rem;
 
   &__container {
-    max-width: 80rem;
-    width: calc(100% - (var(--page-gutter) * 2));
-    margin: 0 auto;
-    padding-left: 0;
-    padding-right: 0;
+    width: 100% !important;
+    max-width: calc(100% - (var(--page-gutter) * 2)) !important;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     border: 0.0625rem solid #dadbdd;

@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
-<body>
+<body class="page page--blog">
     <!-- * HEADER START * -->
     <div id="header-placeholder"></div>
     <script>
@@ -63,7 +63,7 @@
     <main>
         <!-- * BLOG SECTION START * -->
         <section class="blog-section">
-            <div class="blog__container">
+            <div class="blog__container content-section">
                 <nav class="breadcrumb" aria-label="Breadcrumb">
                     <a href="index.html">Ana səhifə</a>
                     <span aria-hidden="true">
@@ -85,85 +85,87 @@
                     </span>
                 </nav>
 
-                <h1 class="blog__page-title">Faydalı Məlumatlar və Yeniliklər</h1>
+                <div class="section-heading content-section__header">
+                    <h1 class="section-heading__title blog__page-title">Faydalı Məlumatlar və Yeniliklər</h1>
+                </div>
 
-                <div class="blog__grid">
-                    <article class="blog__card">
-                        <div class="blog__media">
-                            <img class="blog__img" src="assets/images/b0d7789431c1198e5f66d32dcdfa952d297f5ef8.png"
+                <div class="blog__grid content-section__body">
+                    <article class="blog-card">
+                        <div class="blog-card__media">
+                            <img class="blog-card__img" src="assets/images/b0d7789431c1198e5f66d32dcdfa952d297f5ef8.png"
                                 alt="Peşəkar işıqlandırma məsləhətləri" />
                         </div>
-                        <div class="blog__body">
-                            <h3 class="blog__title">Peşəkar İşıqlandırma ilə Fərq Yaradın</h3>
-                            <p class="blog__desc">Düzgün işıq kontentin keyfiyyətini tam dəyişir. Daha təmiz, daha
+                        <div class="blog-card__body">
+                            <h3 class="blog-card__title">Peşəkar İşıqlandırma ilə Fərq Yaradın</h3>
+                            <p class="blog-card__desc">Düzgün işıq kontentin keyfiyyətini tam dəyişir. Daha təmiz, daha
                                 parlaq və daha professional görüntü əldə edin.</p>
                         </div>
-                        <a href="blog.html" class="blog__btn">Ətraflı oxu</a>
+                        <a href="blog.html" class="blog-card__btn">Ətraflı oxu</a>
                     </article>
 
-                    <article class="blog__card">
-                        <div class="blog__media">
-                            <img class="blog__img" src="assets/images/cea975b6ca09f62abcdcf15189bfbef5c8f2d111.jpg"
+                    <article class="blog-card">
+                        <div class="blog-card__media">
+                            <img class="blog-card__img" src="assets/images/cea975b6ca09f62abcdcf15189bfbef5c8f2d111.jpg"
                                 alt="Softbox məsləhətləri" />
                         </div>
-                        <div class="blog__body">
-                            <h3 class="blog__title">Softbox Niyə Vacibdir?</h3>
-                            <p class="blog__desc">Yumşaq işıq kölgələri azaldır və dərini daha təmiz göstərir. Portret
+                        <div class="blog-card__body">
+                            <h3 class="blog-card__title">Softbox Niyə Vacibdir?</h3>
+                            <p class="blog-card__desc">Yumşaq işıq kölgələri azaldır və dərini daha təmiz göstərir. Portret
                                 və video çəkilişlər üçün ideal seçimdir.</p>
                         </div>
-                        <a href="blog.html" class="blog__btn">Ətraflı oxu</a>
+                        <a href="blog.html" class="blog-card__btn">Ətraflı oxu</a>
                     </article>
 
-                    <article class="blog__card">
-                        <div class="blog__media">
-                            <img class="blog__img" src="assets/images/620f4f657b9dc7a9757ed7b30d9fbe4eaaf6047e.png"
+                    <article class="blog-card">
+                        <div class="blog-card__media">
+                            <img class="blog-card__img" src="assets/images/620f4f657b9dc7a9757ed7b30d9fbe4eaaf6047e.png"
                                 alt="Ev studiyası seçimləri" />
                         </div>
-                        <div class="blog__body">
-                            <h3 class="blog__title">Ev Studiyası üçün Ən Yaxşı Seçimlər</h3>
-                            <p class="blog__desc">Kiçik məkanlarda belə böyük nəticələr mümkündür. Kompakt və effektiv
+                        <div class="blog-card__body">
+                            <h3 class="blog-card__title">Ev Studiyası üçün Ən Yaxşı Seçimlər</h3>
+                            <p class="blog-card__desc">Kiçik məkanlarda belə böyük nəticələr mümkündür. Kompakt və effektiv
                                 işıq həlləri ilə başlayın.</p>
                         </div>
-                        <a href="blog.html" class="blog__btn">Ətraflı oxu</a>
+                        <a href="blog.html" class="blog-card__btn">Ətraflı oxu</a>
                     </article>
 
-                    <article class="blog__card">
-                        <div class="blog__media">
-                            <img class="blog__img" src="assets/images/017df1b38667decdd00c6c81db63eb5d0e6eb4a5.png"
+                    <article class="blog-card">
+                        <div class="blog-card__media">
+                            <img class="blog-card__img" src="assets/images/017df1b38667decdd00c6c81db63eb5d0e6eb4a5.png"
                                 alt="Onlayn alış-veriş məsləhətləri" />
                         </div>
-                        <div class="blog__body">
-                            <h3 class="blog__title">Onlayn Alış-Verişdə Nələrə Diqqət Etməlisiniz?</h3>
-                            <p class="blog__desc">Onlayn alış-veriş rahatdır, amma düzgün seçim etmək üçün vacib
+                        <div class="blog-card__body">
+                            <h3 class="blog-card__title">Onlayn Alış-Verişdə Nələrə Diqqət Etməlisiniz?</h3>
+                            <p class="blog-card__desc">Onlayn alış-veriş rahatdır, amma düzgün seçim etmək üçün vacib
                                 məqamlara diqqət yetirmək lazımdır.</p>
                         </div>
-                        <a href="blog.html" class="blog__btn">Ətraflı oxu</a>
+                        <a href="blog.html" class="blog-card__btn">Ətraflı oxu</a>
                     </article>
 
-                    <article class="blog__card">
-                        <div class="blog__media">
-                            <img class="blog__img" src="assets/images/0f1ea3001f4c0255e5b90eafe234f0c32cd0f1e2.jpg"
+                    <article class="blog-card">
+                        <div class="blog-card__media">
+                            <img class="blog-card__img" src="assets/images/0f1ea3001f4c0255e5b90eafe234f0c32cd0f1e2.jpg"
                                 alt="Orijinal məhsulu ayırd etmə" />
                         </div>
-                        <div class="blog__body">
-                            <h3 class="blog__title">Orijinal Məhsulu Necə Ayırd Etmək Olar?</h3>
-                            <p class="blog__desc">Bazarda saxta məhsulların artması səbəbilə orijinallığı düzgün
+                        <div class="blog-card__body">
+                            <h3 class="blog-card__title">Orijinal Məhsulu Necə Ayırd Etmək Olar?</h3>
+                            <p class="blog-card__desc">Bazarda saxta məhsulların artması səbəbilə orijinallığı düzgün
                                 müəyyən etmək vacibdir.</p>
                         </div>
-                        <a href="blog.html" class="blog__btn">Ətraflı oxu</a>
+                        <a href="blog.html" class="blog-card__btn">Ətraflı oxu</a>
                     </article>
 
-                    <article class="blog__card">
-                        <div class="blog__media">
-                            <img class="blog__img" src="assets/images/df4d770b55f940bb241100eb0530467f0188aec6.jpg"
+                    <article class="blog-card">
+                        <div class="blog-card__media">
+                            <img class="blog-card__img" src="assets/images/df4d770b55f940bb241100eb0530467f0188aec6.jpg"
                                 alt="Elektron məhsulların ömrü" />
                         </div>
-                        <div class="blog__body">
-                            <h3 class="blog__title">Elektron Məhsulların Ömrünü Uzatmağın 5 Yolu</h3>
-                            <p class="blog__desc">Elektron cihazlardan uzun müddət istifadə etmək üçün düzgün qulluq
+                        <div class="blog-card__body">
+                            <h3 class="blog-card__title">Elektron Məhsulların Ömrünü Uzatmağın 5 Yolu</h3>
+                            <p class="blog-card__desc">Elektron cihazlardan uzun müddət istifadə etmək üçün düzgün qulluq
                                 və saxlanma vacibdir.</p>
                         </div>
-                        <a href="blog.html" class="blog__btn">Ətraflı oxu</a>
+                        <a href="blog.html" class="blog-card__btn">Ətraflı oxu</a>
                     </article>
                 </div>
             </div>
