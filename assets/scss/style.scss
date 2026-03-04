@@ -6,8 +6,10 @@
 // components
 @use './components/cards/card';
 @use './components/cards/blog-card';
-@use './components/sections/section-heading';
+@use './components/sections/section-header';
 @use './components/sections/content-section';
+@use './components/forms/forms';
+
 
 // layout
 @use './layout/header';
