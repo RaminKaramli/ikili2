@@ -95,7 +95,7 @@ async function loadPartial(url, targetId) {
 
 async function initApp() {
   // Ensure body scroll is never left locked from previous UI state.
-  document.body.classList.remove("mega-open");
+  document.body.classList.remove("drawer-open");
 
   const headerLoad = loadPartial(
     "./assets/components/header.html",
@@ -107,10 +107,10 @@ async function initApp() {
   );
 
   await headerLoad;
-  if (document.getElementById("megaMenu")) {
+  if (document.getElementById("drawerMenu")) {
     initHeader();
   } else {
-    document.body.classList.remove("mega-open");
+    document.body.classList.remove("drawer-open");
   }
 
   await footerLoad;
@@ -118,7 +118,7 @@ async function initApp() {
 }
 
 window.addEventListener("pageshow", () => {
-  document.body.classList.remove("mega-open");
+  document.body.classList.remove("drawer-open");
 });
 
 document.addEventListener(

@@ -140,16 +140,21 @@
 
   &__contacts {
     display: grid;
-    grid-template-columns: 1fr 0.5fr;
-    align-items: center;
-    justify-content: center;
+    grid-template-columns: 1fr auto;
+    align-items: flex-start;
     gap: 2rem;
   }
 
   &__contact {
     display: flex;
+    padding: 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.625rem;
+  }
+
+  &__contact:nth-child(2) {
     align-items: center;
-    gap: 1rem;
   }
 
   &__icon {
@@ -163,12 +168,6 @@
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.12);
     color: rgba(255, 255, 255, 0.9);
-
-    svg {
-      width: 18px;
-      height: 18px;
-      display: block;
-    }
 
     &--link {
       text-decoration: none;
@@ -195,6 +194,7 @@
     color: rgba(233, 233, 233, 0.9);
     text-decoration: none;
     font-size: 14px;
+    line-height: 1;
     transition: color 0.18s ease;
 
     &:hover {

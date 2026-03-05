@@ -1,18 +1,18 @@
 export function initHeader() {
-  initMegaMenu();
+  initDrawerMenu();
 }
 
-function initMegaMenu() {
-  const mega = document.getElementById("megaMenu");
-  const overlay = document.getElementById("megaOverlay");
-  const panel = document.getElementById("megaPanel");
+function initDrawerMenu() {
+  const drawer = document.getElementById("drawerMenu");
+  const overlay = document.getElementById("drawerOverlay");
+  const panel = document.getElementById("drawerPanel");
 
   const categoriesBox = document.getElementById("categories");
   const subBox = document.getElementById("subcategories");
-  const dealBox = document.getElementById("megaDeal");
-  const openBtn = document.getElementById("openMega");
+  const dealBox = document.getElementById("drawerDeal");
+  const openBtn = document.getElementById("openDrawer");
 
-  if (!mega || !overlay || !panel || !categoriesBox || !subBox || !dealBox || !openBtn) {
+  if (!drawer || !overlay || !panel || !categoriesBox || !subBox || !dealBox || !openBtn) {
     return;
   }
 
@@ -297,20 +297,20 @@ function initMegaMenu() {
   }
 
   function hideDetails() {
-    mega.classList.remove("mega--details");
+    drawer.classList.remove("drawer--details");
     subBox.innerHTML = "";
     [...categoriesBox.children].forEach((el) =>
-      el.classList.remove("mega__item--active")
+      el.classList.remove("drawer__item--active")
     );
   }
 
   function setCategory(index) {
     [...categoriesBox.children].forEach((el) =>
-      el.classList.remove("mega__item--active")
+      el.classList.remove("drawer__item--active")
     );
-    categoriesBox.children[index].classList.add("mega__item--active");
+    categoriesBox.children[index].classList.add("drawer__item--active");
 
-    mega.classList.add("mega--details");
+    drawer.classList.add("drawer--details");
     subBox.innerHTML = "";
 
     const subs = data[index].subs;
@@ -321,15 +321,15 @@ function initMegaMenu() {
 
     subs.forEach((name, i) => {
       const el = document.createElement("div");
-      el.className = "mega__sub";
-      if (i === 0) el.classList.add("mega__sub--active");
+      el.className = "drawer__sub";
+      if (i === 0) el.classList.add("drawer__sub--active");
       el.textContent = name;
 
       const activate = () => {
         document
-          .querySelectorAll(".mega__sub")
-          .forEach((x) => x.classList.remove("mega__sub--active"));
-        el.classList.add("mega__sub--active");
+          .querySelectorAll(".drawer__sub")
+          .forEach((x) => x.classList.remove("drawer__sub--active"));
+        el.classList.add("drawer__sub--active");
         renderDealBySub(name);
       };
 
@@ -346,13 +346,13 @@ function initMegaMenu() {
     data.forEach((cat, i) => {
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "mega__item";
+      btn.className = "drawer__item";
       btn.innerHTML = `
-        <span class="mega__item-left">
-          <span class="mega__item-ico">${icon(cat.icon)}</span>
-          <span class="mega__item-text">${cat.name}</span>
+        <span class="drawer__item-left">
+          <span class="drawer__item-ico">${icon(cat.icon)}</span>
+          <span class="drawer__item-text">${cat.name}</span>
         </span>
-        <span class="mega__chev">${chevron}</span>
+        <span class="drawer__chev">${chevron}</span>
       `;
 
       btn.addEventListener("mouseenter", () => {
@@ -364,9 +364,9 @@ function initMegaMenu() {
     });
   }
 
-  function openMega() {
-    mega.classList.add("mega--active");
-    document.body.classList.add("mega-open");
+  function openDrawer() {
+    drawer.classList.add("drawer--active");
+    document.body.classList.add("drawer-open");
 
     openBtn.classList.add("active");
     openBtn.setAttribute("aria-expanded", "true");
@@ -379,9 +379,9 @@ function initMegaMenu() {
     }, 200);
   }
 
-  function closeMega() {
-    mega.classList.remove("mega--active", "mega--details");
-    document.body.classList.remove("mega-open");
+  function closeDrawer() {
+    drawer.classList.remove("drawer--active", "drawer--details");
+    document.body.classList.remove("drawer-open");
 
     openBtn.classList.remove("active");
     openBtn.setAttribute("aria-expanded", "false");
@@ -391,14 +391,14 @@ function initMegaMenu() {
   }
 
   openBtn.addEventListener("click", () => {
-    mega.classList.contains("mega--active") ? closeMega() : openMega();
+    drawer.classList.contains("drawer--active") ? closeDrawer() : openDrawer();
   });
 
-  overlay.addEventListener("click", closeMega);
+  overlay.addEventListener("click", closeDrawer);
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && mega.classList.contains("mega--active")) {
-      closeMega();
+    if (e.key === "Escape" && drawer.classList.contains("drawer--active")) {
+      closeDrawer();
       openBtn.focus();
     }
   });
@@ -410,4 +410,3 @@ function initMegaMenu() {
   renderCategories();
   renderDealBySub("RGB Led Panel");
 }
-

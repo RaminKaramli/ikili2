@@ -213,21 +213,6 @@
 
   &__btn {
     min-width: 8.8125rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.625rem 0.75rem;
-    border-radius: 0.375rem;
-    background: #010203;
-    color: #ffffff;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    text-decoration: none;
-    transition: 0.2s ease;
-    white-space: nowrap;
   }
 
   &__price {

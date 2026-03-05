@@ -76,3 +76,38 @@ textarea {
 .is-visual-link {
   pointer-events: none;
 }
+
+.content-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  &__body {
+    width: 100%;
+  }
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #000000;
+    line-height: normal;
+    font-style: normal;
+  }
+
+  &__accent {
+    color: #e3002e;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
