@@ -10,6 +10,10 @@
   --page-gutter: clamp(0.5rem, 7.5vw, 6.25rem);
 }
 
+#header-placeholder {
+  min-height: 5.3125rem;
+}
+
 body {
   height: 100%;
   font-family: "Inter", sans-serif;

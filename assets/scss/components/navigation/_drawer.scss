@@ -16,7 +16,7 @@ body.drawer-open {
 
   &--details {
     .drawer__panel {
-      grid-template-columns: 340px 300px minmax(300px, 360px);
+      grid-template-columns: 340px 320px 330px;
     }
 
     .drawer__left::after {
@@ -36,9 +36,9 @@ body.drawer-open {
     position: fixed;
     inset: 0;
     top: 85px;
-    background: rgba(17, 17, 17, 0.44);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
+    background: rgba(17, 17, 17, 0.58);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     animation: fadeIn 0.22s ease;
   }
 
@@ -46,13 +46,14 @@ body.drawer-open {
     position: relative;
     z-index: 2;
     display: grid;
-    margin-left: max(1rem, var(--page-gutter));
+    margin-left: var(--drawer-left, max(1rem, var(--page-gutter)));
+    margin-right: 1rem;
     grid-template-columns: 340px;
     align-items: stretch;
     max-width: max-content;
     background: #ffffff;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.16);
-    border-top: 3px solid #ffffff;
+    border-top: 0;
     overflow: hidden;
     animation: slideDown 0.22s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -201,156 +202,28 @@ body.drawer-open {
   &__right {
     display: none;
     align-items: flex-start;
-    padding: 14px;
-    background: #ffffff;
-  }
-}
-
-.deal {
-  width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 2px solid #c1002a;
-  background: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-
-  &__head {
-    background: #c1002a;
-    color: #ffffff;
-    font-weight: 800;
-    font-size: 0.95rem;
-    padding: 14px 18px;
-    letter-spacing: 0.01em;
-  }
-
-  &__body {
-    padding: 16px;
-  }
-
-  &__cat {
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: #9e9e9e;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 4px;
-  }
-
-  &__title {
-    font-size: 0.9rem;
-    font-weight: 800;
-    color: #111111;
-    margin: 0 0 12px;
-    line-height: 1.35;
-  }
-
-  &__row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 10px;
-    align-items: center;
-  }
-
-  &__img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f7f7f7;
-    border-radius: 12px;
     padding: 10px;
+    background: #ffffff;
 
-    img {
-      width: 110px;
-      height: 110px;
-      object-fit: contain;
-      display: block;
-    }
-  }
-
-  &__badges {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    align-items: flex-end;
-  }
-
-  &__circle {
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    background: #c1002a;
-    color: #ffffff;
-    display: grid;
-    place-items: center;
-    font-weight: 900;
-    font-size: 0.8rem;
-  }
-
-  &__tag {
-    padding: 5px 10px;
-    border-radius: 6px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    border: 1.5px solid #1a6dff;
-    color: #1a6dff;
-    background: #edf2ff;
-    white-space: nowrap;
-
-    &--red {
-      border-color: #c1002a;
-      color: #c1002a;
-      background: rgba(193, 0, 42, 0.06);
-    }
-  }
-
-  &__bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    margin-top: 14px;
-    flex-wrap: wrap;
-  }
-
-  &__btn {
-    display: inline-flex;
-    align-items: center;
-    border: none;
-    border-radius: 12px;
-    font-family: "Outfit", sans-serif;
-    font-weight: 700;
-    transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
-    white-space: nowrap;
-    background: #111111;
-    color: #ffffff;
-    gap: 8px;
-    padding: 10px 16px;
-    font-size: 0.85rem;
-
-    &:hover {
-      background: #c1002a;
+    .products-section--discount {
+      padding: 0;
+      margin: 0;
+      width: 100%;
     }
 
-    &:active {
-      transform: scale(0.98);
-    }
-  }
-
-  &__price {
-    text-align: right;
-
-    .old {
-      display: block;
-      font-size: 0.75rem;
-      color: #9e9e9e;
-      text-decoration: line-through;
+    .products__card {
+      width: 19.375rem;
+      height: 28.875rem;
+      border: 1px solid #dadbdd;
+      border-right: 1px solid #dadbdd;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-sizing: border-box;
+      background: #ffffff;
     }
 
-    .new {
-      display: block;
-      font-size: 1.15rem;
-      font-weight: 900;
-      color: #111111;
+    .products__card:last-child {
+      border-right: 1px solid #dadbdd;
     }
   }
 }

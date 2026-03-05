@@ -6,8 +6,11 @@
 .header {
   background: #ffffff;
   height: 5.3125rem;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 1000;
 
   &__inner {
@@ -54,7 +57,7 @@
     }
 
     &.active {
-      background: #c1002a;
+      background: #010203;
 
       .header__products-icon--menu {
         display: none;
