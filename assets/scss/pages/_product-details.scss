@@ -3,6 +3,7 @@
 @use "../base/base" as *;
 
 .pd-page {
+  padding: 0 0 2rem;
   &__container {
     width: 100%;
     display: flex;
@@ -307,28 +308,6 @@
   }
 }
 
-.pd-qty {
-  display: flex;
-  padding: 0.625rem 0.75rem;
-  justify-content: space-between;
-  align-items: center;
-  align-self: stretch;
-  border-radius: 0.5rem;
-  background: #f1f2f3;
-  min-width: 5.8125rem;
-
-  button,
-  span {
-    width: 1.25rem;
-    height: 1.25rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: #010203;
-    font-size: 0.875rem;
-  }
-}
-
 .pd-btn {
   border: none;
   border-radius: 0.5rem;
@@ -342,11 +321,6 @@
   &--buy {
     background: #010203;
     color: #fff;
-  }
-
-  &--share {
-    background: #f1f2f3;
-    color: #010203;
   }
 }
 
@@ -394,26 +368,10 @@
     justify-content: center;
   }
 
-  &__call {
-    text-decoration: none;
-    color: #fff;
-    font-family: Inter, sans-serif;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    background: #010203;
-    padding: 0.625rem 0.75rem;
-    border-radius: 0.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.625rem;
-  }
 }
 
 .pd-specs {
-  padding: 2rem;
+  padding: 0 0 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -435,12 +393,18 @@
     table-layout: fixed;
     border-radius: 0.5rem;
     overflow: hidden;
+
+    col {
+      width: 25% !important;
+    }
   }
 
   &__row {
     th,
     td {
-      width: 25%;
+      width: 25% !important;
+      max-width: 25%;
+      box-sizing: border-box;
       padding: 1rem 1.5rem;
       color: #010203;
       line-height: normal;

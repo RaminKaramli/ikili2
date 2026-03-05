@@ -43,6 +43,21 @@
   line-height: 1;
 }
 
+// * PRODUCTS BUTTON ICON WRAP
+.products__btn > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  flex-shrink: 0;
+
+  svg {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
 // * SECTION HEADER BUTTON
 .section-header__btn {
   width: 2.75rem;
@@ -204,5 +219,99 @@
 
   @media (max-width: 1150px) {
     display: none;
+  }
+}
+
+// * PRODUCT DETAILS SHARE BUTTON
+.pd-btn--share {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  min-height: 2.75rem;
+  padding: 0.625rem 0.75rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: #f1f2f3;
+  color: #010203;
+  font-family: Inter, sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  white-space: nowrap;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+
+  &:hover {
+    background: #e7e9eb;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.pd-btn--share > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  flex-shrink: 0;
+
+  svg {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+// * PRODUCT DETAILS HELP CALL BUTTON
+.pd-help__call {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: Inter, sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background: #010203;
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  transition: background 0.18s ease, transform 0.18s ease;
+
+  &:hover {
+    background: #2a2a2a;
+    color: #ffffff;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// * PRODUCT DETAILS QUANTITY CONTROL
+.pd-qty {
+  display: flex;
+  padding: 0.625rem 0.75rem;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 0.5rem;
+  background: #f1f2f3;
+  min-width: 5.8125rem;
+
+  button,
+  span {
+    width: 1.25rem;
+    height: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #010203;
+    font-size: 0.875rem;
   }
 }
