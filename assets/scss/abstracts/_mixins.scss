@@ -10,10 +10,18 @@
         @media only screen and (max-width: 480px) {
             @content;
         }
+
+        @media only screen and (max-width: 380px) {
+            @content;
+        }
     }
 
     @else if $size ==tablet-portrait-up {
         @media only screen and (max-width: 768px) {
+            @content;
+        }
+
+        @media only screen and (max-width: 600px) {
             @content;
         }
     }
@@ -27,6 +35,14 @@
     @else if $size ==lg-down {
 
         @media only screen and (max-width: 992px) {
+            @content;
+        }
+
+    }
+
+    @else if $size ==lg-down-2 {
+
+        @media only screen and (max-width: 1200px) {
             @content;
         }
 

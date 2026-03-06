@@ -48,3 +48,54 @@
     line-height: normal;
   }
 }
+
+@include mq(tablet-portrait-up) {
+  .features {
+    &__container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      border: none;
+      overflow: visible;
+    }
+
+    &__item {
+      border: 0.0625rem solid #dadbdd;
+      border-right: 0.0625rem solid #dadbdd;
+      min-height: 10.625rem;
+      padding: 1.5rem;
+      gap: 2rem;
+
+      &:last-child {
+        border-right: 0.0625rem solid #dadbdd;
+      }
+    }
+
+    &__icon {
+      svg {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+
+    &__text {
+      font-size: 1.75rem;
+      line-height: 1.25;
+    }
+  }
+}
+
+@include mq(phone-only) {
+  .features {
+    &__item {
+      min-height: 8.5rem;
+      padding: 1rem;
+      gap: 1.25rem;
+    }
+
+    &__text {
+      font-size: 1.125rem;
+      line-height: 1.35;
+    }
+  }
+}
