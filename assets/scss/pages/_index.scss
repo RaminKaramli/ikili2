@@ -129,6 +129,8 @@
     margin-left: auto;
     align-self: flex-start;
     padding-top: 0.25rem;
+    position: relative;
+    z-index: 2;
   }
 
   &__stock,
@@ -162,6 +164,8 @@
     justify-content: space-between;
     align-items: flex-end;
     gap: 0.75rem;
+    position: relative;
+    z-index: 2;
   }
 
   &__btn {
@@ -178,6 +182,8 @@
     flex-direction: column;
     align-items: flex-end;
     gap: 0.25rem;
+    position: relative;
+    z-index: 2;
   }
 
   &__old-price {
@@ -342,16 +348,18 @@
 
     &__footer {
       display: flex;
-      flex-wrap: wrap;
-      align-items: flex-end;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      align-items: stretch;
       gap: 0.625rem;
     }
 
     &__btn {
-      order: 2;
+      order: 1;
       width: 100%;
-      max-width: 10rem;
+      max-width: none;
       min-width: 0;
+      margin-left: 0;
     }
 
     &__media {
@@ -372,11 +380,12 @@
 
     &__discount {
       position: absolute;
-      left: 50%;
+      left: auto;
+      right: 0.5rem;
       top: 0;
       grid-column: auto;
       grid-row: auto;
-      transform: translateX(1.75rem);
+      transform: none;
       width: 3rem;
       height: 3rem;
       font-size: 0.875rem;
@@ -394,9 +403,9 @@
       max-width: 100%;
       margin-left: 0;
       padding-top: 0;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 0.5rem;
+      justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
     }
 
     &__stock,
@@ -411,12 +420,12 @@
     }
 
     &__prices {
-      order: 1;
+      order: 2;
       width: 100%;
       display: flex;
       flex-direction: row;
       align-items: baseline;
-      justify-content: flex-end;
+      justify-content: flex-start;
       gap: 0.5rem;
     }
 
@@ -709,8 +718,9 @@
   &__grid {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
+    width: 100%;
     border: 0.0625rem solid #dadbdd;
-    border-radius: 0.375rem;
+    border-radius: 0;
     overflow: hidden;
     background: #fff;
   }
@@ -720,6 +730,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 0.75rem;
+    overflow: hidden;
     border-right: 0.0625rem solid #dadbdd;
 
     &:last-child {
@@ -738,12 +750,103 @@
   }
 
   &__logo-img {
+    width: 100%;
     max-width: 11rem;
     max-height: 4rem;
-    width: auto;
     height: auto;
     display: block;
     object-fit: contain;
     filter: brightness(0) saturate(100%);
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .partners__container {
+    padding-right: 0 !important;
+  }
+
+  .partners__container .section-header {
+    padding-right: var(--page-gutter);
+  }
+
+  .partners__grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-right: 0;
+    --partners-empty-size: 5%;
+  }
+
+  .partners__grid::after {
+    content: "";
+    flex: 0 0 var(--partners-empty-size);
+    border-left: 0.0625rem solid #dadbdd;
+  }
+
+  .partners__item {
+    flex: 0 0 19%;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .partners__container {
+    padding-right: 0 !important;
+  }
+
+  .partners__container .section-header {
+    padding-right: var(--page-gutter);
+  }
+
+  .partners__grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-right: 0;
+  }
+
+  .partners__grid {
+    --partners-empty-size: 4%;
+  }
+
+  .partners__item {
+    flex: 0 0 24%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .partners__container {
+    padding-right: 0 !important;
+  }
+
+  .partners__container .section-header {
+    padding-right: var(--page-gutter);
+  }
+
+  .partners__grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-right: 0;
+  }
+
+  .partners__grid {
+    --partners-empty-size: 7%;
+  }
+
+  .partners__item {
+    flex: 0 0 31%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .partners__grid {
+    --partners-empty-size: 8%;
+  }
+
+  .partners__item {
+    flex: 0 0 46%;
   }
 }

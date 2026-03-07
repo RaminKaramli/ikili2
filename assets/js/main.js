@@ -1,5 +1,6 @@
 import { initHeader } from "./header.js";
 import "./testimonials.js";
+import { initPartnersSlider } from "./sliders/partnersSlider.js";
 
 function initWholeCardLinks() {
   const cardConfigs = [
@@ -115,6 +116,7 @@ async function initApp() {
 
   await footerLoad;
   initWholeCardLinks();
+  initPartnersSlider();
 }
 
 window.addEventListener("pageshow", () => {
