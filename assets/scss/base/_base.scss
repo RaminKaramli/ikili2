@@ -30,6 +30,11 @@ body {
   height: 100%;
   font-family: "Inter", sans-serif;
   background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 p {
