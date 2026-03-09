@@ -529,7 +529,7 @@
 // * TESTIMONIALS SECTION * \\
 .testimonials {
   &-section {
-    padding: 0 0 1.25rem;
+    padding: 1.5rem 0;
   }
 
   &__container {
@@ -637,7 +637,7 @@
 @include mq(tablet-portrait-up) {
   .testimonials {
     &-section {
-      padding: 0 0 1rem;
+      padding: 1.5rem 0;
     }
 
     &__container {
@@ -694,7 +694,7 @@
 // * PROMO-DUO SECTION * \\
 .promo-duo {
   &-section {
-    padding: 2.5rem 0 2.5rem;
+    padding: 1.5rem 0;
   }
 
   &__container {
@@ -881,7 +881,7 @@
 // * PARTNERS SECTION * \\
 .partners {
   &-section {
-    padding: 0 0 2.5rem;
+    padding: 1.5rem 0;
   }
 
   &__container {

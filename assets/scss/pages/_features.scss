@@ -2,7 +2,7 @@
 @use "../abstracts/variables" as *;
 
 .features {
-  padding: 1.5rem 0rem;
+  padding: 1.5rem 0;
 
   &__container {
     width: 100% !important;
@@ -24,6 +24,7 @@
     gap: 1rem;
     padding: 1rem;
     border-right: 0.0625rem solid #dadbdd;
+    border-radius: 0.25rem;
 
     &:last-child {
       border-right: none;

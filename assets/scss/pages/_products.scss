@@ -10,6 +10,7 @@
 
   .products__card {
     position: relative;
+    padding: 1rem !important;
 
     &::before {
       content: "-300 AZN";
@@ -102,10 +103,10 @@
   &__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.625rem;
-    border: none;
-    border-radius: 0;
-    overflow: visible;
+    gap: 0;
+    border: 0.0625rem solid #dadbdd;
+    border-radius: 0.75rem;
+    overflow: hidden;
   }
 
   &__card {
@@ -114,11 +115,16 @@
     min-height: 27.875rem;
     padding: 1rem;
     background: #ffffff;
-    border: 0.0625rem solid #dadbdd;
-    border-radius: 0.75rem;
+    border: 0;
+    border-right: 0.0625rem solid #dadbdd;
+    border-radius: 0;
     position: relative;
     z-index: 1;
     transition: box-shadow 0.2s ease;
+
+    &:last-child {
+      border-right: none;
+    }
   }
 
   &__img-wrap {
@@ -281,6 +287,19 @@
   .products {
     &__grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.625rem;
+      border: 0;
+      border-radius: 0;
+      overflow: visible;
+    }
+
+    &__card {
+      border: 0.0625rem solid #dadbdd;
+      border-radius: 0.75rem;
+    }
+
+    &__card:last-child {
+      border-right: 0.0625rem solid #dadbdd;
     }
   }
 }
@@ -339,12 +358,12 @@
 
     &__img-wrap {
       padding: 0.75rem;
-      min-height: 12.5rem;
+      min-height: 14rem;
     }
 
     &__img {
-      width: min(12.5rem, 100%);
-      height: min(12.5rem, 100%);
+      width: min(14rem, 100%);
+      height: min(15rem, 100%);
     }
 
     &__info {
