@@ -749,7 +749,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: 140%;
-    text-transform: uppercase;
+    text-transform: none;
   }
 
   &__text {
@@ -768,6 +768,8 @@
     bottom: 1.5rem;
     z-index: 1;
     display: inline-flex;
+    width: auto;
+    justify-content: flex-start;
     align-items: center;
     gap: 0.75rem;
     color: #fff;
@@ -784,6 +786,96 @@
     text-decoration: none;
   }
 
+}
+
+@media only screen and (max-width: 1400px) {
+  .promo-duo {
+    &__card {
+      height: 23.5rem;
+    }
+
+    &__content {
+      left: 1rem;
+      bottom: 1rem;
+      right: 1rem;
+      max-width: calc(100% - 9.5rem);
+    }
+
+    &__title {
+      font-size: 1.25rem;
+      line-height: 140%;
+    }
+
+    &__text {
+      font-size: 0.8125rem;
+    }
+
+    &__link {
+      right: 1rem;
+      bottom: 1rem;
+      width: auto;
+      justify-content: flex-start;
+      gap: 0.75rem;
+      font-size: 0.8125rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .promo-duo {
+    &__container {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    &__card {
+      height: 22.5rem;
+    }
+
+    &__content {
+      right: 10.5rem;
+      bottom: 1rem;
+    }
+
+    &__link {
+      position: absolute;
+      left: auto;
+      right: 1rem;
+      bottom: 1rem;
+      margin-top: 0;
+      width: auto;
+      justify-content: flex-start;
+      gap: 0.75rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .promo-duo {
+    &__content {
+      left: 1rem;
+      right: 1rem;
+      bottom: 4rem;
+      max-width: none;
+    }
+
+    &__title {
+      font-size: 1.25rem;
+      line-height: 140%;
+    }
+
+    &__text {
+      font-size: 0.875rem;
+      line-height: 140%;
+    }
+
+    &__link {
+      left: 1rem;
+      right: auto;
+      bottom: 1rem;
+      font-size: 0.875rem;
+    }
+  }
 }
 
 // * PARTNERS SECTION * \\

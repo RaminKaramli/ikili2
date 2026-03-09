@@ -37,16 +37,17 @@
       position: absolute;
       top: 4rem;
       right: 1.25rem;
-      width: 3.75rem;
-      height: 3.75rem;
-      padding: 0.375rem;
+      width: 3rem;
+      height: 3rem;
+      padding: 0;
       border-radius: 50%;
       background: #e3002e;
       color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.625rem;
+      gap: 0;
+      box-sizing: border-box;
       aspect-ratio: 1 / 1;
       font-size: 1rem;
       font-weight: 500;
@@ -326,7 +327,7 @@
 
     &__card {
       min-height: auto;
-      padding: 0.75rem;
+      padding: 1rem;
       border: 0.0625rem solid #dadbdd;
       border-radius: 0.25rem;
       background: #fff;
@@ -482,8 +483,8 @@
   }
 
   .products__container {
-    padding-left: 0.25rem !important;
-    padding-right: 0.25rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 
   .products__grid {
