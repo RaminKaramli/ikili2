@@ -3,7 +3,7 @@
 @use "../base/base" as *;
 
 .blog-detail-section {
-  padding: 0 0 2.5rem;
+  padding: 1.5rem 0;
 }
 
 .blog-detail {
@@ -128,5 +128,11 @@
       font-size: 1rem;
       line-height: 1.55;
     }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .blog-detail__hero {
+    height: 12.875rem;
   }
 }

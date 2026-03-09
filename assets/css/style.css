@@ -3794,7 +3794,7 @@ body.drawer-open {
 }
 
 .blog-detail-section {
-  padding: 0 0 2.5rem;
+  padding: 1.5rem 0;
 }
 
 .blog-detail__container {
@@ -3906,6 +3906,11 @@ body.drawer-open {
   line-height: 1.55;
 }
 
+@media only screen and (max-width: 480px) {
+  .blog-detail__hero {
+    height: 12.875rem;
+  }
+}
 .blog-section {
   padding: 1.5rem 0;
 }
