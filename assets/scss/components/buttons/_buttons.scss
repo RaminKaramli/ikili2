@@ -227,9 +227,7 @@
   }
 
   @include mq(tablet-portrait-up) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(center, center);
     padding: 0.625rem 0.75rem;
     margin-left: -0.75rem;
     border: none !important;

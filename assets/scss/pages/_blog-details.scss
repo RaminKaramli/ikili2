@@ -9,9 +9,7 @@
 .blog-detail {
   &__container {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    @include flex(flex-start, stretch, 1rem, column);
   }
 
   .breadcrumb {
@@ -36,10 +34,7 @@
   }
 
   &__head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+    @include flex(space-between, center, 1rem);
   }
 
   &__title {
@@ -57,9 +52,7 @@
   }
 
   &__article {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    @include flex(flex-start, stretch, 1rem, column);
   }
 
   &__hero {
@@ -77,9 +70,7 @@
   }
 
   &__content {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    @include flex(flex-start, stretch, 1rem, column);
     padding: 1.5rem;
     border-radius: 0.75rem;
     background: #f5f5f5;
@@ -116,9 +107,7 @@
     }
 
     .blog-detail__type {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
+      @include flex(flex-start, stretch, 0, column);
     }
 
     li {

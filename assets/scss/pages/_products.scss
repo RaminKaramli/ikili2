@@ -44,10 +44,7 @@
       border-radius: 50%;
       background: #e3002e;
       color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
+      @include flex(center, center, 0);
       box-sizing: border-box;
       aspect-ratio: 1 / 1;
       font-size: 1rem;
@@ -58,8 +55,7 @@
   }
 
   .products__price {
-    display: flex;
-    flex-direction: column;
+    @include flex(flex-start, stretch, 0, column);
     align-items: flex-start;
     gap: 0.25rem;
     font-size: 0;
@@ -95,9 +91,7 @@
 .products {
   &__container {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    @include flex(flex-start, stretch, 1.5rem, column);
   }
 
   &__grid {
@@ -110,8 +104,7 @@
   }
 
   &__card {
-    display: flex;
-    flex-direction: column;
+    @include flex(flex-start, stretch, 0, column);
     min-height: 27.875rem;
     padding: 1rem;
     background: #ffffff;
@@ -129,9 +122,7 @@
 
   &__img-wrap {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex(center, center);
     padding: 1rem;
   }
 
@@ -147,9 +138,7 @@
   }
 
   &__info {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    @include flex(flex-start, stretch, 1rem, column);
     flex: 1;
   }
 
@@ -173,9 +162,7 @@
   }
 
   &__meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include flex(space-between, center);
     flex-wrap: wrap;
     gap: 1rem;
     min-width: 0;
@@ -236,10 +223,7 @@
   }
 
   &__footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
+    @include flex(space-between, center, 0.75rem);
   }
 
   &__btn {
@@ -257,8 +241,7 @@
   }
 
   .products__price {
-    display: flex;
-    flex-direction: column;
+    @include flex(flex-start, stretch, 0, column);
     align-items: flex-start;
     gap: 0.25rem;
     color: #5a5f68;
@@ -459,8 +442,7 @@
     }
 
     &__footer {
-      display: flex;
-      flex-direction: column;
+      @include flex(flex-start, stretch, 0, column);
       width: 100%;
       gap: 0.375rem;
       align-items: stretch;

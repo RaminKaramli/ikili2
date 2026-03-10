@@ -6,9 +6,7 @@
 .hero {
   &__container {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    @include flex(center, flex-start);
     align-self: stretch;
     gap: 1rem;
   }
@@ -38,8 +36,7 @@
     border: 0.125rem solid #e3002e;
     border-radius: 0.75rem;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    @include flex(flex-start, stretch, 0, column);
   }
 
   &__head {
@@ -55,18 +52,14 @@
 
   &__body {
     padding: 0 1rem 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.69rem;
+    @include flex(flex-start, stretch, 0.69rem, column);
     flex: 1;
     justify-content: space-between;
   }
 
   //* LED ISIQ *\\
   &__body_header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.69rem;
+    @include flex(flex-start, stretch, 0.69rem, column);
     padding: 0.75rem 0 0;
   }
 
@@ -87,9 +80,7 @@
 
   &__media {
     position: relative;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    @include flex(space-between, flex-start);
     width: 100%;
   }
 
@@ -115,16 +106,12 @@
     font-size: 0.875rem;
     font-weight: 700;
     line-height: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex(center, center);
     flex-shrink: 0;
   }
 
   &__tags {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    @include flex(flex-start, stretch, 0.75rem, column);
     flex-shrink: 0;
     margin-left: auto;
     align-self: flex-start;
@@ -160,10 +147,7 @@
   }
 
   &__footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 0.75rem;
+    @include flex(space-between, flex-end, 0.75rem);
     position: relative;
     z-index: 2;
   }
@@ -178,8 +162,7 @@
   }
 
   &__prices {
-    display: flex;
-    flex-direction: column;
+    @include flex(flex-start, stretch, 0, column);
     align-items: flex-end;
     gap: 0.25rem;
     position: relative;
@@ -447,8 +430,7 @@
     &__prices {
       order: 1;
       width: 100%;
-      display: flex;
-      flex-direction: column;
+      @include flex(flex-start, stretch, 0, column);
       align-items: flex-start;
       justify-content: flex-start;
       gap: 0.125rem;
@@ -534,9 +516,7 @@
 
   &__container {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    @include flex(flex-start, stretch, 1.5rem, column);
   }
 
   &__grid {
@@ -730,9 +710,7 @@
 
   &__content {
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
+    @include flex(flex-start, stretch, 0.375rem, column);
     left: 1.5rem;
     bottom: 1rem;
     z-index: 1;
@@ -884,9 +862,7 @@
 
   &__container {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    @include flex(flex-start, stretch, 1.5rem, column);
   }
 
   &__grid {
@@ -901,9 +877,7 @@
 
   &__item {
     height: 6.4375rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex(center, center);
     padding: 0 0.75rem;
     overflow: hidden;
     border-right: 0.0625rem solid #dadbdd;
@@ -1022,50 +996,5 @@
 
   .partners__item {
     flex: 0 0 46%;
-  }
-}
-
-@include mq(tablet-portrait-up) {
-  .page--home {
-    .header {
-      --header-height: 7.5rem;
-    }
-
-    .header__inner {
-      grid-template-areas:
-        "logo . products"
-        "search search search";
-      grid-template-columns: auto 1fr auto;
-      row-gap: 0.75rem;
-      padding-top: 0.75rem;
-      padding-bottom: 0;
-    }
-
-    #header-placeholder {
-      min-height: 7.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .header__nav,
-    .header__lang-wrap,
-    .header__lang {
-      display: none !important;
-    }
-  }
-}
-
-@include mq(phone-xs) {
-  .page--home {
-    .header {
-      --header-height: 8.5rem;
-    }
-
-    #header-placeholder {
-      min-height: 8.5rem;
-    }
-
-    .header__inner {
-      padding-bottom: 1rem;
-    }
   }
 }

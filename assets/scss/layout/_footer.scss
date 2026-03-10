@@ -18,9 +18,7 @@
 
   /* LEFT */
   &__brand {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    @include flex(flex-start, stretch, 0.75rem, column);
     width: 25%;
   }
 
@@ -37,9 +35,7 @@
   }
 
   &__desc-follow {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    @include flex(flex-start, stretch, 2rem, column);
   }
 
   &__desc {
@@ -50,9 +46,7 @@
   }
 
   &__follow {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    @include flex(flex-start, center, 1rem);
   }
 
   &__title {
@@ -97,8 +91,7 @@
 
   /* MIDDLE */
   &__nav {
-    display: flex;
-    flex-direction: column;
+    @include flex(flex-start, stretch, 0, column);
     justify-content: space-between;
   }
 
@@ -109,8 +102,7 @@
   }
 
   &__list {
-    display: flex;
-    flex-direction: column;
+    @include flex(flex-start, stretch, 0, column);
     list-style: none;
     padding: 0.625rem 0;
     margin: 0;
@@ -130,8 +122,7 @@
 
   /* RIGHT */
   &__info {
-    display: flex;
-    flex-direction: column;
+    @include flex(flex-start, stretch, 0, column);
     align-items: flex-start;
     justify-content: space-between;
     width: 40%;
@@ -209,9 +200,7 @@
 
   &__hours-row {
     margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+    @include flex(flex-start, center, 1.5rem);
     flex-wrap: nowrap;
   }
 
@@ -231,10 +220,7 @@
   /* BOTTOM */
   &__bottom {
     padding-top: 6.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
+    @include flex(space-between, center, 16px);
   }
 
   &__copy {

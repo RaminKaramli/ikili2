@@ -6,9 +6,7 @@
   padding: 0 0 2rem;
   &__container {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    @include flex(flex-start, stretch, 1.5rem, column);
   }
 
   .breadcrumb {
@@ -33,14 +31,11 @@
 }
 
 .pd-main {
-  display: flex;
-  align-items: stretch;
-  gap: 3.12rem;
+  @include flex(flex-start, stretch, 3.12rem);
 }
 
 .pd-gallery {
-  display: flex;
-  flex-direction: column;
+  @include flex(flex-start, stretch, 0, column);
   width: auto;
   max-width: none;
   flex: 1 1 0;
@@ -56,9 +51,7 @@
     border: 0.0625rem solid #dadbdd;
     border-radius: 0.75rem;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex(center, center);
   }
 
   &__hero-img {
@@ -85,16 +78,11 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex(center, center);
   }
 
   &__thumbs {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
+    @include flex(center, center, 0.75rem);
     align-self: stretch;
   }
 
@@ -125,26 +113,20 @@
 }
 
 .pd-info {
-  display: flex;
-  flex-direction: column;
+  @include flex(flex-start, stretch, 0, column);
   flex: 1 1 0;
   gap: 0.875rem;
 
   &__meta {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    @include flex(flex-start, stretch, 1.5rem, column);
   }
 
   &__summary {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    @include flex(flex-start, stretch, 1rem, column);
   }
 
   &__heading {
-    display: flex;
-    flex-direction: column;
+    @include flex(flex-start, stretch, 0, column);
     align-items: flex-start;
     gap: 0.375rem;
     align-self: stretch;
@@ -208,9 +190,7 @@
 }
 
 .pd-price {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
+  @include flex(flex-start, stretch, 0.3rem, column);
 
   &__old {
     color: #5a5f68;
@@ -233,10 +213,7 @@
 }
 
 .pd-stock {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem;
+  @include flex(space-between, center, 1.5rem);
 
   &__title {
     margin: 0;
@@ -265,23 +242,17 @@
 }
 
 .pd-actions {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1rem;
+  @include flex(space-between, flex-end, 1rem);
 
   &__left {
-    display: flex;
-    flex-direction: column;
+    @include flex(flex-start, stretch, 0, column);
     align-items: flex-start;
     gap: 0.375rem;
     align-self: stretch;
   }
 
   &__right {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    @include flex(flex-start, center, 0.75rem);
 
     .products__btn,
     .pd-btn--share {
@@ -330,19 +301,14 @@
 }
 
 .pd-help {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
+  @include flex(space-between, center, 0.75rem);
   padding: 0.75rem;
   border: 0.0625rem solid #dadbdd;
   border-radius: 0.75rem;
   background: #f5f5f5;
 
   &__left {
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
+    @include flex(flex-start, center, 0.625rem);
 
     h3 {
       margin: 0;
@@ -385,16 +351,12 @@
 }
 
 .pd-help-block {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  @include flex(flex-start, stretch, 0.75rem, column);
 }
 
 .pd-specs {
   padding: 0 0 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  @include flex(flex-start, stretch, 1.5rem, column);
 
   &__title {
     margin: 0;
@@ -459,9 +421,7 @@
 
 .pd-description {
   padding: 1.5rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  @include flex(flex-start, stretch, 1rem, column);
 
   &__title {
     margin: 0;
@@ -473,9 +433,7 @@
   }
 
   &__list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    @include flex(flex-start, stretch, 0.75rem, column);
   }
 
   &__item {
@@ -810,9 +768,7 @@
   .pd-actions {
     &__right {
       width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
+      @include flex(flex-start, center, 0.75rem);
 
       .products__btn,
       .pd-btn--share {

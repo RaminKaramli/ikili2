@@ -8,9 +8,7 @@
 .arrivals {
   &__container {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    @include flex(flex-start, stretch, 1.5rem, column);
   }
 
   &__grid {
@@ -42,8 +40,7 @@
     box-shadow: none;
 
     .products__card {
-      display: flex;
-      flex-direction: column;
+      @include flex(flex-start, stretch, 0, column);
       padding: 1rem;
       border: 0;
       border-left: 0;
@@ -62,8 +59,7 @@
       }
 
       .products__info {
-        display: flex;
-        flex-direction: column;
+        @include flex(flex-start, stretch, 0, column);
         justify-content: space-between;
         gap: 1rem;
       }
@@ -236,10 +232,7 @@
       grid-template-columns: 1fr !important;
 
       .products__card .products__footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 0.5rem;
+        @include flex(space-between, center, 0.5rem);
       }
 
       .products__card .products__price {
@@ -290,8 +283,6 @@
 
 .products {
   &__body-header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    @include flex(flex-start, stretch, 0.75rem, column);
   }
 }

@@ -16,13 +16,13 @@
 
 @include mq(tablet-portrait-up) {
   #header-placeholder {
-    min-height: 15.75rem;
+    min-height: 5.3125rem;
   }
 }
 
 @include mq(phone-only) {
   #header-placeholder {
-    min-height: 15rem;
+    min-height: 5.3125rem;
   }
 }
 
@@ -99,9 +99,7 @@ textarea {
 }
 
 .content-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  @include flex(flex-start, stretch, 1.5rem, column);
 
   &__body {
     width: 100%;
@@ -109,9 +107,7 @@ textarea {
 }
 
 .section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include flex(space-between, center);
 
   &__title {
     margin: 0;
@@ -127,8 +123,6 @@ textarea {
   }
 
   &__nav {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    @include flex(flex-start, center, 0.5rem);
   }
 }
