@@ -1,4 +1,5 @@
 import { initHeader } from "./header.js";
+import { initLanguages } from "./languages.js";
 import "./testimonials.js";
 import { initPartnersSlider } from "./sliders/partnersSlider.js";
 
@@ -108,6 +109,7 @@ async function initApp() {
   );
 
   await headerLoad;
+  initLanguages();
   if (document.getElementById("drawerMenu")) {
     initHeader();
   } else {

@@ -581,20 +581,46 @@ textarea {
   text-decoration: none;
 }
 
+.header__lang-wrap {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 12.5rem;
+}
+@media (max-width: 1150px) {
+  .header__lang-wrap {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .header__lang-wrap {
+    display: flex;
+    grid-area: lang;
+    justify-self: start;
+  }
+}
+
 .header__lang {
   display: inline-flex;
   align-items: center;
+  justify-content: flex-start;
+  width: 100%;
   border: none;
   border-radius: 0.5rem;
   font-weight: 400;
   transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
   white-space: nowrap;
-  gap: 0.375rem;
+  gap: 0.625rem;
   padding: 0.625rem 0.75rem;
   background: #ffffff;
   color: #5a5f68;
   font-size: 0.875rem;
   flex-shrink: 0;
+}
+.header__lang .js-lang-label {
+  flex: 0 0 auto;
+  min-width: auto;
+  margin-right: 0;
 }
 .header__lang:hover {
   border-color: #c1002a !important;
@@ -607,8 +633,6 @@ textarea {
 @media (max-width: 768px) {
   .header__lang {
     display: flex;
-    grid-area: lang;
-    justify-self: start;
     justify-content: center;
     align-items: center;
     padding: 0.625rem 0.75rem;
@@ -627,11 +651,6 @@ textarea {
     min-width: 0;
     white-space: nowrap;
   }
-  .header__lang svg:first-child {
-    width: 1.375rem;
-    height: 1.375rem;
-    flex-shrink: 0;
-  }
 }
 @media (max-width: 480px) {
   .header__lang {
@@ -644,15 +663,78 @@ textarea {
     text-overflow: clip;
     white-space: nowrap;
   }
-  .header__lang svg:first-child {
+}
+
+.header__lang-flag {
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: 0 0 1.5rem;
+  margin-right: 0;
+}
+.header__lang-flag svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+@media (max-width: 768px) {
+  .header__lang-flag {
+    width: 1.375rem;
+    height: 1.375rem;
+    flex-basis: 1.375rem;
+  }
+}
+@media (max-width: 480px) {
+  .header__lang-flag {
     width: 1.125rem;
     height: 1.125rem;
+    flex-basis: 1.125rem;
   }
+}
+
+.header__lang-menu {
+  position: absolute;
+  top: calc(100% + 0.375rem);
+  right: 0;
+  z-index: 220;
+  min-width: 11.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0.375rem;
+  border: 0.0625rem solid #e4e4e4;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  box-shadow: 0 0.625rem 1.875rem rgba(16, 20, 28, 0.12);
+}
+
+.header__lang-option {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.625rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #3c424a;
+  font-size: 0.875rem;
+  text-align: left;
+}
+.header__lang-option:hover {
+  background: #f5f7fa;
+}
+.header__lang-option.is-active {
+  background: #eef3fb;
+  color: #010203;
+  font-weight: 500;
 }
 
 .header__phone {
   display: inline-flex;
   align-items: center;
+  height: 2.75rem;
+  min-height: 2.75rem;
+  box-sizing: border-box;
   border: none;
   border-radius: 0.375rem;
   font-weight: 400;
@@ -672,7 +754,7 @@ textarea {
 .header__phone:active {
   transform: scale(0.98);
 }
-@media (max-width: 1150px) {
+@media (max-width: 1350px) {
   .header__phone {
     display: none;
   }
@@ -1079,6 +1161,9 @@ body.drawer-open {
 .header__products {
   display: inline-flex;
   align-items: center;
+  height: 2.75rem;
+  min-height: 2.75rem;
+  box-sizing: border-box;
   border: none;
   border-radius: 0.375rem;
   font-weight: 400;
@@ -1122,6 +1207,9 @@ body.drawer-open {
   gap: 0;
   flex: 1;
   max-width: 22.5rem;
+  height: 2.75rem;
+  min-height: 2.75rem;
+  box-sizing: border-box;
   background: #ffffff;
   border: 0.0625rem solid #dadbdd;
   border-radius: 0.5rem;
@@ -1133,9 +1221,11 @@ body.drawer-open {
 }
 .header__search-input {
   flex: 1;
+  width: 100%;
+  height: 100%;
   border: none;
-  padding: 0.625rem 0.75rem;
-  font-size: 0.875rem;
+  padding: 0 1rem;
+  font-size: 1rem;
   outline: none;
   background: transparent;
 }
@@ -1151,11 +1241,23 @@ body.drawer-open {
   align-items: center;
   flex-direction: "row";
   gap: 0;
-  border-left: 0.0625rem solid #b4b4b4;
+  flex: 0 0 3rem;
+  width: 3rem;
   background: transparent;
-  padding: 0 0.875rem 0 0.375rem;
+  padding: 0;
   height: 100%;
+  position: relative;
   transition: color 0.18s ease;
+}
+.header__search-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0.0625rem;
+  height: 1.625rem;
+  background: #dadbdd;
+  transform: translateY(-50%);
 }
 .header__search-btn:hover {
   color: #c1002a;
@@ -1193,8 +1295,6 @@ body.drawer-open {
     grid-template-areas: "logo . products" "search search search" "nav lang .";
     align-items: center;
     row-gap: 1rem;
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
     padding-block: 0.875rem 1rem;
   }
   .header__logo {
@@ -1276,8 +1376,6 @@ body.drawer-open {
     grid-template-areas: "logo . products" "search search search" "nav lang .";
     align-items: center;
     row-gap: 1rem;
-    -moz-column-gap: 1rem;
-         column-gap: 1rem;
     padding-block: 0.875rem 1rem;
   }
   .header__logo {
@@ -1411,7 +1509,29 @@ body.drawer-open {
     line-height: 1.2;
   }
 }
-@media only screen and (max-width: 768px) {
+
+@media only screen and (max-width: 380px) {
+  #header-placeholder {
+    min-height: 8.5rem;
+  }
+  .header {
+    --header-height: 8.5rem;
+  }
+  .header__inner {
+    grid-template-areas: "logo . products" "search search search";
+    grid-template-columns: auto 1fr auto;
+    row-gap: 0.75rem;
+    padding-top: 0.75rem;
+    padding-bottom: 1rem;
+  }
+  .header__nav,
+  .header__lang-wrap,
+  .header__lang,
+  .header__phone {
+    display: none !important;
+  }
+}
+@media only screen and (max-width: 991px) {
   .page--about #header-placeholder,
   .page--blog-details #header-placeholder,
   .page--blog #header-placeholder,
@@ -1446,36 +1566,84 @@ body.drawer-open {
   }
   .page--about .header__search,
   .page--about .header__nav,
+  .page--about .header__lang-wrap,
   .page--about .header__lang,
   .page--about .header__phone,
   .page--blog-details .header__search,
   .page--blog-details .header__nav,
+  .page--blog-details .header__lang-wrap,
   .page--blog-details .header__lang,
   .page--blog-details .header__phone,
   .page--blog .header__search,
   .page--blog .header__nav,
+  .page--blog .header__lang-wrap,
   .page--blog .header__lang,
   .page--blog .header__phone,
   .page--contact .header__search,
   .page--contact .header__nav,
+  .page--contact .header__lang-wrap,
   .page--contact .header__lang,
   .page--contact .header__phone,
   .page--privacy-policy .header__search,
   .page--privacy-policy .header__nav,
+  .page--privacy-policy .header__lang-wrap,
   .page--privacy-policy .header__lang,
   .page--privacy-policy .header__phone,
   .page--returns-and-conditions .header__search,
   .page--returns-and-conditions .header__nav,
+  .page--returns-and-conditions .header__lang-wrap,
   .page--returns-and-conditions .header__lang,
   .page--returns-and-conditions .header__phone,
   .page--service-advantages .header__search,
   .page--service-advantages .header__nav,
+  .page--service-advantages .header__lang-wrap,
   .page--service-advantages .header__lang,
   .page--service-advantages .header__phone {
     display: none !important;
   }
 }
-
+@media only screen and (max-width: 380px) {
+  .page--about .header__inner,
+  .page--blog-details .header__inner,
+  .page--blog .header__inner,
+  .page--contact .header__inner,
+  .page--privacy-policy .header__inner,
+  .page--returns-and-conditions .header__inner,
+  .page--service-advantages .header__inner {
+    gap: 0.5rem;
+  }
+  .page--about .header__logo-img,
+  .page--blog-details .header__logo-img,
+  .page--blog .header__logo-img,
+  .page--contact .header__logo-img,
+  .page--privacy-policy .header__logo-img,
+  .page--returns-and-conditions .header__logo-img,
+  .page--service-advantages .header__logo-img {
+    width: 6.875rem;
+    height: auto;
+  }
+  .page--about .header__products,
+  .page--blog-details .header__products,
+  .page--blog .header__products,
+  .page--contact .header__products,
+  .page--privacy-policy .header__products,
+  .page--returns-and-conditions .header__products,
+  .page--service-advantages .header__products {
+    gap: 0.5rem;
+    padding: 0.625rem;
+    font-size: 0.8125rem;
+  }
+  .page--about .header__products-icon,
+  .page--blog-details .header__products-icon,
+  .page--blog .header__products-icon,
+  .page--contact .header__products-icon,
+  .page--privacy-policy .header__products-icon,
+  .page--returns-and-conditions .header__products-icon,
+  .page--service-advantages .header__products-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
 .footer {
   color: #dadada;
   background: #18181a;
@@ -3534,7 +3702,7 @@ body.drawer-open {
   margin: 0;
   color: #010203;
   font-family: Inter, sans-serif;
-  font-size: 3rem;
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.1;
 }
@@ -3604,6 +3772,40 @@ body.drawer-open {
   line-height: 1.45;
 }
 
+@media only screen and (max-width: 991px) {
+  .about-page__hero {
+    height: 20rem;
+  }
+  .about-page__hero-content {
+    left: 2rem;
+    top: 4.25rem;
+    gap: 0.875rem;
+  }
+  .about-page__hero-title {
+    font-size: 2.875rem;
+    line-height: 1.08;
+  }
+  .about-page__hero-subtitle {
+    font-size: 0.9375rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .about-page__hero {
+    height: 21.5rem;
+  }
+  .about-page__hero-content {
+    left: 1.75rem;
+    top: 5rem;
+    max-width: 18rem;
+  }
+  .about-page__hero-title {
+    font-size: 2.25rem;
+    line-height: 1.1;
+  }
+  .about-page__hero-subtitle {
+    font-size: 0.875rem;
+  }
+}
 .sa-page {
   padding: 0 0 2.5rem;
 }
@@ -4959,8 +5161,20 @@ body.drawer-open {
     margin-bottom: 1rem;
   }
   .page--product-details .header__nav,
+  .page--product-details .header__lang-wrap,
   .page--product-details .header__lang {
     display: none !important;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .page--product-details .header {
+    --header-height: 8.5rem;
+  }
+  .page--product-details #header-placeholder {
+    min-height: 8.5rem;
+  }
+  .page--product-details .header__inner {
+    padding-bottom: 1rem;
   }
 }
 @media only screen and (max-width: 1400px) {

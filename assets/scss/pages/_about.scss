@@ -48,7 +48,7 @@
     margin: 0;
     color: #010203;
     font-family: Inter, sans-serif;
-    font-size: 3rem;
+    font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.1;
   }
@@ -127,5 +127,51 @@
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.45;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .about-page {
+    &__hero {
+      height: 20rem;
+    }
+
+    &__hero-content {
+      left: 2rem;
+      top: 4.25rem;
+      gap: 0.875rem;
+    }
+
+    &__hero-title {
+      font-size: 2.875rem;
+      line-height: 1.08;
+    }
+
+    &__hero-subtitle {
+      font-size: 0.9375rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .about-page {
+    &__hero {
+      height: 21.5rem;
+    }
+
+    &__hero-content {
+      left: 1.75rem;
+      top: 5rem;
+      max-width: 18rem;
+    }
+
+    &__hero-title {
+      font-size: 2.25rem;
+      line-height: 1.1;
+    }
+
+    &__hero-subtitle {
+      font-size: 0.875rem;
+    }
   }
 }

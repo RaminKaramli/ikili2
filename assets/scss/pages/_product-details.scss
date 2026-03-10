@@ -526,8 +526,25 @@
     }
 
     .header__nav,
+    .header__lang-wrap,
     .header__lang {
       display: none !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .page--product-details {
+    .header {
+      --header-height: 8.5rem;
+    }
+
+    #header-placeholder {
+      min-height: 8.5rem;
+    }
+
+    .header__inner {
+      padding-bottom: 1rem;
     }
   }
 }
