@@ -71,9 +71,7 @@
   }
 
   &__hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    @include img();
     display: block;
     object-position: 40% 43%;
   }
@@ -131,7 +129,7 @@
   }
 }
 
-@media only screen and (max-width: 480px) {
+@include mq(phone-only) {
   .blog-detail__hero {
     height: 12.875rem;
   }

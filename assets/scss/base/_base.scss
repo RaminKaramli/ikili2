@@ -14,13 +14,13 @@
   min-height: 5.3125rem;
 }
 
-@media only screen and (max-width: 768px) {
+@include mq(tablet-portrait-up) {
   #header-placeholder {
     min-height: 15.75rem;
   }
 }
 
-@media only screen and (max-width: 480px) {
+@include mq(phone-only) {
   #header-placeholder {
     min-height: 15rem;
   }

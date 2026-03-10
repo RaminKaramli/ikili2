@@ -61,9 +61,7 @@
   }
 
   &__hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    @include img();
     object-position: center;
     display: block;
   }
@@ -130,7 +128,7 @@
   }
 }
 
-@media only screen and (max-width: 991px) {
+@include mq(lg-down-991) {
   .about-page {
     &__hero {
       height: 20rem;
@@ -153,7 +151,7 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@include mq(tablet-portrait-up) {
   .about-page {
     &__hero {
       height: 21.5rem;

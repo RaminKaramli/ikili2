@@ -339,7 +339,7 @@
   }
 }
 
-@media only screen and (max-width: 380px) {
+@include mq(phone-xs) {
   .hero {
     &__card {
       width: 100%;
@@ -478,7 +478,7 @@
   }
 }
 
-@media only screen and (max-width: 180px) {
+@include mq(micro-180) {
   .hero {
     &__media {
       overflow: hidden;
@@ -713,9 +713,7 @@
   }
 
   &__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    @include img();
     display: block;
     object-position: 50% 20%;
   }
@@ -788,7 +786,7 @@
 
 }
 
-@media only screen and (max-width: 1400px) {
+@include mq(big-desktop-down) {
   .promo-duo {
     &__card {
       height: 23.5rem;
@@ -821,7 +819,7 @@
   }
 }
 
-@media only screen and (max-width: 992px) {
+@include mq(lg-down) {
   .promo-duo {
     &__container {
       grid-template-columns: 1fr;
@@ -850,7 +848,7 @@
   }
 }
 
-@media only screen and (max-width: 380px) {
+@include mq(phone-xs) {
   .promo-duo {
     &__content {
       left: 1rem;
@@ -936,7 +934,7 @@
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@include mq(lg-down-2) {
   .partners__container {
     padding-right: 0 !important;
   }
@@ -965,7 +963,7 @@
   }
 }
 
-@media only screen and (max-width: 992px) {
+@include mq(lg-down) {
   .partners__container {
     padding-right: 0 !important;
   }
@@ -991,7 +989,7 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
+@include mq(tablet-600) {
   .partners__container {
     padding-right: 0 !important;
   }
@@ -1017,12 +1015,57 @@
   }
 }
 
-@media only screen and (max-width: 480px) {
+@include mq(phone-only) {
   .partners__grid {
     --partners-empty-size: 8%;
   }
 
   .partners__item {
     flex: 0 0 46%;
+  }
+}
+
+@include mq(tablet-portrait-up) {
+  .page--home {
+    .header {
+      --header-height: 7.5rem;
+    }
+
+    .header__inner {
+      grid-template-areas:
+        "logo . products"
+        "search search search";
+      grid-template-columns: auto 1fr auto;
+      row-gap: 0.75rem;
+      padding-top: 0.75rem;
+      padding-bottom: 0;
+    }
+
+    #header-placeholder {
+      min-height: 7.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .header__nav,
+    .header__lang-wrap,
+    .header__lang {
+      display: none !important;
+    }
+  }
+}
+
+@include mq(phone-xs) {
+  .page--home {
+    .header {
+      --header-height: 8.5rem;
+    }
+
+    #header-placeholder {
+      min-height: 8.5rem;
+    }
+
+    .header__inner {
+      padding-bottom: 1rem;
+    }
   }
 }

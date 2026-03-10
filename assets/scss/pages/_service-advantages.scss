@@ -114,7 +114,7 @@
   }
 }
 
-@media only screen and (max-width: 1400px) {
+@include mq(big-desktop-down) {
   .sa-page {
     padding: 1.5rem 0;
   }
@@ -134,7 +134,7 @@
   }
 }
 
-@media only screen and (max-width: 992px) {
+@include mq(lg-down) {
   .sa-page .breadcrumb {
     flex-wrap: wrap;
   }
@@ -164,7 +164,7 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@include mq(tablet-portrait-up) {
   .sa-page__container .section-header__title {
     font-size: 1.875rem;
     line-height: 1.2;
@@ -185,7 +185,7 @@
   }
 }
 
-@media only screen and (max-width: 480px) {
+@include mq(phone-only) {
   .sa-page__container {
     gap: 1rem;
   }
@@ -204,7 +204,7 @@
   }
 }
 
-@media only screen and (max-width: 380px) {
+@include mq(phone-xs) {
   .sa-page__container {
     gap: 0.875rem;
   }
@@ -248,7 +248,7 @@
   }
 }
 
-@media only screen and (max-width: 180px) {
+@include mq(micro-180) {
   .sa-page__container {
     padding-inline: 0.75rem;
   }
