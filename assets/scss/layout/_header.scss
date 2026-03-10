@@ -280,3 +280,37 @@
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .page--about,
+  .page--blog-details,
+  .page--blog,
+  .page--contact,
+  .page--privacy-policy,
+  .page--returns-and-conditions,
+  .page--service-advantages {
+    #header-placeholder {
+      min-height: 5.3125rem;
+    }
+
+    .header {
+      --header-height: 5.3125rem;
+      border-bottom: 0;
+    }
+
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-block: 0;
+    }
+
+    .header__search,
+    .header__nav,
+    .header__lang,
+    .header__phone {
+      display: none !important;
+    }
+  }
+}

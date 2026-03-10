@@ -1411,6 +1411,70 @@ body.drawer-open {
     line-height: 1.2;
   }
 }
+@media only screen and (max-width: 768px) {
+  .page--about #header-placeholder,
+  .page--blog-details #header-placeholder,
+  .page--blog #header-placeholder,
+  .page--contact #header-placeholder,
+  .page--privacy-policy #header-placeholder,
+  .page--returns-and-conditions #header-placeholder,
+  .page--service-advantages #header-placeholder {
+    min-height: 5.3125rem;
+  }
+  .page--about .header,
+  .page--blog-details .header,
+  .page--blog .header,
+  .page--contact .header,
+  .page--privacy-policy .header,
+  .page--returns-and-conditions .header,
+  .page--service-advantages .header {
+    --header-height: 5.3125rem;
+    border-bottom: 0;
+  }
+  .page--about .header__inner,
+  .page--blog-details .header__inner,
+  .page--blog .header__inner,
+  .page--contact .header__inner,
+  .page--privacy-policy .header__inner,
+  .page--returns-and-conditions .header__inner,
+  .page--service-advantages .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0;
+  }
+  .page--about .header__search,
+  .page--about .header__nav,
+  .page--about .header__lang,
+  .page--about .header__phone,
+  .page--blog-details .header__search,
+  .page--blog-details .header__nav,
+  .page--blog-details .header__lang,
+  .page--blog-details .header__phone,
+  .page--blog .header__search,
+  .page--blog .header__nav,
+  .page--blog .header__lang,
+  .page--blog .header__phone,
+  .page--contact .header__search,
+  .page--contact .header__nav,
+  .page--contact .header__lang,
+  .page--contact .header__phone,
+  .page--privacy-policy .header__search,
+  .page--privacy-policy .header__nav,
+  .page--privacy-policy .header__lang,
+  .page--privacy-policy .header__phone,
+  .page--returns-and-conditions .header__search,
+  .page--returns-and-conditions .header__nav,
+  .page--returns-and-conditions .header__lang,
+  .page--returns-and-conditions .header__phone,
+  .page--service-advantages .header__search,
+  .page--service-advantages .header__nav,
+  .page--service-advantages .header__lang,
+  .page--service-advantages .header__phone {
+    display: none !important;
+  }
+}
 
 .footer {
   color: #dadada;
