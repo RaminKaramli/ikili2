@@ -34,14 +34,16 @@
 
 .pd-main {
   display: flex;
+  align-items: stretch;
   gap: 3.12rem;
 }
 
 .pd-gallery {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 37.1875rem;
+  width: auto;
+  max-width: none;
+  flex: 1 1 0;
   gap: 0.75rem;
 
   &__hero {
@@ -90,10 +92,10 @@
 
   &__thumbs {
     display: flex;
-    width: 100%;
     align-items: center;
-    justify-content: space-between;
-    gap: 0.625rem;
+    justify-content: center;
+    gap: 0.75rem;
+    align-self: stretch;
   }
 
   &__thumb {
@@ -127,6 +129,7 @@
 .pd-info {
   display: flex;
   flex-direction: column;
+  flex: 1 1 0;
   gap: 0.875rem;
 
   &__meta {
@@ -287,10 +290,13 @@
       display: flex;
       height: 2.75rem;
       min-height: 2.75rem;
+      width: 12.0625rem;
+      max-width: 12.0625rem;
       padding: 0.625rem 0.75rem;
       justify-content: center;
       align-items: center;
       gap: 0.625rem;
+      flex: 0 0 auto;
       font-size: 0.875rem;
       box-sizing: border-box;
       line-height: normal;
@@ -304,6 +310,7 @@
     .pd-btn--share {
       display: flex;
       width: 6.375rem;
+      max-width: 6.375rem;
     }
   }
 }
@@ -368,6 +375,21 @@
     justify-content: center;
   }
 
+}
+
+.pd-help__title {
+  margin: 2rem 0 0;
+  color: #010203;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.pd-help-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .pd-specs {
@@ -438,6 +460,7 @@
 }
 
 .pd-description {
+  padding: 1.5rem 0;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -467,5 +490,460 @@
     font-style: normal;
     font-weight: 400;
     line-height: 140%;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .pd-main {
+    gap: 2rem;
+  }
+
+  .pd-gallery {
+    max-width: 33rem;
+
+    &__thumb {
+      width: 5.875rem;
+      height: 5.875rem;
+    }
+  }
+
+  .pd-info {
+    &__title {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .pd-main {
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .pd-gallery,
+  .pd-info {
+    min-width: 0;
+    flex: 1 1 0;
+  }
+
+  .pd-gallery {
+    width: auto;
+    max-width: none;
+
+    &__thumbs {
+      justify-content: center;
+      width: fit-content;
+      max-width: 100%;
+      margin-inline: auto;
+      align-self: center;
+    }
+
+    &__hero-img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    &__thumb {
+      width: 4.75rem;
+      height: 4.75rem;
+      flex-shrink: 0;
+    }
+  }
+
+  .pd-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+
+    &__right {
+      width: 100%;
+      justify-content: flex-start;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .pd-page .breadcrumb {
+    flex-wrap: wrap;
+  }
+
+  .pd-main {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .pd-gallery {
+    width: 100%;
+    max-width: 100%;
+
+    &__hero {
+      max-height: 32rem;
+    }
+  }
+
+  .pd-info {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .pd-page {
+    padding-bottom: 1.5rem;
+  }
+
+  .pd-page__container {
+    gap: 1rem;
+  }
+
+  .pd-info {
+    &__title {
+      font-size: 1.625rem;
+    }
+  }
+
+  .pd-stock {
+    gap: 0.75rem;
+  }
+
+  .pd-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+
+    &__left {
+      width: auto;
+    }
+
+    &__right {
+      width: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 0.625rem;
+
+      .products__btn,
+      .pd-btn--share {
+      }
+    }
+  }
+
+  .pd-help {
+    padding: 0.625rem;
+  }
+
+
+  .pd-specs {
+    padding: 1.5rem 0;
+
+    &__title {
+      font-size: 1.625rem;
+    }
+
+    &__table {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    &__row {
+      th,
+      td {
+        min-width: 10rem;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .pd-description {
+    &__title {
+      font-size: 1.625rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .pd-page .breadcrumb {
+    gap: 0.25rem;
+
+    a {
+      font-size: 0.75rem;
+    }
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  .pd-main {
+    gap: 1rem;
+  }
+
+  .pd-gallery {
+    &__hero {
+      padding: 0.75rem;
+      border-radius: 0.625rem;
+    }
+
+    &__discount {
+      width: 3.625rem;
+      height: 3.625rem;
+      right: 0.625rem;
+      top: 0.625rem;
+      font-size: 1rem;
+    }
+
+    &__thumb {
+      width: 3.375rem;
+      height: 3.375rem;
+      border-radius: 0.375rem;
+    }
+
+    &__arrow {
+      width: 1.75rem;
+      height: 1.75rem;
+      font-size: 1rem;
+    }
+  }
+
+  .pd-info {
+    gap: 0.75rem;
+
+    &__title {
+      font-size: 2rem;
+      line-height: 1.05;
+    }
+
+    &__code {
+      font-size: 0.8125rem;
+    }
+
+    &__note {
+      padding: 0.75rem;
+      font-size: 0.8125rem;
+    }
+  }
+
+  .pd-price {
+    &__old {
+      font-size: 0.875rem;
+    }
+
+    &__new {
+      font-size: 2rem;
+    }
+  }
+
+  .pd-stock {
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    &__title {
+      font-size: 0.9375rem;
+    }
+
+    &__badge {
+      width: min-content;
+      white-space: nowrap;
+      font-size: 0.6875rem;
+    }
+  }
+
+  .pd-actions {
+    &__right {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      .products__btn,
+      .pd-btn--share {
+        height: 2.75rem;
+        min-height: 2.75rem;
+        border-radius: 0.5rem;
+        font-size: 0.8125rem;
+      }
+
+      .products__btn {
+        flex: 1 1 auto;
+        width: auto;
+        max-width: none;
+      }
+
+      .pd-btn--share {
+        flex: 0 0 6.375rem;
+        width: 6.375rem;
+        max-width: 6.375rem;
+        padding-inline: 0.625rem;
+      }
+    }
+  }
+
+  .pd-help {
+    &__left {
+      h3 {
+        font-size: 0.9375rem;
+      }
+
+      p {
+        font-size: 0.75rem;
+      }
+    }
+
+    &__call {
+      min-height: 2.5rem;
+      padding-inline: 0.875rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  .pd-specs {
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    &__row {
+      th,
+      td {
+        padding: 0.75rem 0.875rem;
+      }
+
+      th {
+        font-size: 0.875rem;
+      }
+
+      td {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .pd-description {
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    &__item {
+      font-size: 0.9375rem;
+    }
+  }
+
+}
+
+@media only screen and (max-width: 991px) {
+  .pd-specs {
+    &__table {
+      display: table;
+      width: 100%;
+      overflow-x: visible;
+      -webkit-overflow-scrolling: auto;
+      table-layout: auto;
+    }
+
+    &__table col {
+      display: none;
+    }
+
+    &__row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    &__row th,
+    &__row td {
+      width: auto !important;
+      max-width: none;
+      min-width: 0;
+      padding: 1rem;
+      white-space: normal;
+    }
+
+    &__row th:nth-child(3),
+    &__row td:nth-child(3) {
+      border-left: none;
+    }
+
+    // Keep the divider between "Çəki" and "Zəmanət" on stacked last row
+    &__row:last-child th:nth-child(-n + 2),
+    &__row:last-child td:nth-child(-n + 2) {
+      border-bottom: 0.0625rem solid #dadbdd;
+    }
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .pd-help {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .pd-help__left {
+    width: 100%;
+  }
+
+  .pd-help__call {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pd-actions__right {
+    width: 100%;
+  }
+
+  .pd-actions__right .products__btn {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .pd-actions__right .pd-btn--share {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 180px) {
+  .pd-help__left {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .pd-help__left h3,
+  .pd-help__left p {
+    overflow-wrap: anywhere;
+  }
+
+  .pd-help__call {
+    width: 100%;
+    min-width: 0;
+    padding-inline: 0.5rem;
+    font-size: 0.8125rem;
+  }
+
+  .pd-stock {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.375rem;
+  }
+
+  .pd-stock__badge {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .pd-actions__left {
+    width: 100%;
+  }
+
+  .pd-qty {
+    width: 100%;
+    max-width: 100%;
   }
 }
