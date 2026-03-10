@@ -247,7 +247,6 @@
 
   @include mq(phone-only) {
     --header-height: 15rem;
-    border-bottom: 0.0625rem solid #e4e4e4;
 
     &__logo-img {
       width: 7.625rem;
