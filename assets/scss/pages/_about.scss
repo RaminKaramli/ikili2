@@ -10,38 +10,6 @@
     @include flex(flex-start, stretch, 1.25rem, column);
   }
 
-  &__breadcrumbs,
-  .breadcrumb {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    margin: 0;
-    padding: 0;
-    background: transparent;
-    color: #5a5f68;
-    font-family: Inter, sans-serif;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-
-    a {
-      color: #5a6268;
-      text-decoration: none;
-      font-family: Inter, sans-serif;
-      font-size: 0.875rem;
-      font-style: normal;
-      font-weight: 500;
-      line-height: normal;
-    }
-
-    a:visited,
-    a:hover,
-    a:active {
-      color: #5a6268;
-    }
-  }
-
   &__title {
     margin: 0;
     color: #010203;
