@@ -1470,6 +1470,34 @@ body.drawer-open {
   opacity: 0;
   transition: opacity 0.18s ease;
 }
+.drawer__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 1rem;
+}
+.drawer__list-item {
+  margin: 0;
+  padding: 0;
+}
+.drawer__sub-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 1rem;
+}
+.drawer__sub-item {
+  margin: 0;
+  padding: 0;
+}
 .drawer__item {
   display: flex;
   justify-content: space-between;
@@ -1564,6 +1592,8 @@ body.drawer-open {
   gap: 1rem;
 }
 .drawer__sub {
+  display: block;
+  width: 100%;
   margin: 0;
   padding: 0.75rem;
   border-radius: 8px;
@@ -1579,6 +1609,10 @@ body.drawer-open {
 .drawer__sub--active {
   background: #f5f5f5;
   font-weight: 700;
+}
+.drawer__sub-text {
+  display: block;
+  width: 100%;
 }
 .drawer__right {
   display: none;
@@ -1721,7 +1755,7 @@ body.drawer-open {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  gap: 2rem;
+  gap: 1.5rem;
   height: 100%;
   width: 100%;
   max-width: none;
@@ -5192,6 +5226,7 @@ body.drawer-open {
   align-items: center;
   flex-direction: row;
   gap: 1rem;
+  cursor: pointer;
 }
 .contact-faq .faq-item__title {
   margin: 0;
@@ -5207,6 +5242,16 @@ body.drawer-open {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+.contact-faq .faq-item__icon svg {
+  transition: transform 0.2s ease;
+  transform-origin: center;
+}
+.contact-faq .faq-item:not(.faq-item--open) .faq-item__body {
+  display: none;
+}
+.contact-faq .faq-item--open .faq-item__icon svg {
+  transform: rotate(180deg);
 }
 .contact-faq .faq-item__body {
   margin: 0;

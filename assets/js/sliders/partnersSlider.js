@@ -10,12 +10,18 @@ function initPartnersSlider() {
   const nextBtn = container.querySelector('.section-header__btn[aria-label="Növbəti"]');
 
   if (!track || items.length === 0 || !prevBtn || !nextBtn) return;
-  if (!window.matchMedia("(max-width: 1200px)").matches) return;
-  if (!gsap) return;
 
   let isAnimating = false;
   const duration = 0.32;
   const ease = "power2.out";
+  const autoIntervalMs = 5000;
+  const canAnimate = Boolean(gsap);
+  let autoTimer = null;
+
+  const canScrollAnimate = (stepWidth) =>
+    canAnimate &&
+    stepWidth > 0 &&
+    track.scrollWidth > track.clientWidth + 1;
 
   const getStepWidth = () => {
     const currentItems = track.querySelectorAll(".partners__item");
@@ -27,8 +33,14 @@ function initPartnersSlider() {
 
   const moveNext = () => {
     if (isAnimating) return;
+    const first = track.querySelector(".partners__item");
+    if (!first) return;
+
     const stepWidth = getStepWidth();
-    if (!stepWidth) return;
+    if (!canScrollAnimate(stepWidth)) {
+      track.append(first);
+      return;
+    }
 
     isAnimating = true;
     gsap.killTweensOf(track);
@@ -37,7 +49,6 @@ function initPartnersSlider() {
       duration,
       ease,
       onComplete: () => {
-        const first = track.querySelector(".partners__item");
         if (first) track.append(first);
         track.scrollLeft = 0;
         isAnimating = false;
@@ -51,10 +62,13 @@ function initPartnersSlider() {
     const last = itemsList[itemsList.length - 1];
     if (!last) return;
 
-    track.prepend(last);
     const stepWidth = getStepWidth();
-    if (!stepWidth) return;
+    if (!canScrollAnimate(stepWidth)) {
+      track.prepend(last);
+      return;
+    }
 
+    track.prepend(last);
     isAnimating = true;
     track.scrollLeft = stepWidth;
     gsap.killTweensOf(track);
@@ -69,8 +83,33 @@ function initPartnersSlider() {
   };
 
   track.scrollLeft = 0;
-  prevBtn.addEventListener("click", movePrev);
-  nextBtn.addEventListener("click", moveNext);
+
+  const startAuto = () => {
+    if (autoTimer) return;
+    autoTimer = window.setInterval(moveNext, autoIntervalMs);
+  };
+
+  const stopAuto = () => {
+    if (!autoTimer) return;
+    window.clearInterval(autoTimer);
+    autoTimer = null;
+  };
+
+  const restartAuto = () => {
+    stopAuto();
+    startAuto();
+  };
+
+  prevBtn.addEventListener("click", () => {
+    movePrev();
+    restartAuto();
+  });
+  nextBtn.addEventListener("click", () => {
+    moveNext();
+    restartAuto();
+  });
+
+  startAuto();
 }
 
 export { initPartnersSlider };

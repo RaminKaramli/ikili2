@@ -2,6 +2,7 @@ import { initHeader } from "./header.js";
 import { initLanguages } from "./languages.js";
 import "./testimonials.js";
 import { initPartnersSlider } from "./sliders/partnersSlider.js";
+import { initFaqAccordion } from "./faq/initFaqAccordion.js";
 
 function initWholeCardLinks() {
   const cardConfigs = [
@@ -118,6 +119,7 @@ async function initApp() {
 
   await footerLoad;
   initWholeCardLinks();
+  initFaqAccordion();
   initPartnersSlider();
 }
 

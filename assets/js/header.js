@@ -335,15 +335,24 @@ function initDrawerMenu() {
   function renderSubcategories(index) {
     const category = categories[index];
     const subs = category?.subs || [];
+    const defaultSubIndex =
+      category?.name === "Tripod & Monopodlar" && subs.length > 1 ? 1 : 0;
 
     subBox.innerHTML = "";
+    const list = document.createElement("ul");
+    list.className = "drawer__sub-list";
 
     subs.forEach((sub, subIndex) => {
-      const item = document.createElement("div");
+      const listItem = document.createElement("li");
+      listItem.className = "drawer__sub-item";
+
+      const item = document.createElement("label");
       item.className = `drawer__sub${
-        subIndex === 0 ? " drawer__sub--active" : ""
+        subIndex === defaultSubIndex ? " drawer__sub--active" : ""
       }`;
-      item.textContent = sub;
+      item.setAttribute("role", "button");
+      item.setAttribute("tabindex", "0");
+      item.innerHTML = `<span class="drawer__sub-text">${sub}</span>`;
 
       item.addEventListener("mouseenter", () => {
         subBox
@@ -358,12 +367,22 @@ function initDrawerMenu() {
         window.location.href = "product-details.html";
       });
 
-      subBox.appendChild(item);
+      item.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = "product-details.html";
+        }
+      });
+
+      listItem.appendChild(item);
+      list.appendChild(listItem);
     });
+
+    subBox.appendChild(list);
 
     drawerRight.innerHTML = productCardHtml(
       category.name,
-      subs[0] || "default"
+      subs[defaultSubIndex] || "default"
     );
     syncDrawerColumnHeights();
   }
@@ -381,15 +400,21 @@ function initDrawerMenu() {
 
   function renderCategories() {
     categoriesBox.innerHTML = "";
+    const list = document.createElement("ul");
+    list.className = "drawer__list";
 
     categories.forEach((category, index) => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = `drawer__item${
+      const listItem = document.createElement("li");
+      listItem.className = "drawer__list-item";
+
+      const itemLabel = document.createElement("label");
+      itemLabel.className = `drawer__item${
         index === activeCategoryIndex ? " drawer__item--active" : ""
       }`;
-      btn.dataset.catIndex = String(index);
-      btn.innerHTML = `
+      itemLabel.dataset.catIndex = String(index);
+      itemLabel.setAttribute("role", "button");
+      itemLabel.setAttribute("tabindex", "0");
+      itemLabel.innerHTML = `
         <span class="drawer__item-left">
           <span class="drawer__item-ico">${category.icon}</span>
           <span class="drawer__item-text">${category.name}</span>
@@ -401,11 +426,20 @@ function initDrawerMenu() {
         </span>
       `;
 
-      btn.addEventListener("mouseenter", () => setActiveCategory(index));
-      btn.addEventListener("click", () => setActiveCategory(index));
+      itemLabel.addEventListener("mouseenter", () => setActiveCategory(index));
+      itemLabel.addEventListener("click", () => setActiveCategory(index));
+      itemLabel.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          setActiveCategory(index);
+        }
+      });
 
-      categoriesBox.appendChild(btn);
+      listItem.appendChild(itemLabel);
+      list.appendChild(listItem);
     });
+
+    categoriesBox.appendChild(list);
 
     if (activeCategoryIndex >= 0) {
       drawer.classList.add("drawer--details");

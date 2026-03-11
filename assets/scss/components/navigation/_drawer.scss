@@ -95,6 +95,30 @@ body.drawer-open {
     }
   }
 
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @include flex(flex-start, stretch, 1rem, column);
+  }
+
+  &__list-item {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__sub-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @include flex(flex-start, stretch, 1rem, column);
+  }
+
+  &__sub-item {
+    margin: 0;
+    padding: 0;
+  }
+
   &__item {
     @include flex(space-between, center);
     gap: 1rem;
@@ -188,6 +212,8 @@ body.drawer-open {
   }
 
   &__sub {
+    display: block;
+    width: 100%;
     margin: 0;
     padding: 0.75rem;
     border-radius: 8px;
@@ -205,6 +231,11 @@ body.drawer-open {
       background: #f5f5f5;
       font-weight: 700;
     }
+  }
+
+  &__sub-text {
+    display: block;
+    width: 100%;
   }
 
   &__right {

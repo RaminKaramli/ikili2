@@ -314,6 +314,7 @@
 
   .faq-item__head {
     @include flex(space-between, center, 1rem);
+    cursor: pointer;
   }
 
   .faq-item__title {
@@ -331,6 +332,19 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+
+    svg {
+      transition: transform 0.2s ease;
+      transform-origin: center;
+    }
+  }
+
+  .faq-item:not(.faq-item--open) .faq-item__body {
+    display: none;
+  }
+
+  .faq-item--open .faq-item__icon svg {
+    transform: rotate(180deg);
   }
 
   .faq-item__body {
