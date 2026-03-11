@@ -4916,11 +4916,17 @@ body.drawer-open {
   line-height: 1.15;
 }
 
+.page--contact {
+  --page-gutter: clamp(0.5rem, 7.5vw, 6.25rem);
+}
+
 .contact-page {
   padding: 0 0 2rem;
 }
 .contact-page__container {
   width: 100%;
+  max-width: 90rem;
+  margin-inline: auto;
   padding-inline: var(--page-gutter);
   display: flex;
   justify-content: flex-start;
@@ -5242,7 +5248,7 @@ body.drawer-open {
 }
 
 .contact-faq {
-  padding: 1.5rem 0;
+  padding-block: 1.5rem;
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
