@@ -106,7 +106,7 @@
   }
 
   .contact-faq {
-    padding-block: 2rem;
+    padding: 1.5rem 0;
   }
 }
 
@@ -153,6 +153,12 @@
 
   .contact-faq {
     padding-block: 1.5rem;
+  }
+}
+
+@include mq(tablet-600) {
+  .contact-page {
+    padding: 0 0 1rem;
   }
 }
 
@@ -301,7 +307,7 @@
 }
 
 .contact-faq {
-  padding-block: 3.12rem;
+  padding: 1.5rem 0;
   @include flex(flex-start, stretch, 1.5rem, column);
 
   .faq-list {
