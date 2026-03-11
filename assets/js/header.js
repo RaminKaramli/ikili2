@@ -65,9 +65,7 @@ function initDrawerMenu() {
         "Kamera Mikrafonu",
         "Pop Filter",
         "Mikrafon Dayaq",
-        "Şok Dayağı",
-        "Güc Qaynağı",
-        "Səs Kartı",
+        "Şok Dayağı, Güc Qaynağı",
         "Kabellər",
       ],
     },
@@ -150,7 +148,7 @@ function initDrawerMenu() {
     "Akustik Panellər",
   ]);
 
-  let activeCategoryIndex = 0;
+  let activeCategoryIndex = -1;
 
   function syncDrawerHorizontalPosition() {
     const left = Math.max(16, Math.round(openBtn.getBoundingClientRect().left));
@@ -160,9 +158,22 @@ function initDrawerMenu() {
   function syncDrawerColumnHeights() {
     requestAnimationFrame(() => {
       drawerCenter.style.minHeight = "0px";
+      drawerRight.style.minHeight = "0px";
+
+      const hasCenterContent = subBox.children.length > 0;
+      const hasRightContent = drawerRight.children.length > 0;
+
+      if (!hasCenterContent || !hasRightContent) {
+        return;
+      }
+
+      const centerHeight = drawerCenter.getBoundingClientRect().height;
       const rightHeight = drawerRight.getBoundingClientRect().height;
-      if (rightHeight > 0) {
-        drawerCenter.style.minHeight = `${Math.ceil(rightHeight)}px`;
+      const targetHeight = Math.ceil(Math.max(centerHeight, rightHeight));
+
+      if (targetHeight > 0) {
+        drawerCenter.style.minHeight = `${targetHeight}px`;
+        drawerRight.style.minHeight = `${targetHeight}px`;
       }
     });
   }
@@ -359,6 +370,7 @@ function initDrawerMenu() {
 
   function setActiveCategory(index) {
     activeCategoryIndex = index;
+    drawer.classList.add("drawer--details");
     categoriesBox
       .querySelectorAll(".drawer__item")
       .forEach((node) => node.classList.remove("drawer__item--active"));
@@ -384,7 +396,7 @@ function initDrawerMenu() {
         </span>
         <span class="drawer__chev">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 16L14 12L10 8" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
       `;
@@ -395,12 +407,26 @@ function initDrawerMenu() {
       categoriesBox.appendChild(btn);
     });
 
-    renderSubcategories(activeCategoryIndex);
+    if (activeCategoryIndex >= 0) {
+      drawer.classList.add("drawer--details");
+      renderSubcategories(activeCategoryIndex);
+    } else {
+      drawer.classList.remove("drawer--details");
+      subBox.innerHTML = "";
+      drawerRight.innerHTML = "";
+      drawerCenter.style.minHeight = "0px";
+      drawerRight.style.minHeight = "0px";
+    }
   }
 
   function openDrawer() {
     syncDrawerHorizontalPosition();
-    drawer.classList.add("drawer--active", "drawer--details");
+    drawer.classList.add("drawer--active");
+    if (activeCategoryIndex >= 0) {
+      drawer.classList.add("drawer--details");
+    } else {
+      drawer.classList.remove("drawer--details");
+    }
     document.body.classList.add("drawer-open");
     openBtn.classList.add("active");
     openBtn.setAttribute("aria-expanded", "true");
@@ -412,6 +438,8 @@ function initDrawerMenu() {
     document.body.classList.remove("drawer-open");
     openBtn.classList.remove("active");
     openBtn.setAttribute("aria-expanded", "false");
+    drawerCenter.style.minHeight = "0px";
+    drawerRight.style.minHeight = "0px";
   }
 
   openBtn.addEventListener("click", () => {
