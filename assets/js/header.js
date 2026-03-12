@@ -42,8 +42,8 @@ function initDrawerMenu() {
       name: "Foto & Video İşıqlandırmalar",
       icon: iconCamera,
       subs: [
-        "RGB Led Panel",
-        "İki Rəngli Led Panel",
+        "RGB LED Panel",
+        "İki Rəngli LED Panel",
         "İmpuls İşıq",
         "Daimi İşıq",
         "Flaş",
@@ -88,7 +88,7 @@ function initDrawerMenu() {
       ],
     },
     {
-      name: "Led Striplər",
+      name: "LED Striplər",
       icon: iconStrip,
       subs: ["5 Metrlik", "10 Metrlik", "15 Metrlik"],
     },
@@ -199,6 +199,7 @@ function initDrawerMenu() {
     if (isImpulsHero) {
       return `
         <aside class="hero__card">
+          <a class="card-link-overlay" href="product-details.html" aria-label="NEEWER CB200B İkirəngli 210W LED səhifəsinə keçid"></a>
           <div class="hero__head">
             <h3 class="hero__title">Həftənin ən çox satılanı</h3>
           </div>
@@ -218,7 +219,7 @@ function initDrawerMenu() {
               </div>
             </div>
             <div class="hero__footer">
-              <a href="#" class="hero__btn">
+              <a href="product-details.html" class="hero__btn is-visual-link" aria-hidden="true" tabindex="-1">
                 <span class="hero__btn-icon">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M7.40902 14.246L5.87402 7H18.5C19.151 7 19.628 7.611 19.47 8.243L18.122 13.635C17.917 14.454 17.221 15.056 16.381 15.14L9.56502 15.822C8.54902 15.923 7.62002 15.244 7.40902 14.246Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -268,7 +269,7 @@ function initDrawerMenu() {
     if (isSpecial) {
       return `
         <div class="products__card">
-          <a class="card-link-overlay" href="#" aria-label="${card.name} səhifəsinə keçid"></a>
+          <a class="card-link-overlay" href="product-details.html" aria-label="${card.name} səhifəsinə keçid"></a>
           <div class="products__img-wrap">
             <img class="products__img" src="${card.img}" alt="NEEWER CB200B">
           </div>
@@ -282,7 +283,7 @@ function initDrawerMenu() {
               <span class="products__badge ${card.badgeClass}">${card.badge}</span>
             </div>
             <div class="products__footer">
-              <a href="#" class="products__btn is-visual-link" aria-hidden="true" tabindex="-1">
+              <a href="product-details.html" class="products__btn is-visual-link" aria-hidden="true" tabindex="-1">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M7.40902 14.246L5.87402 7H18.5C19.151 7 19.628 7.611 19.47 8.243L18.122 13.635C17.917 14.454 17.221 15.056 16.381 15.14L9.56502 15.822C8.54902 15.923 7.62002 15.244 7.40902 14.246Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                   <path d="M5.874 7L5.224 4H3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -301,7 +302,7 @@ function initDrawerMenu() {
     return `
       <div class="products-section--discount">
         <div class="products__card">
-          <a class="card-link-overlay" href="#" aria-label="${p.name} səhifəsinə keçid"></a>
+          <a class="card-link-overlay" href="product-details.html" aria-label="${p.name} səhifəsinə keçid"></a>
           <div class="products__img-wrap">
             <img class="products__img" src="${p.img}" alt="NEEWER CB200B">
           </div>
@@ -315,7 +316,7 @@ function initDrawerMenu() {
               <span class="products__badge ${p.badgeClass}">${p.badge}</span>
             </div>
             <div class="products__footer">
-              <a href="#" class="products__btn is-visual-link" aria-hidden="true" tabindex="-1">
+              <a href="product-details.html" class="products__btn is-visual-link" aria-hidden="true" tabindex="-1">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M7.40902 14.246L5.87402 7H18.5C19.151 7 19.628 7.611 19.47 8.243L18.122 13.635C17.917 14.454 17.221 15.056 16.381 15.14L9.56502 15.822C8.54902 15.923 7.62002 15.244 7.40902 14.246Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                   <path d="M5.874 7L5.224 4H3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>

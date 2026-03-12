@@ -15,7 +15,7 @@
   z-index: 1000;
 
   &__inner {
-    @include flex(center, center, 1.5rem);
+    @include flex(space-between, center, 1.5rem);
     height: 100%;
     width: 100%;
     max-width: none;

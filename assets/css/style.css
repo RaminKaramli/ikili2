@@ -7,7 +7,7 @@
 }
 
 :root {
-  --page-gutter: clamp(0.5rem, 7.5vw, 6.25rem);
+  --page-gutter: clamp(0.75rem, 2vw, 1.5rem);
 }
 
 #header-placeholder {
@@ -85,8 +85,22 @@ textarea {
   padding-right: var(--page-gutter);
 }
 
+.container,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl,
+.container-xxl,
+.container-fluid {
+  width: 100% !important;
+  max-width: none !important;
+  padding-left: var(--page-gutter) !important;
+  padding-right: var(--page-gutter) !important;
+}
+
 .blog-card,
-.products__card {
+.products__card,
+.hero__card {
   position: relative;
 }
 
@@ -1752,7 +1766,7 @@ body.drawer-open {
 }
 .header__inner {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   gap: 1.5rem;
@@ -4882,7 +4896,7 @@ body.drawer-open {
 }
 
 .page--contact {
-  --page-gutter: clamp(0.5rem, 7.5vw, 6.25rem);
+  --page-gutter: clamp(0.75rem, 2vw, 1.5rem);
 }
 
 .contact-page {
@@ -4890,7 +4904,7 @@ body.drawer-open {
 }
 .contact-page__container {
   width: 100%;
-  max-width: 90rem;
+  max-width: none;
   margin-inline: auto;
   padding-inline: var(--page-gutter);
   display: flex;

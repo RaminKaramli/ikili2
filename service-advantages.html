@@ -206,31 +206,8 @@
     </script>
     <!-- * FOOTER END * -->
 
-    <!-- * SA-TABS * -->
-    <script>
-        (function () {
-            const tabs = document.querySelectorAll(".sa-tabs__btn");
-            const panels = document.querySelectorAll(".sa-panel");
-            if (!tabs.length || !panels.length) return;
-
-            function activate(tabName) {
-                tabs.forEach((button) => {
-                    const active = button.dataset.tab === tabName;
-                    button.classList.toggle("is-active", active);
-                    button.setAttribute("aria-selected", active ? "true" : "false");
-                });
-
-                panels.forEach((panel) => {
-                    panel.classList.toggle("is-active", panel.dataset.panel === tabName);
-                });
-            }
-
-            tabs.forEach((button) => {
-                button.addEventListener("click", () => activate(button.dataset.tab));
-            });
-        })();
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="assets/js/service/service-advantages.js"></script>
     <script type="module" src="assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">

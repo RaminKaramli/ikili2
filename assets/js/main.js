@@ -1,7 +1,8 @@
 import { initHeader } from "./header.js";
 import { initLanguages } from "./languages.js";
 import "./testimonials.js";
-import { initPartnersSlider } from "./sliders/partnersSlider.js";
+import { initPartnersSlider } from "./carousels_sliders/partnersSlider.js";
+import { initProductsAutoRotate } from "./carousels_sliders/productsCarousel.js";
 import { initFaqAccordion } from "./faq/initFaqAccordion.js";
 
 function initWholeCardLinks() {
@@ -15,6 +16,11 @@ function initWholeCardLinks() {
       cardSelector: ".products__card",
       buttonSelector: ".products__btn",
       titleSelector: ".products__name",
+    },
+    {
+      cardSelector: ".hero__card",
+      buttonSelector: ".hero__btn",
+      titleSelector: ".hero__name",
     },
   ];
 
@@ -97,7 +103,6 @@ async function loadPartial(url, targetId) {
 }
 
 async function initApp() {
-  // Ensure body scroll is never left locked from previous UI state.
   document.body.classList.remove("drawer-open");
 
   const headerLoad = loadPartial(
@@ -119,6 +124,7 @@ async function initApp() {
 
   await footerLoad;
   initWholeCardLinks();
+  initProductsAutoRotate();
   initFaqAccordion();
   initPartnersSlider();
 }

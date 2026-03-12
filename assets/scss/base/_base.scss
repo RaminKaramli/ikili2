@@ -7,7 +7,7 @@
 }
 
 :root {
-  --page-gutter: clamp(0.5rem, 7.5vw, 6.25rem);
+  --page-gutter: clamp(0.75rem, 2vw, 1.5rem);
 }
 
 #header-placeholder {
@@ -77,8 +77,22 @@ textarea {
   padding-right: var(--page-gutter);
 }
 
+.container,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl,
+.container-xxl,
+.container-fluid {
+  width: 100% !important;
+  max-width: none !important;
+  padding-left: var(--page-gutter) !important;
+  padding-right: var(--page-gutter) !important;
+}
+
 .blog-card,
-.products__card {
+.products__card,
+.hero__card {
   position: relative;
 }
 
