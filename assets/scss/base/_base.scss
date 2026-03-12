@@ -7,7 +7,7 @@
 }
 
 :root {
-  --page-gutter: clamp(0.75rem, 2vw, 1.5rem);
+  --page-gutter: clamp(0.5rem, 7.5vw, 6.25rem);
 }
 
 #header-placeholder {
@@ -138,5 +138,14 @@ textarea {
 
   &__nav {
     @include flex(flex-start, center, 0.5rem);
+  }
+}
+
+@include mq(tablet-portrait-up) {
+  .section-header {
+    &__title {
+      font-size: clamp(1.25rem, 4.2vw, 2rem);
+      line-height: 120%;
+    }
   }
 }

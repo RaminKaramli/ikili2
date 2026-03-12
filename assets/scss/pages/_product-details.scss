@@ -16,6 +16,8 @@
 
 .pd-gallery {
   @include flex(flex-start, stretch, 0, column);
+  --thumb-size: 7.125rem;
+  --thumb-gap: 0.75rem;
   width: auto;
   max-width: none;
   flex: 1 1 0;
@@ -62,13 +64,31 @@
   }
 
   &__thumbs {
-    @include flex(center, center, 0.75rem);
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--thumb-gap);
     align-self: stretch;
   }
 
+  &__thumbs-viewport {
+    width: calc((var(--thumb-size) * 4) + (var(--thumb-gap) * 3));
+    max-width: 100%;
+    overflow: hidden;
+    margin-inline: auto;
+  }
+
+  &__thumbs-track {
+    display: flex;
+    gap: var(--thumb-gap);
+    transition: transform 0.3s ease;
+    will-change: transform;
+  }
+
   &__thumb {
-    width: 7.125rem;
-    height: 7.125rem;
+    width: var(--thumb-size);
+    height: var(--thumb-size);
+    flex: 0 0 var(--thumb-size);
     border: 0.0625rem solid #dadbdd;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -84,6 +104,7 @@
   &__arrow {
     width: 2rem;
     height: 2rem;
+    flex-shrink: 0;
     border-radius: 0.5rem;
     border: 0.0625rem solid #dadbdd;
     background: #f5f5f5;
@@ -517,12 +538,12 @@
       grid-area: logo;
       min-width: 0;
       width: 100%;
-      max-width: 7rem;
+      max-width: 7.375rem;
     }
 
     .header__logo-img {
       width: 100%;
-      max-width: 7rem;
+      max-width: 7.375rem;
       height: auto;
     }
 
@@ -567,11 +588,11 @@
     }
 
     .header__logo {
-      max-width: 6rem;
+      max-width: 7.375rem;
     }
 
     .header__logo-img {
-      max-width: 6rem;
+      max-width: 7.375rem;
     }
   }
 }
@@ -583,11 +604,7 @@
 
   .pd-gallery {
     max-width: 33rem;
-
-    &__thumb {
-      width: 5.875rem;
-      height: 5.875rem;
-    }
+    --thumb-size: 5.875rem;
   }
 
   .pd-info {
@@ -612,11 +629,10 @@
   .pd-gallery {
     width: auto;
     max-width: none;
+    --thumb-size: 4.75rem;
 
     &__thumbs {
       justify-content: center;
-      width: fit-content;
-      max-width: 100%;
       margin-inline: auto;
       align-self: center;
     }
@@ -629,8 +645,6 @@
     }
 
     &__thumb {
-      width: 4.75rem;
-      height: 4.75rem;
       flex-shrink: 0;
     }
   }
@@ -766,6 +780,8 @@
   }
 
   .pd-gallery {
+    --thumb-size: 3.375rem;
+
     &__hero {
       padding: 0.75rem;
       border-radius: 0.625rem;
@@ -780,8 +796,6 @@
     }
 
     &__thumb {
-      width: 3.375rem;
-      height: 3.375rem;
       border-radius: 0.375rem;
     }
 

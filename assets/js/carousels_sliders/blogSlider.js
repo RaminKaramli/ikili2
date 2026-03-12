@@ -1,0 +1,123 @@
+import { gsap } from "../vendors/gsap/index.js";
+
+function initBlogSlider() {
+  const sections = document.querySelectorAll(".blog-section");
+  if (!sections.length) return;
+
+  sections.forEach((section) => {
+    const track = section.querySelector(".blog__grid");
+    const nav = section.querySelector(".section-header__nav");
+    if (!track || !nav) return;
+
+    track.style.overflow = "hidden";
+    track.style.position = "relative";
+
+    const cards = () => track.querySelectorAll(":scope > .blog-card");
+    if (cards().length < 2) return;
+
+    const buttons = nav.querySelectorAll(".section-header__btn");
+    const prevBtn =
+      nav.querySelector('button[aria-label="Əvvəlki"]') || buttons[0] || null;
+    const nextBtn =
+      nav.querySelector('button[aria-label="Növbəti"]') || buttons[1] || null;
+
+    const hasGsap = Boolean(gsap);
+    let isAnimating = false;
+
+    function getStepSize() {
+      const list = cards();
+      if (!list.length) return 0;
+      const card = list[0];
+      const styles = window.getComputedStyle(track);
+      const gapValue = parseFloat(styles.columnGap || styles.gap || "0") || 0;
+      return card.getBoundingClientRect().width + gapValue;
+    }
+
+    function createFloatingClone(sourceCard, leftPx) {
+      const clone = sourceCard.cloneNode(true);
+      const width = sourceCard.getBoundingClientRect().width;
+      const height = sourceCard.getBoundingClientRect().height;
+      clone.setAttribute("aria-hidden", "true");
+      clone.classList.add("blog-card--clone");
+      clone.style.position = "absolute";
+      clone.style.top = "0";
+      clone.style.left = `${leftPx}px`;
+      clone.style.width = `${width}px`;
+      clone.style.height = `${height}px`;
+      clone.style.pointerEvents = "none";
+      clone.style.zIndex = "3";
+      track.appendChild(clone);
+      return clone;
+    }
+
+    const shiftNext = () => {
+      const list = cards();
+      if (list.length < 2 || isAnimating) return;
+
+      const step = getStepSize();
+      if (!step) return;
+
+      if (!hasGsap) {
+        track.appendChild(list[0]);
+        return;
+      }
+
+      isAnimating = true;
+      const first = list[0];
+      const last = list[list.length - 1];
+      const cloneLeft = last.offsetLeft + step;
+      const clone = createFloatingClone(first, cloneLeft);
+
+      const animList = [...cards(), clone];
+      gsap.to(animList, {
+        x: -step,
+        duration: 0.45,
+        ease: "power2.inOut",
+        onComplete: () => {
+          track.appendChild(first);
+          clone.remove();
+          gsap.set(cards(), { x: 0, clearProps: "transform" });
+          isAnimating = false;
+        },
+      });
+    };
+
+    const shiftPrev = () => {
+      const list = cards();
+      if (list.length < 2 || isAnimating) return;
+
+      const step = getStepSize();
+      if (!step) return;
+
+      const lastCard = list[list.length - 1];
+      if (!hasGsap) {
+        track.prepend(lastCard);
+        return;
+      }
+
+      isAnimating = true;
+      const first = list[0];
+      const cloneLeft = first.offsetLeft - step;
+      const clone = createFloatingClone(lastCard, cloneLeft);
+
+      const animList = [...cards(), clone];
+      gsap.set(animList, { x: -step });
+      gsap.to(animList, {
+        x: 0,
+        duration: 0.45,
+        ease: "power2.inOut",
+        onComplete: () => {
+          track.prepend(lastCard);
+          clone.remove();
+          gsap.set(cards(), { x: 0, clearProps: "transform" });
+          isAnimating = false;
+        },
+      });
+    };
+
+    if (prevBtn) prevBtn.addEventListener("click", shiftPrev);
+    if (nextBtn) nextBtn.addEventListener("click", shiftNext);
+  });
+}
+
+export { initBlogSlider };

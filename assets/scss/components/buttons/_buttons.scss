@@ -89,6 +89,19 @@
 
 }
 
+@include mq(tablet-portrait-up) {
+  .section-header__btn {
+    width: clamp(2.25rem, 6.5vw, 2.75rem);
+    height: clamp(2.25rem, 6.5vw, 2.75rem);
+    padding: clamp(0.45rem, 1.8vw, 0.75rem);
+
+    svg {
+      width: clamp(1.125rem, 3.4vw, 1.5rem);
+      height: clamp(1.125rem, 3.4vw, 1.5rem);
+    }
+  }
+}
+
 // * TESTIMONIALS PLAY BUTTON
 .testimonials__play {
   position: absolute;

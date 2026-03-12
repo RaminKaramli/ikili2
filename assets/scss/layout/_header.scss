@@ -186,7 +186,7 @@
     }
 
     &__logo-img {
-      width: 8.25rem;
+      width: 7.375rem;
       height: auto;
     }
 
@@ -287,7 +287,7 @@
     }
 
     &__logo-img {
-      width: 7.625rem;
+      width: 7.375rem;
     }
 
     &__products {
@@ -317,7 +317,7 @@
     --header-height: 5.3125rem;
 
     &__logo-img {
-      width: 6.875rem;
+      width: 7.375rem;
       height: auto;
     }
 
@@ -343,6 +343,20 @@
 }
 
 @include mq(lg-down-991) {
+  .header {
+    &__inner {
+      @include flex(space-between, center, 1rem);
+    }
+
+    &__search,
+    &__nav,
+    &__lang-wrap,
+    &__lang,
+    &__phone {
+      display: none !important;
+    }
+  }
+
   .page--about,
   .page--blog-details,
   .page--blog,
@@ -365,7 +379,7 @@
     .header__logo {
       width: 100%;
       min-width: 0;
-      max-width: 6.875rem;
+      max-width: 7.375rem;
     }
 
     .header__logo-img {
@@ -392,7 +406,7 @@
 
     .header__logo-img {
       width: 100%;
-      max-width: 7.625rem;
+      max-width: 7.375rem;
       height: auto;
     }
 
