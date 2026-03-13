@@ -50,7 +50,7 @@ export function initProductsAutoRotate() {
 
         const styles = window.getComputedStyle(track);
         const gapValue = parseFloat(styles.columnGap || styles.gap || "0") || 0;
-        const visibleCount = getVisibleCount();
+        const visibleCount = Math.min(getVisibleCount(), list.length);
         const totalGap = gapValue * (visibleCount - 1);
         const width = Math.max(0, (track.clientWidth - totalGap) / visibleCount);
 
