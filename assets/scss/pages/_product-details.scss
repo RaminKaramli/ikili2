@@ -509,22 +509,20 @@
 @include mq(tablet-portrait-up) {
   .page--product-details {
     .header {
-      --header-height: 8.75rem;
+      --header-height: 5.3125rem;
     }
 
     .header__inner {
       display: grid;
-      grid-template-areas:
-        "logo products"
-        "search search";
+      grid-template-areas: "logo products";
       grid-template-columns: minmax(0, 1fr) auto;
       column-gap: 0.75rem;
-      row-gap: 0.75rem;
-      padding-block: 1rem;
+      row-gap: 0;
+      padding-block: 0;
     }
 
     #header-placeholder {
-      min-height: 8.75rem;
+      min-height: 5.3125rem;
       margin-bottom: 1rem;
     }
 
@@ -547,9 +545,7 @@
     }
 
     .header__search {
-      grid-area: search;
-      display: flex !important;
-      min-width: 0;
+      display: none !important;
     }
 
     .header__nav,
@@ -564,22 +560,20 @@
 @include mq(phone-xs) {
   .page--product-details {
     .header {
-      --header-height: 8.75rem;
+      --header-height: 5.3125rem;
     }
 
     #header-placeholder {
-      min-height: 8.75rem;
+      min-height: 5.3125rem;
     }
 
     .header__inner {
       display: grid;
-      grid-template-areas:
-        "logo products"
-        "search search";
+      grid-template-areas: "logo products";
       grid-template-columns: minmax(0, 1fr) auto;
       column-gap: 0.5rem;
-      row-gap: 0.75rem;
-      padding-block: 1rem;
+      row-gap: 0;
+      padding-block: 0;
     }
 
     .header__logo {

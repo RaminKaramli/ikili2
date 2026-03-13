@@ -149,6 +149,15 @@ function initDrawerMenu() {
   ]);
 
   let activeCategoryIndex = -1;
+  const compactDrawerMedia = window.matchMedia("(max-width: 480px)");
+  const equalizeDrawerColumnsMedia = window.matchMedia("(min-width: 992px)");
+  const desktopPreviewMedia = window.matchMedia("(min-width: 992px)");
+  let wasCompactDrawer = isCompactDrawer();
+  let wasDesktopPreview = desktopPreviewMedia.matches;
+
+  function isCompactDrawer() {
+    return compactDrawerMedia.matches;
+  }
 
   function syncDrawerHorizontalPosition() {
     const left = Math.max(16, Math.round(openBtn.getBoundingClientRect().left));
@@ -159,6 +168,10 @@ function initDrawerMenu() {
     requestAnimationFrame(() => {
       drawerCenter.style.minHeight = "0px";
       drawerRight.style.minHeight = "0px";
+
+      if (!equalizeDrawerColumnsMedia.matches) {
+        return;
+      }
 
       const hasCenterContent = subBox.children.length > 0;
       const hasRightContent = drawerRight.children.length > 0;
@@ -389,7 +402,14 @@ function initDrawerMenu() {
   }
 
   function setActiveCategory(index) {
+    if (isCompactDrawer()) {
+      activeCategoryIndex = activeCategoryIndex === index ? -1 : index;
+      renderCategories();
+      return;
+    }
+
     activeCategoryIndex = index;
+    drawer.classList.remove("drawer--preview");
     drawer.classList.add("drawer--details");
     categoriesBox
       .querySelectorAll(".drawer__item")
@@ -401,12 +421,94 @@ function initDrawerMenu() {
 
   function renderCategories() {
     categoriesBox.innerHTML = "";
+    drawer.classList.toggle("drawer--compact", isCompactDrawer());
+
+    if (isCompactDrawer()) {
+      const mobileTop = document.createElement("div");
+      mobileTop.className = "drawer__mobile-top";
+      mobileTop.innerHTML = `
+        <div class="drawer__mobile-search">
+          <input class="drawer__mobile-search-input" type="text" placeholder="Axtarış..." />
+          <button class="drawer__mobile-search-btn" type="button" aria-label="Axtar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15.7138 6.8382C18.1647 9.28913 18.1647 13.2629 15.7138 15.7138C13.2629 18.1647 9.28913 18.1647 6.8382 15.7138C4.38727 13.2629 4.38727 9.28913 6.8382 6.8382C9.28913 4.38727 13.2629 4.38727 15.7138 6.8382" stroke="#010203" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M19 19L15.71 15.71" stroke="#010203" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="drawer__mobile-links">
+          <a class="drawer__mobile-link" href="about.html">Haqqımızda</a>
+          <a class="drawer__mobile-link" href="blog.html">Blog</a>
+          <a class="drawer__mobile-link" href="contact.html">Bizimlə əlaqə</a>
+          <div class="drawer__mobile-lang-wrap">
+            <button class="drawer__mobile-lang-btn" type="button" aria-expanded="false">
+              <span class="drawer__mobile-lang-flag" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                  <path fill="#E00034" d="M0 13h36v10H0z"></path>
+                  <path fill="#0098C3" d="M32 5H4a4 4 0 0 0-4 4v4h36V9a4 4 0 0 0-4-4z"></path>
+                  <g fill="#FFF">
+                    <path d="M17.844 21.333a3.333 3.333 0 1 1 2.475-5.565a4 4 0 1 0 .001 4.464a3.325 3.325 0 0 1-2.476 1.101z"></path>
+                    <path d="M23.667 17.998l-1.196-.424l.544-1.146l-1.146.545l-.426-1.195l-.424 1.196l-.003-.002l-1.144-.542l.546 1.146l-1.196.426l1.196.424l-.544 1.146l1.141-.543l.005-.002l.426 1.195l.424-1.196l1.147.544l-.546-1.146z"></path>
+                  </g>
+                  <path fill="#00AE65" d="M4 31h28a4 4 0 0 0 4-4v-4H0v4a4 4 0 0 0 4 4z"></path>
+                </svg>
+              </span>
+              <span class="drawer__mobile-lang-label">Azərbaycan dili</span>
+              <svg class="drawer__mobile-lang-chevron" viewBox="0 0 24 24" fill="none" width="14" height="14" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+            <ul class="drawer__mobile-lang-menu" hidden>
+              <li><button type="button" class="drawer__mobile-lang-option" data-lang="az"><span class="drawer__mobile-lang-option-flag" aria-hidden="true"><svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><path fill="#E00034" d="M0 13h36v10H0z"></path><path fill="#0098C3" d="M32 5H4a4 4 0 0 0-4 4v4h36V9a4 4 0 0 0-4-4z"></path><g fill="#FFF"><path d="M17.844 21.333a3.333 3.333 0 1 1 2.475-5.565a4 4 0 1 0 .001 4.464a3.325 3.325 0 0 1-2.476 1.101z"></path><path d="M23.667 17.998l-1.196-.424l.544-1.146l-1.146.545l-.426-1.195l-.424 1.196l-.003-.002l-1.144-.542l.546 1.146l-1.196.426l1.196.424l-.544 1.146l1.141-.543l.005-.002l.426 1.195l.424-1.196l1.147.544l-.546-1.146z"></path></g><path fill="#00AE65" d="M4 31h28a4 4 0 0 0 4-4v-4H0v4a4 4 0 0 0 4 4z"></path></svg></span><span>Azərbaycan dili</span></button></li>
+              <li><button type="button" class="drawer__mobile-lang-option" data-lang="en"><span class="drawer__mobile-lang-option-flag" aria-hidden="true"><svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><path fill="#B22334" d="M35.445 7C34.752 5.809 33.477 5 32 5H18v2h17.445zM0 25h36v2H0zm18-8h18v2H18zm0-4h18v2H18zM0 21h36v2H0zm4 10h28c1.477 0 2.752-.809 3.445-2H.555c.693 1.191 1.968 2 3.445 2zM18 9h18v2H18z"></path><path fill="#EEE" d="M.068 27.679c.017.093.036.186.059.277c.026.101.058.198.092.296c.089.259.197.509.333.743L.555 29h34.89l.002-.004a4.22 4.22 0 0 0 .332-.741a3.75 3.75 0 0 0 .152-.576c.041-.22.069-.446.069-.679H0c0 .233.028.458.068.679zM0 23h36v2H0zm0-4v2h36v-2H18zm18-4h18v2H18zm0-4h18v2H18zM0 9zm.555-2l-.003.005L.555 7zM.128 8.044c.025-.102.06-.199.092-.297a3.78 3.78 0 0 0-.092.297zM18 9h18c0-.233-.028-.459-.069-.68a3.606 3.606 0 0 0-.153-.576A4.21 4.21 0 0 0 35.445 7H18v2z"></path><path fill="#3C3B6E" d="M18 5H4a4 4 0 0 0-4 4v10h18V5z"></path></svg></span><span>İngilis dili</span></button></li>
+              <li><button type="button" class="drawer__mobile-lang-option" data-lang="ru"><span class="drawer__mobile-lang-option-flag" aria-hidden="true"><svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><path fill="#CE2028" d="M36 27a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4v-4h36v4z"></path><path fill="#22408C" d="M0 13h36v10H0z"></path><path fill="#EEE" d="M32 5H4a4 4 0 0 0-4 4v4h36V9a4 4 0 0 0-4-4z"></path></svg></span><span>Rus dili</span></button></li>
+            </ul>
+          </div>
+        </div>
+      `;
+      categoriesBox.appendChild(mobileTop);
+
+      const langWrap = mobileTop.querySelector(".drawer__mobile-lang-wrap");
+      const langBtn = mobileTop.querySelector(".drawer__mobile-lang-btn");
+      const langMenu = mobileTop.querySelector(".drawer__mobile-lang-menu");
+      const langLabel = mobileTop.querySelector(".drawer__mobile-lang-label");
+
+      if (langBtn && langMenu && langLabel && langWrap) {
+        langBtn.addEventListener("click", () => {
+          const expanded = langBtn.getAttribute("aria-expanded") === "true";
+          langBtn.setAttribute("aria-expanded", expanded ? "false" : "true");
+          langWrap.classList.toggle("is-open", !expanded);
+          langMenu.hidden = expanded;
+        });
+
+        langMenu.addEventListener("click", (event) => {
+          const option = event.target.closest(".drawer__mobile-lang-option");
+          if (!option) return;
+          const code = option.dataset.lang || "az";
+          langLabel.textContent = option.textContent || "Azərbaycan dili";
+          document.documentElement.lang = code;
+          try {
+            localStorage.setItem("siteLanguage", code);
+          } catch (error) {
+            // ignore storage errors
+          }
+          langBtn.setAttribute("aria-expanded", "false");
+          langWrap.classList.remove("is-open");
+          langMenu.hidden = true;
+        });
+      }
+    }
+
     const list = document.createElement("ul");
     list.className = "drawer__list";
 
     categories.forEach((category, index) => {
       const listItem = document.createElement("li");
       listItem.className = "drawer__list-item";
+      const isExpandedCompact = isCompactDrawer() && index === activeCategoryIndex;
+      const chevronPath = isExpandedCompact
+        ? "M8 10L12 14L16 10"
+        : "M10 16L14 12L10 8";
 
       const itemLabel = document.createElement("label");
       itemLabel.className = `drawer__item${
@@ -422,12 +524,14 @@ function initDrawerMenu() {
         </span>
         <span class="drawer__chev">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M10 16L14 12L10 8" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="${chevronPath}" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
       `;
 
-      itemLabel.addEventListener("mouseenter", () => setActiveCategory(index));
+      itemLabel.addEventListener("mouseenter", () => {
+        if (!isCompactDrawer()) setActiveCategory(index);
+      });
       itemLabel.addEventListener("click", () => setActiveCategory(index));
       itemLabel.addEventListener("keydown", (event) => {
         if (event.key === "Enter" || event.key === " ") {
@@ -437,41 +541,95 @@ function initDrawerMenu() {
       });
 
       listItem.appendChild(itemLabel);
+
+      if (isCompactDrawer() && index === activeCategoryIndex) {
+        const subs = category?.subs || [];
+        const defaultSubIndex =
+          category?.name === "Tripod & Monopodlar" && subs.length > 1 ? 1 : 0;
+
+        itemLabel.classList.add("drawer__item--expanded");
+
+        const mobileSubs = document.createElement("div");
+        mobileSubs.className = "drawer__mobile-subs";
+
+        subs.forEach((sub, subIndex) => {
+          const subItem = document.createElement("label");
+          subItem.className = `drawer__mobile-sub${
+            subIndex === defaultSubIndex ? " drawer__mobile-sub--active" : ""
+          }`;
+          subItem.setAttribute("role", "button");
+          subItem.setAttribute("tabindex", "0");
+          subItem.textContent = sub;
+
+          subItem.addEventListener("click", () => {
+            window.location.href = "product-details.html";
+          });
+
+          subItem.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              window.location.href = "product-details.html";
+            }
+          });
+
+          mobileSubs.appendChild(subItem);
+        });
+
+        listItem.appendChild(mobileSubs);
+
+        const divider = document.createElement("div");
+        divider.className = "drawer__mobile-divider";
+        listItem.appendChild(divider);
+      }
+
       list.appendChild(listItem);
     });
 
     categoriesBox.appendChild(list);
 
-    if (activeCategoryIndex >= 0) {
+    if (activeCategoryIndex >= 0 && !isCompactDrawer()) {
       drawer.classList.add("drawer--details");
       renderSubcategories(activeCategoryIndex);
     } else {
       drawer.classList.remove("drawer--details");
       subBox.innerHTML = "";
-      drawerRight.innerHTML = "";
+      if (!drawer.classList.contains("drawer--preview")) {
+        drawerRight.innerHTML = "";
+      }
       drawerCenter.style.minHeight = "0px";
       drawerRight.style.minHeight = "0px";
     }
   }
 
   function openDrawer() {
+    wasCompactDrawer = isCompactDrawer();
+    if (!isCompactDrawer()) activeCategoryIndex = -1;
     syncDrawerHorizontalPosition();
     drawer.classList.add("drawer--active");
-    if (activeCategoryIndex >= 0) {
-      drawer.classList.add("drawer--details");
+    if (!isCompactDrawer() && desktopPreviewMedia.matches) {
+      drawer.classList.remove("drawer--details");
+      drawer.classList.add("drawer--preview");
+      drawerRight.innerHTML = productCardHtml(
+        "Foto & Video İşıqlandırmalar",
+        "İmpuls İşıq"
+      );
     } else {
+      drawer.classList.remove("drawer--preview");
       drawer.classList.remove("drawer--details");
     }
     document.body.classList.add("drawer-open");
-    openBtn.classList.add("active");
     openBtn.setAttribute("aria-expanded", "true");
     renderCategories();
   }
 
   function closeDrawer() {
-    drawer.classList.remove("drawer--active", "drawer--details");
+    drawer.classList.remove(
+      "drawer--active",
+      "drawer--details",
+      "drawer--compact",
+      "drawer--preview"
+    );
     document.body.classList.remove("drawer-open");
-    openBtn.classList.remove("active");
     openBtn.setAttribute("aria-expanded", "false");
     drawerCenter.style.minHeight = "0px";
     drawerRight.style.minHeight = "0px";
@@ -493,9 +651,58 @@ function initDrawerMenu() {
 
   window.addEventListener("resize", () => {
     if (!drawer.classList.contains("drawer--active")) return;
+    const isCompactNow = isCompactDrawer();
+    const isDesktopPreviewNow = desktopPreviewMedia.matches;
+
+    if (
+      isCompactNow !== wasCompactDrawer ||
+      isDesktopPreviewNow !== wasDesktopPreview
+    ) {
+      wasCompactDrawer = isCompactNow;
+      wasDesktopPreview = isDesktopPreviewNow;
+      if (!isDesktopPreviewNow) {
+        drawer.classList.remove("drawer--preview");
+      }
+      renderCategories();
+    }
     syncDrawerHorizontalPosition();
     syncDrawerColumnHeights();
   });
+
+  const onCompactModeChange = () => {
+    if (!drawer.classList.contains("drawer--active")) return;
+    wasCompactDrawer = isCompactDrawer();
+    wasDesktopPreview = desktopPreviewMedia.matches;
+    if (!wasDesktopPreview) {
+      drawer.classList.remove("drawer--preview");
+    }
+    renderCategories();
+    syncDrawerHorizontalPosition();
+    syncDrawerColumnHeights();
+  };
+
+  const onDesktopPreviewChange = () => {
+    if (!drawer.classList.contains("drawer--active")) return;
+    wasDesktopPreview = desktopPreviewMedia.matches;
+    if (!wasDesktopPreview) {
+      drawer.classList.remove("drawer--preview");
+    }
+    renderCategories();
+    syncDrawerHorizontalPosition();
+    syncDrawerColumnHeights();
+  };
+
+  if (typeof compactDrawerMedia.addEventListener === "function") {
+    compactDrawerMedia.addEventListener("change", onCompactModeChange);
+  } else if (typeof compactDrawerMedia.addListener === "function") {
+    compactDrawerMedia.addListener(onCompactModeChange);
+  }
+
+  if (typeof desktopPreviewMedia.addEventListener === "function") {
+    desktopPreviewMedia.addEventListener("change", onDesktopPreviewChange);
+  } else if (typeof desktopPreviewMedia.addListener === "function") {
+    desktopPreviewMedia.addListener(onDesktopPreviewChange);
+  }
 
   renderCategories();
 }
