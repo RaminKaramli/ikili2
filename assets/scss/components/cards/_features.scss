@@ -1,5 +1,5 @@
-@use "../abstracts/mixins" as *;
-@use "../abstracts/variables" as *;
+@use "../../abstracts/mixins" as *;
+@use "../../abstracts/variables" as *;
 
 .features {
   padding: 1.5rem 0;
@@ -40,7 +40,7 @@
 
   &__text {
     color: #000000;
-    font-size: 1rem;
+    font-size: clamp(0.9375rem, 1.6vw, 1rem);
     font-weight: 400;
     line-height: normal;
   }
@@ -114,7 +114,7 @@
     }
 
     &__text {
-      font-size: 1.125rem;
+      font-size: clamp(1rem, 3.6vw, 1.125rem);
       line-height: 140%;
       white-space: normal;
       text-wrap: wrap;

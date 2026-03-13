@@ -125,7 +125,7 @@ textarea {
 
   &__title {
     margin: 0;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 4.2vw, 2rem);
     font-weight: 600;
     color: #000000;
     line-height: normal;
@@ -138,14 +138,5 @@ textarea {
 
   &__nav {
     @include flex(flex-start, center, 0.5rem);
-  }
-}
-
-@include mq(tablet-portrait-up) {
-  .section-header {
-    &__title {
-      font-size: clamp(1.25rem, 4.2vw, 2rem);
-      line-height: 120%;
-    }
   }
 }

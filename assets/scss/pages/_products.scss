@@ -1,6 +1,6 @@
 @use "../abstracts/mixins" as *;
-@use "../abstracts/variables" as *;
 
+// * START
 .products-section {
   padding: 1.5rem 0;
 }
@@ -103,6 +103,7 @@
   }
 }
 
+// * Desktop and down
 @include mq(big-desktop-down) {
   .products {
     &__grid {
@@ -115,6 +116,7 @@
   }
 }
 
+// * Laptop and down
 @include mq(lg-down-2) {
   .products {
     &__grid {
@@ -123,6 +125,7 @@
   }
 }
 
+// * Tablet and down
 @include mq(tablet-portrait-up) {
   .products {
     &__grid {
@@ -132,6 +135,7 @@
   }
 }
 
+// * Phone and down
 @include mq(phone-only) {
   .products {
     &__container {
@@ -153,6 +157,7 @@
   }
 }
 
+// * Extra small phone and down
 @include mq(phone-xs) {
   .products__container .section-header {
     flex-direction: row;
@@ -174,6 +179,7 @@
   }
 }
 
+// * Micro phone and down
 @include mq(micro-180) {
   .products-section--discount {
     .products__card {
@@ -199,3 +205,4 @@
     overflow: visible;
   }
 }
+// * END

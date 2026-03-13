@@ -1,6 +1,4 @@
 @use "../abstracts/mixins" as *;
-@use "../abstracts/variables" as *;
-@use "../base/base" as *;
 
 .sa-page {
   padding: 0 0 2.5rem;
@@ -8,6 +6,11 @@
   &__container {
     width: 100%;
     @include flex(flex-start, stretch, 1.5rem, column);
+  }
+
+  .section-header__title {
+    font-size: clamp(1.25rem, 3.2vw, 1.625rem);
+    line-height: 1.2;
   }
 }
 
@@ -23,7 +26,7 @@
     background: transparent;
     padding: 0 0 0.5rem;
     color: #5a6268;
-    font-size: 0.875rem;
+    font-size: clamp(0.8125rem, 1.8vw, 0.875rem);
     font-weight: 500;
     white-space: nowrap;
 
@@ -50,7 +53,7 @@
   &__title {
     margin: 0;
     color: #010203;
-    font-size: 1.5rem;
+    font-size: clamp(1.125rem, 2.8vw, 1.375rem);
     font-weight: 600;
     line-height: 140%;
   }
@@ -58,7 +61,7 @@
   &__text {
     margin: 0;
     color: #010203;
-    font-size: 1rem;
+    font-size: clamp(0.875rem, 2vw, 0.95rem);
     font-style: italic;
     font-weight: 500;
     line-height: 140%;
@@ -136,7 +139,7 @@
 
 @include mq(tablet-portrait-up) {
   .sa-page__container .section-header__title {
-    font-size: 1.875rem;
+    font-size: clamp(1.375rem, 3.8vw, 1.625rem);
     line-height: 1.2;
   }
 
@@ -146,11 +149,11 @@
   }
 
   .sa-panel__title {
-    font-size: 1.25rem;
+    font-size: clamp(1.0625rem, 3vw, 1.2rem);
   }
 
   .sa-panel__text {
-    font-size: 0.9375rem;
+    font-size: clamp(0.8125rem, 2.4vw, 0.9rem);
     line-height: 1.45;
   }
 }
@@ -166,7 +169,7 @@
 
   .sa-tabs__btn {
     min-width: 12.5rem;
-    font-size: 0.875rem;
+    font-size: clamp(0.8125rem, 1.8vw, 0.875rem);
   }
 
   .sa-panel__media {
@@ -235,11 +238,11 @@
   }
 
   .sa-panel__title {
-    font-size: 1rem;
+    font-size: clamp(0.9375rem, 4vw, 1rem);
   }
 
   .sa-panel__text {
-    font-size: 0.8125rem;
+    font-size: clamp(0.75rem, 3.2vw, 0.8125rem);
     line-height: 1.4;
   }
 }

@@ -1,7 +1,6 @@
 @use "../abstracts/mixins" as *;
-@use "../abstracts/variables" as *;
-@use "../base/base" as *;
 
+// * START
 .contact-page {
   padding: 0 0 2rem;
   &__container {
@@ -41,7 +40,7 @@
   &__title {
     margin: 0;
     color: #010203;
-    font-size: 2rem;
+    font-size: clamp(1.25rem, 4vw, 2rem);
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -51,7 +50,7 @@
     margin: 0;
     color: #5a6268;
     font-family: Inter;
-    font-size: 1rem;
+    font-size: clamp(0.875rem, 2vw, 1rem);
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -74,6 +73,7 @@
   }
 }
 
+// * Desktop and up
 @include mq(big-desktop-down) {
   .contact-page__container {
     gap: 1.5rem;
@@ -94,6 +94,7 @@
   }
 }
 
+// * Large desktop and down
 @include mq(lg-down) {
   .contact-top {
     grid-template-columns: 1fr;
@@ -108,6 +109,7 @@
   }
 }
 
+// * Tablet portrait and up
 @include mq(tablet-portrait-up) {
   .contact-page {
     padding: 0 0 1.5rem;
@@ -140,12 +142,14 @@
   }
 }
 
+// * Tablet and down
 @include mq(tablet-600) {
   .contact-page {
     padding: 0 0 1rem;
   }
 }
 
+// * Phone and down
 @include mq(phone-only) {
   .contact-page__container {
     gap: 1rem;
@@ -157,11 +161,11 @@
   }
 
   .contact-top__title {
-    font-size: 1.75rem;
+    font-size: clamp(1.25rem, 3.8vw, 1.75rem);
   }
 
   .contact-top__subtitle {
-    font-size: 0.9375rem;
+    font-size: clamp(0.75rem, 2.8vw, 0.9375rem);
     line-height: 1.4;
   }
 
@@ -179,6 +183,7 @@
   }
 }
 
+// * Phone extra small and down
 @include mq(phone-xs) {
   .contact-form__row {
     grid-template-columns: 1fr;
@@ -186,6 +191,7 @@
   }
 }
 
+// * Micro phone and down
 @include mq(micro-180) {
   .contact-page__container {
     gap: 0.75rem;
@@ -211,7 +217,7 @@
   }
 
   .contact-top__title {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 5vw, 1.25rem);
   }
 
   .contact-page .breadcrumb {
@@ -235,7 +241,7 @@
   .contact-form__textarea,
   .contact-faq .faq-item__title,
   .contact-faq .faq-item__body {
-    font-size: 0.75rem;
+    font-size: clamp(0.6875rem, 2.5vw, 0.75rem);
     line-height: 1.35;
     overflow-wrap: anywhere;
     word-break: break-word;
@@ -290,12 +296,14 @@
   }
 }
 
+// * Desktop and up
 @include mq(desktop-up) {
   .contact-features .features__container {
     grid-template-columns: 1fr;
   }
 }
 
+// * Large desktop and down
 .contact-faq {
   padding-block: 1.5rem;
   @include flex(flex-start, stretch, 1.5rem, column);
@@ -325,7 +333,7 @@
   .faq-item__title {
     margin: 0;
     color: #111;
-    font-size: 1rem;
+    font-size: clamp(0.875rem, 2vw, 1rem);
     font-weight: 600;
     line-height: 140%;
   }
@@ -355,8 +363,9 @@
   .faq-item__body {
     margin: 0;
     color: #5a6268;
-    font-size: 1rem;
+    font-size: clamp(0.875rem, 2vw, 1rem);
     font-style: italic;
     line-height: 140%;
   }
 }
+// * END

@@ -11,6 +11,9 @@ function initBlogSlider() {
 
     track.style.overflow = "hidden";
     track.style.position = "relative";
+    track.style.display = "flex";
+    track.style.flexWrap = "nowrap";
+    track.style.alignItems = "stretch";
 
     const cards = () => track.querySelectorAll(":scope > .blog-card");
     if (cards().length < 2) return;
@@ -23,6 +26,28 @@ function initBlogSlider() {
 
     const hasGsap = Boolean(gsap);
     let isAnimating = false;
+
+    function getVisibleCount() {
+      if (window.innerWidth <= 480) return 1;
+      if (window.innerWidth <= 992) return 2;
+      return 3;
+    }
+
+    function applyCarouselLayout() {
+      const list = cards();
+      if (!list.length) return;
+
+      const styles = window.getComputedStyle(track);
+      const gapValue = parseFloat(styles.columnGap || styles.gap || "0") || 0;
+      const visibleCount = getVisibleCount();
+      const totalGap = gapValue * (visibleCount - 1);
+      const width = Math.max(0, (track.clientWidth - totalGap) / visibleCount);
+
+      list.forEach((card) => {
+        card.style.flex = `0 0 ${width}px`;
+        card.style.maxWidth = `${width}px`;
+      });
+    }
 
     function getStepSize() {
       const list = cards();
@@ -117,6 +142,9 @@ function initBlogSlider() {
 
     if (prevBtn) prevBtn.addEventListener("click", shiftPrev);
     if (nextBtn) nextBtn.addEventListener("click", shiftNext);
+
+    applyCarouselLayout();
+    window.addEventListener("resize", applyCarouselLayout);
   });
 }
 

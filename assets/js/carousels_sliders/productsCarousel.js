@@ -1,19 +1,31 @@
 export function initProductsAutoRotate() {
   const targets = [
-    { sectionSelector: ".products-section", trackSelector: ".products__grid" },
-    { sectionSelector: ".arrivals-section", trackSelector: ".arrivals__cards" },
+    {
+      sectionSelector: ".products-section",
+      trackSelector: ".products__grid",
+      cardSelector: ".products__card",
+    },
+    {
+      sectionSelector: ".arrivals-section",
+      trackSelector: ".arrivals__cards",
+      cardSelector: ".products__card",
+    },
   ];
 
-  targets.forEach(({ sectionSelector, trackSelector }) => {
+  targets.forEach(({ sectionSelector, trackSelector, cardSelector }) => {
     const sections = document.querySelectorAll(sectionSelector);
     sections.forEach((section) => {
       const track = section.querySelector(trackSelector);
       const nav = section.querySelector(".section-header__nav");
       if (!track || !nav) return;
+
       track.style.overflow = "hidden";
       track.style.position = "relative";
+      track.style.display = "flex";
+      track.style.flexWrap = "nowrap";
+      track.style.alignItems = "stretch";
 
-      const cards = () => track.querySelectorAll(":scope > .products__card");
+      const cards = () => track.querySelectorAll(`:scope > ${cardSelector}`);
       if (cards().length < 2) return;
 
       const buttons = nav.querySelectorAll(".section-header__btn");
@@ -24,6 +36,29 @@ export function initProductsAutoRotate() {
 
       const hasGsap = typeof window.gsap !== "undefined";
       let isAnimating = false;
+
+      function getVisibleCount() {
+        if (window.innerWidth <= 768) return 1;
+        if (window.innerWidth <= 1200) return 2;
+        if (window.innerWidth <= 1400) return 3;
+        return 4;
+      }
+
+      function applyCarouselLayout() {
+        const list = cards();
+        if (!list.length) return;
+
+        const styles = window.getComputedStyle(track);
+        const gapValue = parseFloat(styles.columnGap || styles.gap || "0") || 0;
+        const visibleCount = getVisibleCount();
+        const totalGap = gapValue * (visibleCount - 1);
+        const width = Math.max(0, (track.clientWidth - totalGap) / visibleCount);
+
+        list.forEach((card) => {
+          card.style.flex = `0 0 ${width}px`;
+          card.style.maxWidth = `${width}px`;
+        });
+      }
 
       function getStepSize() {
         const list = cards();
@@ -142,6 +177,8 @@ export function initProductsAutoRotate() {
         });
       }
 
+      applyCarouselLayout();
+      window.addEventListener("resize", applyCarouselLayout);
       startAuto();
     });
   });

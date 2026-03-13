@@ -47,20 +47,142 @@
     padding: 0.75rem;
   }
 
-  &__submit {
-    width: max-content;
-    display: flex;
-    padding: 0.625rem 0.75rem;
-    justify-content: center;
-    align-items: center;
-    gap: 0.625rem;
-    border: 0;
-    border-radius: 0.5rem;
-    background: #010203;
-    color: #fff;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 140%;
+}
+
+.complaints-form {
+  &__panel {
+    border: 0.0625rem solid #dadbdd;
+    border-radius: 0.75rem;
+    background: #fff;
+    padding: 2rem;
+    @include flex(flex-start, stretch, 1.25rem, column);
+  }
+
+  .contact-form__label {
+    color: #010203;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .contact-form__input,
+  .contact-form__textarea {
+    background: #fff;
+    border-radius: 0.625rem;
+    border-color: #dadbdd;
+    color: #5a6268;
+    font-size: 1.125rem;
+  }
+
+  .contact-form__input::placeholder,
+  .contact-form__textarea::placeholder {
+    color: #b5b5b5;
+    font-size: 1rem;
+  }
+
+  .contact-form__input {
+    height: 3.5rem;
+    padding-inline: 1rem;
+  }
+
+  .contact-form__textarea {
+    min-height: 7rem;
+    padding: 0.875rem 1rem;
+    resize: vertical;
+  }
+
+  &__footer {
+    @include flex(flex-end, center, 1rem);
+    flex-wrap: wrap;
+    margin-top: 0.25rem;
+  }
+
+  &__captcha {
+    width: min(27rem, 100%);
+    min-height: 5.5rem;
+    border: 0.0625rem solid #dadbdd;
+    border-radius: 0.375rem;
+    background: #fff;
+    padding: 1rem;
+    @include flex(space-between, center, 0.75rem);
+  }
+
+  &__captcha-status {
+    color: #1e232f;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  &__captcha-brand {
+    color: #616a7c;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+}
+
+@include mq(lg-down-2) {
+  .complaints-form {
+    &__panel {
+      padding: 1.5rem;
+    }
+
+    .contact-form__input,
+    .contact-form__textarea {
+      font-size: 1.0625rem;
+    }
+
+    &__captcha-status {
+      font-size: 1rem;
+    }
+  }
+}
+
+@include mq(tablet-portrait-up) {
+  .complaints-form {
+    &__panel {
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .contact-form__row {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .contact-form__input {
+      height: 3.25rem;
+      padding-inline: 0.875rem;
+      font-size: 1.125rem;
+    }
+
+    .contact-form__textarea {
+      min-height: 7rem;
+      font-size: 1.125rem;
+      padding: 0.75rem;
+    }
+
+    &__footer {
+      width: 100%;
+      align-items: stretch;
+      justify-content: stretch;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    &__captcha {
+      width: 100%;
+      min-width: 0;
+    }
+
+    &__captcha-status {
+      font-size: 1.125rem;
+    }
+
+    &__captcha-brand {
+      font-size: 0.875rem;
+    }
   }
 }

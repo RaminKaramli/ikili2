@@ -7,6 +7,7 @@
 @use './components/cards/product-card';
 @use './components/cards/card';
 @use './components/cards/blog-card';
+@use './components/cards/testimonials';
 @use './components/buttons/buttons';
 @use './components/navigation/breadcrumb';
 @use './components/navigation/drawer';
@@ -19,7 +20,7 @@
 
 // pages
 @use './pages/index';
-@use './pages/features';
+@use './components/cards/features';
 @use './pages/products';
 @use './pages/about';
 @use './pages/service-advantages';
