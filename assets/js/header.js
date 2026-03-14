@@ -150,7 +150,8 @@ function initDrawerMenu() {
 
   let activeCategoryIndex = -1;
   const compactDrawerMedia = window.matchMedia("(max-width: 480px)");
-  const equalizeDrawerColumnsMedia = window.matchMedia("(min-width: 992px)");
+  const tabletTopMedia = window.matchMedia("(max-width: 991px)");
+  const equalizeDrawerColumnsMedia = window.matchMedia("(min-width: 768px)");
   const desktopPreviewMedia = window.matchMedia("(min-width: 992px)");
   let wasCompactDrawer = isCompactDrawer();
   let wasDesktopPreview = desktopPreviewMedia.matches;
@@ -422,8 +423,9 @@ function initDrawerMenu() {
   function renderCategories() {
     categoriesBox.innerHTML = "";
     drawer.classList.toggle("drawer--compact", isCompactDrawer());
+    panel.querySelectorAll(".drawer__mobile-top--bar").forEach((node) => node.remove());
 
-    if (isCompactDrawer()) {
+    if (tabletTopMedia.matches) {
       const mobileTop = document.createElement("div");
       mobileTop.className = "drawer__mobile-top";
       mobileTop.innerHTML = `
@@ -466,7 +468,12 @@ function initDrawerMenu() {
           </div>
         </div>
       `;
-      categoriesBox.appendChild(mobileTop);
+      if (isCompactDrawer()) {
+        categoriesBox.appendChild(mobileTop);
+      } else {
+        mobileTop.classList.add("drawer__mobile-top--bar");
+        panel.insertBefore(mobileTop, panel.firstChild);
+      }
 
       const langWrap = mobileTop.querySelector(".drawer__mobile-lang-wrap");
       const langBtn = mobileTop.querySelector(".drawer__mobile-lang-btn");
