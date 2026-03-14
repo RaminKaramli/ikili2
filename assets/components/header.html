@@ -3,7 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Təməl viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Zoom meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Header</title>
 </head>
 
@@ -17,21 +20,10 @@
             </a>
 
             <button class="header__products" id="openDrawer" type="button" aria-label="Məhsullar menyusu" aria-expanded="false" aria-controls="drawerMenu">
-                <svg class="header__products-icon header__products-icon--menu" width="24px" height="24px"
-                    viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g>
-                        <path d="M4 18L20 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path>
-                        <path d="M4 12L20 12" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path>
-                        <path d="M4 6L20 6" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path>
-                    </g>
-                </svg>
-
-                <svg class="header__products-icon header__products-icon--close" viewBox="0 0 24 24" fill="none"
-                    aria-hidden="true">
-                    <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
-                </svg>
-
-                <span>Məhsullar</span>
+                <span class="header__menu-wrapper menu-wrapper" aria-hidden="true">
+                    <span class="header__hamburger-menu hamburger-menu"></span>
+                </span>
+                <span class="header__products-label">Məhsullar</span>
             </button>
 
             <div class="header__search">

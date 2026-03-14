@@ -11,6 +11,7 @@ function initDrawerMenu() {
   const drawerCenter = document.getElementById("drawerCenter");
   const subBox = document.getElementById("subcategories");
   const drawerRight = drawer?.querySelector(".drawer__right");
+  const hamburgerMenu = openBtn?.querySelector(".header__hamburger-menu");
 
   if (
     !drawer ||
@@ -158,6 +159,19 @@ function initDrawerMenu() {
 
   function isCompactDrawer() {
     return compactDrawerMedia.matches;
+  }
+
+  function animateProductsButton(isOpen, immediate = false) {
+    if (!hamburgerMenu) return;
+    if (immediate) {
+      hamburgerMenu.style.transition = "none";
+      hamburgerMenu.classList.toggle("animate", isOpen);
+      requestAnimationFrame(() => {
+        hamburgerMenu.style.transition = "";
+      });
+      return;
+    }
+    hamburgerMenu.classList.toggle("animate", isOpen);
   }
 
   function syncDrawerHorizontalPosition() {
@@ -481,11 +495,19 @@ function initDrawerMenu() {
       const langLabel = mobileTop.querySelector(".drawer__mobile-lang-label");
 
       if (langBtn && langMenu && langLabel && langWrap) {
-        langBtn.addEventListener("click", () => {
-          const expanded = langBtn.getAttribute("aria-expanded") === "true";
-          langBtn.setAttribute("aria-expanded", expanded ? "false" : "true");
-          langWrap.classList.toggle("is-open", !expanded);
-          langMenu.hidden = expanded;
+        langBtn.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          const nextOpen = langBtn.getAttribute("aria-expanded") !== "true";
+          langBtn.setAttribute("aria-expanded", nextOpen ? "true" : "false");
+          langWrap.classList.toggle("is-open", nextOpen);
+          if (nextOpen) {
+            langMenu.hidden = false;
+            langMenu.removeAttribute("hidden");
+          } else {
+            langMenu.hidden = true;
+            langMenu.setAttribute("hidden", "");
+          }
         });
 
         langMenu.addEventListener("click", (event) => {
@@ -626,6 +648,8 @@ function initDrawerMenu() {
     }
     document.body.classList.add("drawer-open");
     openBtn.setAttribute("aria-expanded", "true");
+    openBtn.classList.add("active");
+    animateProductsButton(true);
     renderCategories();
   }
 
@@ -638,6 +662,8 @@ function initDrawerMenu() {
     );
     document.body.classList.remove("drawer-open");
     openBtn.setAttribute("aria-expanded", "false");
+    openBtn.classList.remove("active");
+    animateProductsButton(false);
     drawerCenter.style.minHeight = "0px";
     drawerRight.style.minHeight = "0px";
   }
@@ -699,6 +725,13 @@ function initDrawerMenu() {
     syncDrawerColumnHeights();
   };
 
+  const onTabletTopChange = () => {
+    if (!drawer.classList.contains("drawer--active")) return;
+    renderCategories();
+    syncDrawerHorizontalPosition();
+    syncDrawerColumnHeights();
+  };
+
   if (typeof compactDrawerMedia.addEventListener === "function") {
     compactDrawerMedia.addEventListener("change", onCompactModeChange);
   } else if (typeof compactDrawerMedia.addListener === "function") {
@@ -711,5 +744,12 @@ function initDrawerMenu() {
     desktopPreviewMedia.addListener(onDesktopPreviewChange);
   }
 
+  if (typeof tabletTopMedia.addEventListener === "function") {
+    tabletTopMedia.addEventListener("change", onTabletTopChange);
+  } else if (typeof tabletTopMedia.addListener === "function") {
+    tabletTopMedia.addListener(onTabletTopChange);
+  }
+
+  animateProductsButton(false, true);
   renderCategories();
 }
